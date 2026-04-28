@@ -1,0 +1,683 @@
+{
+  "navbar": {
+    "logo": {
+      "main": "Dr. Dadhe's Ayurvedic Ayur Nature & Cure",
+      "tagline": "Ancient Wellness"
+    },
+    "navItems": {
+      "home": "Home",
+      "products": "Products",
+      "videos": "Videos"
+    },
+    "cta": "Book Consultation",
+    "mobileTagline": "Authentic Ayurvedic Healing",
+    "language": {
+      "en": "English",
+      "te": "తెలుగు",
+      "hi": "हिन्दी"
+    }
+  },
+  "hero": {
+    "badge": "Ancient Wisdom, Modern Wellness",
+    "heading": {
+      "line1": "Rediscover Your",
+      "line2": "Natural Harmony"
+    },
+    "description": "Experience authentic Ayurvedic healing that brings balance to body, mind, and spirit. Our holistic approach combines 5,000 years of wisdom with modern wellness practices.",
+    "cards": {
+      "natural": {
+        "title": "Natural",
+        "subtitle": "Herbal Remedies"
+      },
+      "mindful": {
+        "title": "Mindful",
+        "subtitle": "Daily Practices"
+      },
+      "vitality": {
+        "title": "Vitality",
+        "subtitle": "Energy Balance"
+      },
+      "restorative": {
+        "title": "Restorative",
+        "subtitle": "Sleep & Recovery"
+      }
+    },
+    "stats": {
+      "transformedLives": {
+        "value": "5,000+",
+        "label": "Transformed Lives"
+      },
+      "satisfactionRate": {
+        "value": "98%",
+        "label": "Satisfaction Rate"
+      },
+      "expertPractitioners": {
+        "value": "25+",
+        "label": "Treatements"
+      }
+    },
+    "floatingElements": {
+      "natural": {
+        "title": "Natural",
+        "subtitle": "Herbal Remedies"
+      },
+      "mindful": {
+        "title": "Mindful",
+        "subtitle": "Daily Practices"
+      }
+    }
+  },
+  "treatments": {
+    "badge": "Ancient Healing Therapies",
+    "title": "Our Signature Treatments",
+    "subtitle": "Experience time-honored Ayurvedic therapies designed to restore balance, eliminate toxins, and rejuvenate your entire being.",
+    "learnMore": "Learn More",
+    "footerNote": "All treatments are personalized to your unique dosha constitution",
+    "cta": "Consult with Our Experts",
+    "treatmentsList": {
+      "panchakarma": {
+        "title": "Panchakarma Therapy",
+        "description": "Deep cleansing and rejuvenation therapy that removes toxins and restores bodily balance.",
+        "duration": "14-21 days"
+      },
+      "abhyanga": {
+        "title": "Abhyanga Massage",
+        "description": "Warm oil massage that nourishes tissues, improves circulation, and promotes deep relaxation.",
+        "duration": "60-90 mins"
+      },
+      "shirodhara": {
+        "title": "Shirodhara",
+        "description": "Gentle pouring of warm oil on forehead to calm the mind and balance the nervous system.",
+        "duration": "45-60 mins"
+      },
+      "swedana": {
+        "title": "Swedana Therapy",
+        "description": "Herbal steam treatment that opens pores, releases toxins, and relieves muscle tension.",
+        "duration": "30-45 mins"
+      },
+      "nasya": {
+        "title": "Nasya Karma",
+        "description": "Nasal administration of herbal oils to clear sinuses and improve mental clarity.",
+        "duration": "15-20 mins"
+      },
+      "pizhichil": {
+        "title": "Pizhichil",
+        "description": "Warm oil bath with gentle massage to rejuvenate muscles and joints.",
+        "duration": "60-90 mins"
+      }
+    }
+  },
+  "marquee": {
+    "badge": "Ayurvedic Wisdom",
+    "heading": {
+      "line1": "Ancient Remedies,",
+      "line2": "Modern Wellness"
+    },
+    "learnMore": "Learn more",
+    "cards": {
+      "triphala": {
+        "title": "Triphala",
+        "desc": "Digestive Wellness"
+      },
+      "ashwagandha": {
+        "title": "Ashwagandha",
+        "desc": "Stress Relief"
+      },
+      "arjuna": {
+        "title": "Arjuna",
+        "desc": "Heart Health"
+      },
+      "suryaNamaskar": {
+        "title": "Surya Namaskar",
+        "desc": "Morning Ritual"
+      },
+      "chandraBhedana": {
+        "title": "Chandra Bhedana",
+        "desc": "Evening Calm"
+      },
+      "tulsi": {
+        "title": "Tulsi",
+        "desc": "Immunity Shield"
+      },
+      "nasya": {
+        "title": "Nasya",
+        "desc": "Nasal Therapy"
+      },
+      "pranayama": {
+        "title": "Pranayama",
+        "desc": "Breath Control"
+      },
+      "panchakarma": {
+        "title": "Panchakarma",
+        "desc": "Detox Therapy"
+      }
+    }
+  },
+  "testimonials": {
+    "badge": "Healing Stories",
+    "title": "What Our Patients Say",
+    "subtitle": "Real experiences from those who discovered balance and wellness through our Ayurvedic approach",
+    "prevButton": "Previous testimonial",
+    "nextButton": "Next testimonial",
+    "testimonialsList": [
+      {
+        "quote": "I was impressed by the food — every dish is bursting with flavor! And I could really tell that they use high-quality ingredients. The staff was friendly and attentive, going the extra mile. I'll definitely be back for more!",
+        "name": "Tamar Mendelson",
+        "designation": "Restaurant Critic"
+      },
+      {
+        "quote": "This place exceeded all expectations! The atmosphere is inviting, and the staff truly goes above and beyond to ensure a fantastic visit. I'll definitely keep returning for more exceptional dining experience.",
+        "name": "Joe Charlescraft",
+        "designation": "Frequent Visitor"
+      },
+      {
+        "quote": "Shining Yam is a hidden gem! From the moment I walked in, I knew I was in for a treat. The impeccable service and overall attention to detail created a memorable experience. I highly recommend it!",
+        "name": "Martina Edelweist",
+        "designation": "Satisfied Customer"
+      }
+    ]
+  },
+  "contact": {
+    "badge": "Get in Touch",
+    "title": "Contact Us",
+    "subtitle": "Begin your wellness journey with us. Reach out for consultations, inquiries, or any assistance.",
+    "infoCards": {
+      "address": {
+        "title": "Our Location",
+        "line1": "C683+FW6",
+        "line2": "Pilligundla",
+        "line3": "Telangana 501203",
+        "cta": "Get Directions"
+      },
+      "contact": {
+        "title": "Contact Info",
+        "phone": "9966426060, 9666857070",
+        "email": "drdadhesayurandnaturecure369@gmail.com",
+        "whatsapp": "Chat on WhatsApp"
+      },
+      "hours": {
+        "title": "Opening Hours",
+        "weekdays": "Monday - Sunday: 8:00 AM - 2:00 PM",
+        "saturday": "Saturday: 10:00 AM - 5:00 PM",
+        "sunday": "Tuesday: Closed",
+        "holiday": "Tuesday is Holiday"
+      },
+      "socialMedia": {
+        "title": "Connect With Us",
+        "whatsapp": "WhatsApp",
+        "facebook": "Facebook",
+        "instagram": "Instagram",
+        "youtube": "YouTube"
+      }
+    },
+    "map": {
+      "title": "Find Us Here"
+    },
+     "qr": {
+      "title": "Scan to Get Directions",
+      "description": "Scan this QR code with your phone camera to open Google Maps and get instant directions to our clinic.",
+      "address": "123 Peace Avenue, Wellness City, State 123456",
+      "button": "Get Directions",
+      "alternative_text": "Or click the button below for directions"
+    }
+  },
+  "philosophy": {
+    "badge": "The Ayurvedic Way",
+    "heading": {
+      "line1": "Balance Your",
+      "line2": "Three Doshas"
+    },
+    "subtitle": "According to Ayurveda, wellness flows from the perfect harmony of Vata, Pitta, and Kapha — the three energies that govern every aspect of your being.",
+    "wisdomBadge": "ANCIENT WISDOM",
+    "quote": "\"When the diet is wrong, medicine is of no use. When the diet is correct, medicine is of no need.\"",
+    "quoteAuthor": "— Charaka Samhita",
+    "mindBodySpirit": "Mind • Body • Spirit",
+    "doshas": {
+      "vata": {
+        "title": "Vata",
+        "subtitle": "Air & Space",
+        "description": "The energy of movement, creativity, and flow. When balanced, Vata brings flexibility and vitality. When imbalanced, it can create anxiety and restlessness.",
+        "characteristics": {
+          "light": "Light, cold, dry",
+          "season": "Season: Fall, early winter",
+          "time": "Time: 2 AM - 6 AM / PM"
+        }
+      },
+      "pitta": {
+        "title": "Pitta",
+        "subtitle": "Fire & Water",
+        "description": "The energy of digestion, metabolism, and transformation. When balanced, Pitta brings intelligence and contentment. When imbalanced, it can cause irritability.",
+        "characteristics": {
+          "hot": "Hot, sharp, oily",
+          "season": "Season: Summer",
+          "time": "Time: 10 AM - 2 PM / AM"
+        }
+      },
+      "kapha": {
+        "title": "Kapha",
+        "subtitle": "Water & Earth",
+        "description": "The energy of structure, lubrication, and stability. When balanced, Kapha brings love and forgiveness. When imbalanced, it can create attachment.",
+        "characteristics": {
+          "heavy": "Heavy, slow, cool",
+          "season": "Season: Late winter, spring",
+          "time": "Time: 6 AM - 10 AM / PM"
+        }
+      }
+    }
+  },
+  "timeline": {
+    "badge": "The Path Within",
+    "heading": {
+      "line1": "Your 5-Step",
+      "line2": "Transformation"
+    },
+    "subtitle": "Each phase of your wellness journey builds upon the last, creating lasting transformation that radiates from the inside out.",
+    "progressLabel": "Journey Progress",
+    "scrollIndicator": "SCROLL TO EXPLORE",
+    "milestones": [
+      {
+        "title": "Conscious Awakening",
+        "desc": "Begin your journey with mindful awareness of your body's natural rhythms",
+        "metrics": "82% report increased awareness"
+      },
+      {
+        "title": "Dosha Realignment",
+        "desc": "Ancient pulse diagnosis reveals your unique constitution for personalized healing",
+        "metrics": "3 distinct dosha types"
+      },
+      {
+        "title": "Neural Harmony",
+        "desc": "Modern neuroscience meets ancient wisdom for optimal mind-body connection",
+        "metrics": "47% stress reduction"
+      },
+      {
+        "title": "Cellular Renewal",
+        "desc": "Deep tissue restoration through specialized Ayurvedic protocols",
+        "metrics": "28-day transformation cycle"
+      },
+      {
+        "title": "Vitality Integration",
+        "desc": "Sustainable wellness becomes your natural state of being",
+        "metrics": "365 days of lasting change"
+      }
+    ]
+  },
+  "services": {
+    "badge": "Our Services",
+    "title": "Authentic Ayurvedic",
+    "titleHighlight": "Treatments",
+    "subtitle": "Experience ancient healing therapies that restore balance and promote holistic wellness through personalized care.",
+    "viewAll": "View All Services",
+    "learnMore": "Learn more",
+    "serviceCards": {
+      "card1": {
+        "title": "Panchakarma",
+        "subtitle": "Detoxification",
+        "description": "Deep cleansing therapy to eliminate toxins and restore body's natural balance through five-fold purification process.",
+        "features": [
+          "Vamana",
+          "Virechana",
+          "Basti",
+          "Nasya",
+          "Raktamoksha"
+        ]
+      },
+      "card2": {
+        "title": "Abhyanga",
+        "subtitle": "Therapeutic Massage",
+        "description": "Warm herbal oil massage that nourishes tissues, improves circulation, and promotes deep relaxation.",
+        "features": [
+          "Full Body Massage",
+          "Herbal Oils",
+          "Marma Points",
+          "Rhythmic Strokes"
+        ]
+      },
+      "card3": {
+        "title": "Shirodhara",
+        "subtitle": "Mind Therapy",
+        "description": "Continuous flow of warm herbal oil on forehead that calms the nervous system and induces mental clarity.",
+        "features": [
+          "Stress Relief",
+          "Better Sleep",
+          "Mental Clarity",
+          "Anxiety Relief"
+        ]
+      },
+      "card4": {
+        "title": "Nasya",
+        "subtitle": "Nasal Therapy",
+        "description": "Herbal oil administration through nasal passages to cleanse and rejuvenate the head region.",
+        "features": [
+          "Sinus Relief",
+          "Headache Relief",
+          "Clear Breathing",
+          "Sense Organs"
+        ]
+      },
+      "card5": {
+        "title": "Kizhi",
+        "subtitle": "Herbal Poultice",
+        "description": "Warm herbal boluses massage that reduces inflammation and relieves joint and muscle pain.",
+        "features": [
+          "Joint Pain",
+          "Muscle Stiffness",
+          "Inflammation",
+          "Arthritis"
+        ]
+      },
+      "card6": {
+        "title": "Vasti",
+        "subtitle": "Medicated Enema",
+        "description": "Therapeutic enema using herbal decoctions and oils to balance Vata dosha and colon health.",
+        "features": [
+          "Vata Balance",
+          "Colon Health",
+          "Lower Back Pain",
+          "Digestive Health"
+        ]
+      }
+    }
+  },
+  "videos": {
+    "title": "Wellness Videos",
+    "subtitle": "Explore our collection of Ayurvedic wisdom and healing practices",
+    "categories": {
+      "all": "All"
+    },
+    "noVideos": "No videos found",
+    "videosList": [
+      {
+        "id": 1,
+        "youtube_id": "VUmCFz8rd5s",
+        "title": "Boy recovered from Celebral palsy",
+        "description": "Cerebral palsy boy walking perfectly after 8 months",
+        "category": "Recovery"
+      },
+      {
+        "id": 2,
+        "youtube_id": "TT9VQpR60jo",
+        "title": "If your child has such a problem, please take my word for it..",
+        "description": "Deep cleansing therapy that removes toxins and restores bodily balance.",
+        "category": "Recovery"
+      },
+      {
+        "id": 3,
+        "youtube_id": "5rztM0gcs7M",
+        "title": "But when we came to Dades, my father got us..",
+        "description": "Simple morning rituals to start your day with energy and balance.",
+        "category": "Recovery"
+      },
+      {
+        "id": 4,
+        "youtube_id": "KZ85s4EC0bw",
+        "title": "If a man who has given up hope survives..",
+        "description": "Natural ways to manage stress using Ayurvedic herbs and techniques.",
+        "category": "Educational"
+      },
+      {
+        "id": 5,
+        "youtube_id": "rZNu9Q6enjk",
+        "title": "No one will believe that she is paralyzed...",
+        "description": "Step-by-step guide to self-massage with warm herbal oils.",
+        "category": "Recovery"
+      },
+      {
+        "id": 6,
+        "youtube_id": "GvE9RziF2M4",
+        "title": "Amavasya Theertha which gives relief from all diseases..",
+        "description": "Eating according to your dosha for optimal health and digestion.",
+        "category": "Educational"
+      },
+      {
+        "id": 7,
+        "youtube_id": "L9Njqa1W6DM",
+        "title": "The story of a tearful child!!",
+        "description": "Cerebral palsy boy walking perfectly after 8 months",
+        "category": "Recovery"
+      },
+      {
+        "id": 8,
+        "youtube_id": "_kZl0ZhOHzM",
+        "title": "This ground gourd is nectar for men and medicine for women..",
+        "description": "Deep cleansing therapy that removes toxins and restores bodily balance.",
+        "category": "Educational"
+      },
+      {
+        "id": 9,
+        "youtube_id": "BwemWMWkBS0",
+        "title": "Brahma Yajna is performed at Dade Ashram on this Mouni Amavasya day.",
+        "description": "Simple morning rituals to start your day with energy and balance.",
+        "category": "Educational"
+      },
+      {
+        "id": 10,
+        "youtube_id": "P_7Fs-OmROs",
+        "title": "Unexpected change in 2 months..",
+        "description": "Natural ways to manage stress using Ayurvedic herbs and techniques.",
+        "category": "Educational"
+      },
+      {
+        "id": 11,
+        "youtube_id": "D43N8B85MS0",
+        "title": "My baby is walking in 6 months..",
+        "description": "Step-by-step guide to self-massage with warm herbal oils.",
+        "category": "Recovery"
+      },
+      {
+        "id": 12,
+        "youtube_id": "JO3JW1n2ZrY",
+        "title": "Copper Making Process..",
+        "description": "Eating according to your dosha for optimal health and digestion.",
+        "category": "Educational"
+      }
+    ]
+  },
+  "products": {
+    "badge": "Ayurvedic Products",
+    "title": "Natural Ayurvedic",
+    "titleHighlight": "Wellness Products",
+    "subtitle": "100% natural, herbal products crafted with ancient Ayurvedic formulations",
+    "popularBadge": "Popular",
+    "inStock": "In Stock",
+    "outOfStock": "Out of Stock",
+    "buyOnWhatsapp": "Buy on WhatsApp",
+    "call": "Call",
+    "email": "Email",
+    "bannerTitle": "Need Help Choosing?",
+    "bannerSubtitle": "Our Ayurvedic experts will guide you to the right products for your dosha type",
+    "callNow": "Call Now",
+    "whatsappUs": "WhatsApp Us",
+    "productsList": [
+      {
+        "id": 1,
+        "name": "Ayurvedic Hair Oil",
+        "category": "Hair Care",
+        "description": "Nourishing herbal oil that prevents hair fall, promotes growth, and maintains scalp health.",
+        "benefits": [
+          "Reduces hair fall",
+          "Promotes natural growth",
+          "Prevents premature graying"
+        ],
+        "icon": "Droplet",
+        "rating": 4.9,
+        "inStock": true,
+        "isPopular": true
+      },
+      {
+        "id": 2,
+        "name": "Herbal Shampoo",
+        "category": "Hair Care",
+        "description": "Sulfate-free natural shampoo with aloe vera and bhringraj for strong, shiny hair.",
+        "benefits": [
+          "Gentle cleansing",
+          "Strengthens hair roots",
+          "Adds natural shine"
+        ],
+        "icon": "Flower2",
+        "rating": 4.7,
+        "inStock": true,
+        "isPopular": true
+      },
+      {
+        "id": 3,
+        "name": "Kumkumadi Oil",
+        "category": "Skin Care",
+        "description": "Traditional Ayurvedic face oil for glowing, blemish-free skin and anti-aging benefits.",
+        "benefits": [
+          "Reduces dark spots",
+          "Improves skin texture",
+          "Natural glow"
+        ],
+        "icon": "Sun",
+        "rating": 4.8,
+        "inStock": true,
+        "isPopular": true
+      },
+      {
+        "id": 4,
+        "name": "Triphala Tablets",
+        "category": "Wellness",
+        "description": "Digestive health supplement that detoxifies the body and boosts immunity.",
+        "benefits": [
+          "Improves digestion",
+          "Natural detox",
+          "Boosts immunity"
+        ],
+        "icon": "Shield",
+        "rating": 4.6,
+        "inStock": true,
+        "isPopular": false
+      },
+      {
+        "id": 5,
+        "name": "Ashwagandha Capsules",
+        "category": "Wellness",
+        "description": "Natural stress reliever that boosts energy, stamina, and overall vitality.",
+        "benefits": [
+          "Reduces stress",
+          "Increases energy",
+          "Better sleep"
+        ],
+        "icon": "Moon",
+        "rating": 4.9,
+        "inStock": true,
+        "isPopular": true
+      },
+      {
+        "id": 6,
+        "name": "Rose Face Wash",
+        "category": "Skin Care",
+        "description": "Gentle, hydrating face wash with rose extracts for refreshed and soft skin.",
+        "benefits": [
+          "Hydrates skin",
+          "Removes impurities",
+          "Fresh feel"
+        ],
+        "icon": "Flower2",
+        "rating": 4.5,
+        "inStock": true,
+        "isPopular": false
+      }
+    ]
+  },
+  "about": {
+    "hero": {
+      "badge": "Who We Are",
+      "title": "Dadhe's Ayurvedic",
+      "titleHighlight": "Ancient Wisdom for Modern Wellness",
+      "description": "For over 5 generations, we've been preserving and practicing authentic Ayurvedic healing, helping thousands rediscover their natural balance and vitality."
+    },
+    "stats": {
+      "years": {
+        "value": "5000+",
+        "label": "Years of Wisdom"
+      },
+      "patients": {
+        "value": "50,000+",
+        "label": "Happy Patients"
+      },
+      "experience": {
+        "value": "25+",
+        "label": "Years Experience"
+      },
+      "treatments": {
+        "value": "30+",
+        "label": "Treatments"
+      }
+    },
+    "philosophy": {
+      "badge": "Our Philosophy",
+      "title": "Healing Body, Mind & Spirit",
+      "description": "Ayurveda isn't just a treatment—it's a way of life. We believe in treating the root cause, not just symptoms, by restoring the natural balance of your doshas (Vata, Pitta, Kapha).",
+      "principles": {
+        "vata": "Vata - Movement & Energy",
+        "pitta": "Pitta - Metabolism & Transformation",
+        "kapha": "Kapha - Structure & Stability"
+      },
+      "quote": "The greatest medicine of all is to teach people how not to need it.",
+      "quoteAuthor": "Charaka Samhita"
+    },
+    "journey": {
+      "title": "Our Journey",
+      "subtitle": "Decades of dedication to authentic Ayurveda",
+      "milestones": {
+        "milestone1": {
+          "year": "1970",
+          "title": "Humble Beginnings",
+          "description": "Started our first clinic in the heart of the city"
+        },
+        "milestone2": {
+          "year": "2005",
+          "title": "Ayurvedic Center",
+          "description": "Opened a dedicated wellness center"
+        },
+        "milestone3": {
+          "year": "2020",
+          "title": "Modern Expansion",
+          "description": "Integrated modern facilities with ancient wisdom"
+        }
+      }
+    },
+    "values": {
+      "title": "Our Core Values",
+      "subtitle": "Principles that guide everything we do",
+      "value1": {
+        "title": "Compassionate Care",
+        "description": "Treating every patient with genuine empathy and respect"
+      },
+      "value2": {
+        "title": "Authentic Wisdom",
+        "description": "Following traditional Ayurvedic principles unchanged"
+      },
+      "value3": {
+        "title": "Natural Healing",
+        "description": "Using pure, herbal, and organic ingredients only"
+      }
+    },
+    "team": {
+      "title": "Meet Our Experts",
+      "subtitle": "Dedicated practitioners preserving ancient wisdom",
+      "member1": {
+        "name": "Dr. Dadhe",
+        "role": "Chief Ayurvedic Physician",
+        "bio": "15+ years of experience in authentic Ayurvedic treatments"
+      },
+      "member2": {
+        "name": "Dr. Priya Dadhe",
+        "role": "Senior Wellness Expert",
+        "bio": "Specializes in women's health and Panchakarma"
+      },
+      "member3": {
+        "name": "Dr. Suresh Kumar",
+        "role": "Panchakarma Specialist",
+        "bio": "Expert in traditional detoxification therapies"
+      }
+    },
+    "cta": {
+      "title": "Start Your Healing Journey Today",
+      "subtitle": "Book a consultation with our Ayurvedic experts and discover personalized wellness solutions",
+      "button": "Book Consultation"
+    }
+  }
+}
