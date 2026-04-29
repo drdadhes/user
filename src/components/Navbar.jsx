@@ -212,7 +212,7 @@ const Navbar = () => {
   const navItems = [
     { id: "", label: t.navbar.navItems.home },
     // { id: "products", label: t.navbar.navItems.products },
-    { id: "videos", label: t.navbar.navItems.videos },
+    // { id: "videos", label: t.navbar.navItems.videos },
   ];
 
   const handleLanguageChange = (langCode) => {
