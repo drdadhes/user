@@ -161,19 +161,19 @@
     "nextButton": "Next testimonial",
     "testimonialsList": [
       {
-        "quote": "I was impressed by the food — every dish is bursting with flavor! And I could really tell that they use high-quality ingredients. The staff was friendly and attentive, going the extra mile. I'll definitely be back for more!",
-        "name": "Tamar Mendelson",
-        "designation": "Restaurant Critic"
+        "quote": "The baby who used to just lie down all the time, after using the medicine for two months, showed a lot of development the baby is now getting up and sitting on their own.",
+        "name": "Archana",
+        "designation": "Cerebral Palsy"
       },
       {
-        "quote": "This place exceeded all expectations! The atmosphere is inviting, and the staff truly goes above and beyond to ensure a fantastic visit. I'll definitely keep returning for more exceptional dining experience.",
-        "name": "Joe Charlescraft",
-        "designation": "Frequent Visitor"
+        "quote": "After the stroke, speech was not coming properly, and the right leg and right hand were not functioning. After coming here, speech has improved and the leg and hand are now working.",
+        "name": "Mogulamma",
+        "designation": "Paralysis"
       },
       {
-        "quote": "Shining Yam is a hidden gem! From the moment I walked in, I knew I was in for a treat. The impeccable service and overall attention to detail created a memorable experience. I highly recommend it!",
-        "name": "Martina Edelweist",
-        "designation": "Satisfied Customer"
+        "quote": "There was a severe brain infection, and the kidneys had failed — they said survival was unlikely. After starting the medication, within a week the creatinine level dropped from 6 to 0.7.",
+        "name": "",
+        "designation": "Chronic Kidney Disease & Paralysis "
       }
     ]
   },
@@ -213,7 +213,7 @@
     "map": {
       "title": "Find Us Here"
     },
-     "qr": {
+    "qr": {
       "title": "Scan to Get Directions",
       "description": "Scan this QR code with your phone camera to open Google Maps and get instant directions to our clinic.",
       "address": "123 Peace Avenue, Wellness City, State 123456",

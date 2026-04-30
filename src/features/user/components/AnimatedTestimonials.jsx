@@ -37,12 +37,12 @@
 //     const absOffset = Math.abs(offset);
 //     const zIndex = testimonials.length - absOffset;
 //     const opacity = index === activeIndex ? 1 : 0.25;
-    
+
 //     let translateY = '0%';
 //     let translateX = '0%';
 //     let scale = 1 - absOffset * 0.08;
 //     let rotate = '0deg';
-    
+
 //     if (offset < 0) {
 //       translateX = `${offset * 6}%`;
 //       translateY = `${Math.abs(offset) * 2}%`;
@@ -52,9 +52,9 @@
 //       translateY = `${offset * 2}%`;
 //       rotate = `${offset * 4}deg`;
 //     }
-    
+
 //     const transform = `translateX(${translateX}) translateY(${translateY}) scale(${scale}) rotate(${rotate})`;
-    
+
 //     return { zIndex, opacity, transform };
 //   };
 
@@ -121,7 +121,7 @@
 //       <div className="absolute inset-0 overflow-hidden">
 //         <div className="absolute top-20 right-20 w-64 h-64 rounded-full bg-gradient-to-br from-emerald-100/20 to-teal-100/20 blur-3xl"></div>
 //         <div className="absolute bottom-20 left-20 w-80 h-80 rounded-full bg-gradient-to-tr from-slate-100/30 to-emerald-100/20 blur-3xl"></div>
-        
+
 //         {/* Floating Lotus/Leaf Patterns */}
 //         <div className="absolute top-1/4 left-1/4 w-32 h-32 opacity-5">
 //           <svg viewBox="0 0 24 24" fill="currentColor" className="w-full h-full text-emerald-800">
@@ -167,7 +167,7 @@
 //                   data-index={index}
 //                 />
 //               ))}
-              
+
 //               {/* Decorative Elements */}
 //               <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-gradient-to-br from-emerald-100/40 to-teal-100/40 rounded-full blur-2xl"></div>
 //               <div className="absolute -top-4 -left-4 w-32 h-32 bg-gradient-to-tr from-amber-100/30 to-emerald-100/30 rounded-full blur-2xl"></div>
@@ -180,7 +180,7 @@
 //                 <div className="mb-6">
 //                   <Quote className="h-10 w-10 text-emerald-200" />
 //                 </div>
-                
+
 //                 {/* Quote Text */}
 //                 <div ref={quoteRef} className="space-y-6">
 //                   <p className="text-lg lg:text-xl text-slate-700 leading-relaxed font-serif italic">
@@ -191,7 +191,7 @@
 //                     ))}"
 //                   </p>
 //                 </div>
-                
+
 //                 {/* Author Info */}
 //                 <div className="mt-8 pt-8 border-t border-emerald-100">
 //                   <div className="flex items-center justify-between">
@@ -203,7 +203,7 @@
 //                         {activeTestimonial.designation}
 //                       </p>
 //                     </div>
-                    
+
 //                     {/* Navigation Buttons */}
 //                     <div className="flex gap-3">
 //                       <button
@@ -264,31 +264,38 @@
 // };
 
 // export default AnimatedTestimonials;
+
+
+
 import React, { useState, useEffect, useRef } from 'react';
 import { Sparkles, Quote } from 'lucide-react';
 import { useLanguage } from '../../../contexts/LanguageContext';
+import testimonial1 from "../../../assets/testimonial1.jpeg"
+import testimonial2 from "../../../assets/testimonial2.jpeg"
+import testimonial3 from "../../../assets/testimonial3.jpeg"
+
 
 const AnimatedTestimonials = () => {
   const { t } = useLanguage();
 
   const testimonials = [
     {
-      quote: t?.testimonials?.testimonialsList?.[0]?.quote || "I was impressed by the food — every dish is bursting with flavor! And I could really tell that they use high-quality ingredients. The staff was friendly and attentive, going the extra mile. I'll definitely be back for more!",
-      name: t?.testimonials?.testimonialsList?.[0]?.name || "Tamar Mendelson",
-      designation: t?.testimonials?.testimonialsList?.[0]?.designation || "Restaurant Critic",
-      src: 'https://media.istockphoto.com/id/1175131167/photo/portrait-of-an-indian-woman-with-cancer-and-her-doctor.jpg?s=612x612&w=0&k=20&c=15FJDj5X4hla5DjAuK3WWLFJ1FfTd0zn-OkaCG2e6Eg=',
+      quote: t?.testimonials?.testimonialsList?.[0]?.quote || "",
+      name: t?.testimonials?.testimonialsList?.[0]?.name || "",
+      designation: t?.testimonials?.testimonialsList?.[0]?.designation || "",
+      src: testimonial1,
     },
     {
-      quote: t?.testimonials?.testimonialsList?.[1]?.quote || "This place exceeded all expectations! The atmosphere is inviting, and the staff truly goes above and beyond to ensure a fantastic visit. I'll definitely keep returning for more exceptional dining experience.",
-      name: t?.testimonials?.testimonialsList?.[1]?.name || "Joe Charlescraft",
-      designation: t?.testimonials?.testimonialsList?.[1]?.designation || "Frequent Visitor",
-      src: 'https://media.istockphoto.com/id/1295918934/photo/uses-laptop-while-talking-with-patient-stock-photo.jpg?s=1024x1024&w=is&k=20&c=8-bzpPArfbQov9FwICiPvvSQOBfkvcO_yFwe-u_UGzc=',
+      quote: t?.testimonials?.testimonialsList?.[1]?.quote || "",
+      name: t?.testimonials?.testimonialsList?.[1]?.name || "",
+      designation: t?.testimonials?.testimonialsList?.[1]?.designation || "",
+      src: testimonial2,
     },
     {
-      quote: t?.testimonials?.testimonialsList?.[2]?.quote || "Shining Yam is a hidden gem! From the moment I walked in, I knew I was in for a treat. The impeccable service and overall attention to detail created a memorable experience. I highly recommend it!",
-      name: t?.testimonials?.testimonialsList?.[2]?.name || "Martina Edelweist",
-      designation: t?.testimonials?.testimonialsList?.[2]?.designation || "Satisfied Customer",
-      src: 'https://media.istockphoto.com/id/1525210674/photo/portrait-happy-mature-female-indian-doctor-standing-with-senior-male-patient-holding-red.jpg?s=1024x1024&w=is&k=20&c=NsMNOB3SkphFtGxkDKNUhZfeKIOytqxsXkVGYblVvak=',
+      quote: t?.testimonials?.testimonialsList?.[2]?.quote || "",
+      name: t?.testimonials?.testimonialsList?.[2]?.name || "",
+      designation: t?.testimonials?.testimonialsList?.[2]?.designation || "",
+      src: testimonial3,
     },
   ];
 
@@ -302,12 +309,12 @@ const AnimatedTestimonials = () => {
     const absOffset = Math.abs(offset);
     const zIndex = testimonials.length - absOffset;
     const opacity = index === activeIndex ? 1 : 0.25;
-    
+
     let translateY = '0%';
     let translateX = '0%';
     let scale = 1 - absOffset * 0.08;
     let rotate = '0deg';
-    
+
     if (offset < 0) {
       translateX = `${offset * 6}%`;
       translateY = `${Math.abs(offset) * 2}%`;
@@ -317,9 +324,9 @@ const AnimatedTestimonials = () => {
       translateY = `${offset * 2}%`;
       rotate = `${offset * 4}deg`;
     }
-    
+
     const transform = `translateX(${translateX}) translateY(${translateY}) scale(${scale}) rotate(${rotate})`;
-    
+
     return { zIndex, opacity, transform };
   };
 
@@ -386,11 +393,11 @@ const AnimatedTestimonials = () => {
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-20 right-20 w-64 h-64 rounded-full bg-gradient-to-br from-emerald-100/20 to-teal-100/20 blur-3xl"></div>
         <div className="absolute bottom-20 left-20 w-80 h-80 rounded-full bg-gradient-to-tr from-slate-100/30 to-emerald-100/20 blur-3xl"></div>
-        
+
         {/* Floating Lotus/Leaf Patterns */}
         <div className="absolute top-1/4 left-1/4 w-32 h-32 opacity-5">
           <svg viewBox="0 0 24 24" fill="currentColor" className="w-full h-full text-emerald-800">
-            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
           </svg>
         </div>
       </div>
@@ -425,14 +432,14 @@ const AnimatedTestimonials = () => {
                   className="absolute w-full h-full object-cover rounded-xl border-4 border-white shadow-xl transition-all duration-700 ease-[cubic-bezier(0.23,1,0.32,1)]"
                   style={{
                     ...getImageStyle(index),
-                    boxShadow: index === activeIndex 
-                      ? '0 20px 40px -12px rgba(4, 120, 87, 0.25)' 
+                    boxShadow: index === activeIndex
+                      ? '0 20px 40px -12px rgba(4, 120, 87, 0.25)'
                       : '0 10px 30px -8px rgba(0, 0, 0, 0.1)'
                   }}
                   data-index={index}
                 />
               ))}
-              
+
               {/* Decorative Elements */}
               <div className="absolute -bottom-3 -right-3 w-20 h-20 bg-gradient-to-br from-emerald-100/40 to-teal-100/40 rounded-full blur-2xl"></div>
               <div className="absolute -top-3 -left-3 w-24 h-24 bg-gradient-to-tr from-amber-100/30 to-emerald-100/30 rounded-full blur-2xl"></div>
@@ -445,18 +452,20 @@ const AnimatedTestimonials = () => {
                 <div className="mb-3">
                   <Quote className="h-7 w-7 text-emerald-200" />
                 </div>
-                
+
                 {/* Quote Text - Compact */}
                 <div ref={quoteRef} className="space-y-4">
                   <p className="text-base lg:text-lg text-slate-700 leading-relaxed font-serif italic">
-                    "{activeTestimonial.quote.split(' ').map((word, i) => (
-                      <span key={i} className="word inline-block">
-                        {word}{' '}
-                      </span>
-                    ))}"
+                    "{activeTestimonial.quote
+                      .split(/\s+/)
+                      .map((word, i) => (
+                        <span key={i} className="word inline-block mr-1">
+                          {word}
+                        </span>
+                      ))}"
                   </p>
                 </div>
-                
+
                 {/* Author Info - Compact */}
                 <div className="mt-5 pt-5 border-t border-emerald-100">
                   <div className="flex items-center justify-between">
@@ -468,7 +477,7 @@ const AnimatedTestimonials = () => {
                         {activeTestimonial.designation}
                       </p>
                     </div>
-                    
+
                     {/* Navigation Buttons - Smaller */}
                     <div className="flex gap-2">
                       <button
@@ -476,8 +485,8 @@ const AnimatedTestimonials = () => {
                         onClick={handlePrev}
                         aria-label={t?.testimonials?.prevButton || "Previous testimonial"}
                       >
-                        <svg 
-                          xmlns="http://www.w3.org/2000/svg" 
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
                           viewBox="0 0 24 24"
                           className="w-4 h-4 fill-emerald-600 transition-transform duration-300 group-hover:-translate-x-0.5"
                         >
@@ -489,8 +498,8 @@ const AnimatedTestimonials = () => {
                         onClick={handleNext}
                         aria-label={t?.testimonials?.nextButton || "Next testimonial"}
                       >
-                        <svg 
-                          xmlns="http://www.w3.org/2000/svg" 
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
                           viewBox="0 0 24 24"
                           className="w-4 h-4 fill-emerald-600 transition-transform duration-300 group-hover:translate-x-0.5"
                         >
@@ -511,11 +520,10 @@ const AnimatedTestimonials = () => {
                       stopAutoplay();
                       setActiveIndex(index);
                     }}
-                    className={`transition-all duration-300 rounded-full ${
-                      index === activeIndex
-                        ? 'w-6 h-1.5 bg-gradient-to-r from-emerald-600 to-teal-600'
-                        : 'w-1.5 h-1.5 bg-emerald-200 hover:bg-emerald-400'
-                    }`}
+                    className={`transition-all duration-300 rounded-full ${index === activeIndex
+                      ? 'w-6 h-1.5 bg-gradient-to-r from-emerald-600 to-teal-600'
+                      : 'w-1.5 h-1.5 bg-emerald-200 hover:bg-emerald-400'
+                      }`}
                     aria-label={`Go to testimonial ${index + 1}`}
                   />
                 ))}
