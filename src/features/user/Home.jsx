@@ -9,9 +9,17 @@ import Treatments from "./components/Treatements";
 import Philosophy from "./components/Philosophy";
 import Timeline from "./components/Timeline";
 
+
+import SEO from "./components/SEO"; 
+
 const Home = () => {
   return (
     <>
+          <SEO
+        title="Dr Dadhes Ayur and Nature Cure LLP"
+        description="Best Ayurvedic and natural healing treatments for holistic wellness, therapy, and nature cure."
+        path="/"
+      />
       <Hero />
       <Services />
       <Treatments />
