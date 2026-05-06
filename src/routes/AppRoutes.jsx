@@ -1,16 +1,12 @@
 import UserLayout from "../layouts/UserLayout";
 import AdminLayout from "../layouts/AdminLayout";
 import { Routes, Route } from "react-router-dom";
-import Home from "../features/user/Home";
-import Videos from "../features/user/Videos";
+import Home from "../features/v2/Home"
+import Videos from  "../features/v2/Videos"
 import AdminVideos from "../features/admin/ManageVideos";
-import Products from "@/features/user/Products";
-import AboutUs from "@/features/user/About";
 
 const userRoutes = [
-  { path: "", element: <Home /> },
-    { path: "aboutus", element: <AboutUs /> },
-  { path: "products", element: <Products /> },
+  { path: "", element: <Home/> },
   { path: "videos", element: <Videos /> },
 ];
 
