@@ -244,7 +244,6 @@ const VedaVideos = () => {
           {/* Hero Section */}
           <section className="relative px-margin-edge flex flex-col items-center text-center mb-12 z-10 pt-32">
             <div className="sacred-glow absolute -top-2 w-full h-full pointer-events-none"></div>
-            <span className="font-label-caps text-[#f0bf5c] tracking-[0.4em] uppercase mb-6 block">Sacred Cinema</span>
             <h1 className="font-display-hero text-[#e5e2df] mb-8 max-w-5xl leading-tight">
               Healing Stories &amp; <span className="italic text-[#f0bf5c]">Ayurvedic Wisdom</span>
             </h1>

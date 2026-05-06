@@ -7,7 +7,7 @@ const instaLogo = "https://upload.wikimedia.org/wikipedia/commons/e/e7/Instagram
 const youtubeLogo = "https://upload.wikimedia.org/wikipedia/commons/4/42/YouTube_icon_%282013-2017%29.png";
 const qrCode = "https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://maps.google.com/?q=Dr.Dadhe's+Ayur+and+Nature+Cure,+Telangana";
 import venkat_anna from "../../assets/venkat_anna.png"
-
+// import heroVideo from "../../assets/hero_bg.mov"
 
 const VedaCinemaComplete = () => {
 
@@ -281,10 +281,7 @@ const handleSubmit = async (e) => {
 
         <main className="relative z-10">
           {/* Spiritual Light Rays */}
-          <div className="fixed inset-0 pointer-events-none z-0">
-            <div className="absolute top-0 right-0 w-full h-full spiritual-ray opacity-30"></div>
-            <div className="absolute -bottom-1/4 -left-1/4 w-full h-full spiritual-ray opacity-20 rotate-180"></div>
-          </div>
+     
 
           {/* ============================================ */}
           {/* SECTION 1: HERO (from VedaCinemaMain) */}
