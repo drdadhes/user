@@ -7,7 +7,7 @@ const instaLogo = "https://upload.wikimedia.org/wikipedia/commons/e/e7/Instagram
 const youtubeLogo = "https://upload.wikimedia.org/wikipedia/commons/4/42/YouTube_icon_%282013-2017%29.png";
 const qrCode = "https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://maps.google.com/?q=Dr.Dadhe's+Ayur+and+Nature+Cure,+Telangana";
 import venkat_anna from "../../assets/venkat_anna.png"
-// import heroVideo from "../../assets/hero_bg.mov"
+import heroVideo from "../../assets/herobg.mp4"
 
 const VedaCinemaComplete = () => {
 
@@ -286,7 +286,7 @@ const handleSubmit = async (e) => {
           {/* ============================================ */}
           {/* SECTION 1: HERO (from VedaCinemaMain) */}
           {/* ============================================ */}
-   <section className="relative h-screen flex items-center justify-center overflow-hidden">
+   {/* <section className="relative h-screen flex items-center justify-center overflow-hidden">
   <div 
     className="absolute inset-0 z-0 parallax-bg"
     style={{
@@ -315,8 +315,61 @@ const handleSubmit = async (e) => {
     <span className="text-[10px] font-label-caps tracking-[0.5em]">DESCEND</span>
     <span className="material-symbols-outlined animate-bounce">expand_more</span>
   </div>
-</section>
+</section> */}
 
+
+{/* <video src={heroVideo} autoPlay></video> */}
+
+<section className="relative h-screen flex items-center justify-center overflow-hidden">
+  {/* Background Video */}
+  <video
+    autoPlay
+    muted
+    loop
+    playsInline
+    className="absolute inset-0 w-full h-full object-cover z-0 "
+  >
+    <source src={heroVideo} type="video/mp4" />
+    {/* Fallback image if video doesn't load */}
+    <img 
+      src="https://img.youtube.com/vi/your-fallback-image.jpg" 
+      alt="Fallback" 
+      className="w-full h-full object-cover"
+    />
+  </video>
+
+  {/* Gradient Overlay */}
+  <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#131312]/20 to-[#131312] z-[1]"></div>
+  
+  {/* Light Ray Effect */}
+  <div className="absolute inset-0 pointer-events-none overflow-hidden z-[2]">
+    <div 
+      className="absolute -top-[10%] -left-[10%] w-[120%] h-[120%]" 
+      style={{ background: 'linear-gradient(45deg, transparent 45%, rgba(240,191,92,0.05) 50%, transparent 55%)' }}
+    ></div>
+  </div>
+
+  {/* Content */}
+  <div className="relative z-10 text-center px-6">
+    <h1 className="font-display-hero text-[#e5e2df] mb-6 max-w-5xl mx-auto drop-shadow-2xl">
+      Healing Beyond Limits
+    </h1>
+    <p className="font-body-lg text-[#d2c5b1] max-w-2xl mx-auto mb-12 opacity-90">
+      Where ancient Ayurveda restores hope for chronic recovery. Experience a portal to divine wellness and profound cellular restoration.
+    </p>
+    <div className="flex flex-col md:flex-row gap-6 justify-center items-center">
+      <button className="border border-[#4e4637] hover:border-[#f0bf5c] text-[#e5e2df] px-10 py-5 rounded-full font-label-caps transition-all duration-500 backdrop-blur-md text-2xl font-bold">
+        BEGIN YOUR HEALING JOURNEY
+      </button>
+    </div>
+  </div>
+
+  {/* Scroll Indicator */}
+  <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-50 z-10">
+    <span className="text-[10px] font-label-caps tracking-[0.5em]">DESCEND</span>
+    <span className="material-symbols-outlined animate-bounce">expand_more</span>
+  </div>
+</section>
           
 
           {/* ============================================ */}
