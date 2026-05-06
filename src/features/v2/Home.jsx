@@ -1,6 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
-
+import { Link } from 'react-router-dom';
 const whatsappLogo = "https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg";
 const facebookLogo = "https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg";
 const instaLogo = "https://upload.wikimedia.org/wikipedia/commons/e/e7/Instagram_logo_2016.svg";
@@ -829,14 +829,34 @@ group-hover:contrast-125">
                   <span className="font-label-caps text-[#f0bf5c] mb-4 block">ALCHEMY OF CHANGE</span>
                   <h2 className="font-headline-lg text-white">The Living Proof of <span className="italic">Vedantic Awakening</span></h2>
                 </div>
-                <a className="font-label-caps text-[#f0bf5c] border-b border-[#f0bf5c]/30 pb-2" href="#">VIEW ALL STORIES</a>
+                <Link className="font-label-caps text-[#f0bf5c] border-b border-[#f0bf5c]/30 pb-2"  to="/videos">VIEW ALL STORIES</Link>
+                {/* <a className="font-label-caps text-[#f0bf5c] border-b border-[#f0bf5c]/30 pb-2
+                " href="#">VIEW ALL STORIES</a> */}
               </div>
               <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
                 {[
-                  { quote: '"I arrived at the sanctuary broken by the pace of the modern world. Within seven days, the cinematic immersion of Veda redefined my internal rhythm."', name: 'ELARA VANCE', role: 'Creative Director, London', img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBrROGHwSjb1Poh_JCQcfi6f1up-vty7JnyHwjDdNzLUUm9VRQVfpKKSY_qjo4eYaKHn6X761iFK58E7NPH3yMQ4DYCcvnFFAnTkIodJaPUT1Pwvq2maffgB-WeHGdjleGV_0x3Tv4C1NokeeNCE8CrX_2AI9zZRZAFt2pu73f0Js4FDWjBx7kShsRLcmv5eoiypNdBJOIzEI1jP_w-JPX5Xp1xXHcwDZ8doGLUAJuoL98wepIg_XnvdcfNJaoYoxPhA2CAR8NdoLc', mt: '' },
-                  { quote: '"The digital healing space felt more real than my physical surroundings. My chronic inflammation vanished as my mind learned the art of stillness."', name: 'JULIAN MARX', role: 'Tech Founder, Berlin', img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDMOnLiY_GxKpEw4UPPgFj9nwyLptXCEtk6afntgcDHbh9T3vVbLnO06NYwxG6FkoaJBdReCvD6_b_ABpJJdU9FGFhFzI0MqgarFSVpKqwFqcgfDcLgDpqioIyMCxrCK3rb8GwhKHZ-RNrHD2OytfaaCXg6tj9O6jVk4MF6Sa--Vf3Y3mLX81h4Ae-yWKwOmm0QPqmQ5lZeekd0umoQS4afSppD7boktSPlrEBdnejFNU59IiYaIBwBGPtdpY1dAjttg0-du6Slp4o', mt: 'mt-12 lg:mt-0' },
-                  { quote: '"Acharya\'s guidance is like a cinematic score for the soul. I didn\'t just heal my body; I rediscovered the narrative of my own life."', name: 'SARAH JENA', role: 'Author, Paris', img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuC57PsWqpPyQIU2Lsg8cKjdHkakQMH1irSUBlLg9KsfVajUEXfkapmftIzeQfGZk3Z_gLkJMMECcE75Dbq4zIWiSqxVGM4RjrEvOYkZyqgow9znHYrKO2avVsf09WmwcwlJgYOTm3l3f4_uT5k1v20cocKPl8SbGhj51ddb4Xg-ZNcVSUiQm2dPqU5GjUp-VSjqzKFW1LFhekOpbOkndMGXD7bjRiwX70huK1uB0Bpe8BhFKUkhWe_Qx3f6EtTQRti65SgCYx3rhB8', mt: '' }
-                ].map((story, i) => (
+  {
+    quote: '"Boy recovered from Celebral palsy"',
+    name: '',
+    role: 'Cerebral palsy boy walking perfectly after 8 months',
+    img: 'https://img.youtube.com/vi/VUmCFz8rd5s/hqdefault.jpg',
+    mt: ''
+  },
+  {
+    quote: '"If a man who has given up hope survives.."',
+    name: '',
+    role: 'Natural ways to manage stress using Ayurvedic herbs and techniques.',
+    img: 'https://img.youtube.com/vi/KZ85s4EC0bw/hqdefault.jpg',
+    mt: 'mt-12 lg:mt-0'
+  },
+  {
+    quote: '"No one will believe that she is paralyzed..."',
+    name: '',
+    role: 'Step-by-step guide to self-massage with warm herbal oils.',
+    img: 'https://img.youtube.com/vi/rZNu9Q6enjk/hqdefault.jpg',
+    mt: ''
+  }
+].map((story, i) => (
                   <div key={i} className={`glass-panel p-glass-padding rounded-xl flex flex-col h-full hover:border-[#f0bf5c]/40 transition-all duration-500 group ${story.mt}`}>
                     <div className="relative h-64 mb-8 overflow-hidden rounded-lg">
                       <img className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" alt="Testimonial" src={story.img} />
