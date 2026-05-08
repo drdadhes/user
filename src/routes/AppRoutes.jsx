@@ -4,6 +4,8 @@ import { Routes, Route } from "react-router-dom";
 import Home from "../features/v2/Home"
 import Videos from  "../features/v2/Videos"
 import AdminVideos from "../features/admin/ManageVideos";
+import ScrollToTop from "../components/ScrollToTop"; 
+
 
 const userRoutes = [
   { path: "", element: <Home/> },
@@ -15,6 +17,7 @@ const adminRoutes = [{ path: "videos", element: <AdminVideos /> }];
 const AppRoutes = () => {
   return (
     <div>
+      <ScrollToTop /> 
       <Routes>
         <Route path="/" element={<UserLayout />}>
           {userRoutes.map((route, index) => (

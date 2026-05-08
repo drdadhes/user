@@ -963,8 +963,7 @@ const copyToClipboard = async () => {
                   <h2 className="font-headline-lg text-white">The Living Proof of <span className="italic">Vedantic Awakening</span></h2>
                 </div>
                 <Link className="font-label-caps text-[#f0bf5c] border-b border-[#f0bf5c]/30 pb-2"  to="/videos">VIEW ALL STORIES</Link>
-                {/* <a className="font-label-caps text-[#f0bf5c] border-b border-[#f0bf5c]/30 pb-2
-                " href="#">VIEW ALL STORIES</a> */}
+               
               </div>
               <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
                 {[
@@ -1102,15 +1101,7 @@ while the soul blossoms with peace, awareness, and divine joy."</p>
                   <span className="material-symbols-outlined text-sm">mail</span>
                   <span className="text-xs font-body-md break-all">drdadhesayurandnaturecure369@gmail.com</span>
                 </a>
-                <a 
-                  href="https://wa.me/919966426060?text=Hello, I'm interested in Ayurvedic consultation"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 mt-3 px-4 py-2 bg-[#b3ccbe]/10 text-[#b3ccbe] rounded-lg hover:bg-[#b3ccbe]/20 transition-colors text-sm font-label-caps"
-                >
-                  <img src={whatsappLogo} className="h-4 w-4" alt="" />
-                  <span>Chat on WhatsApp</span>
-                </a>
+                
               </div>
             </div>
           </div>
@@ -1126,7 +1117,7 @@ while the soul blossoms with peace, awareness, and divine joy."</p>
               <h3 className="font-headline-md text-xl text-[#e5e2df] mb-4">Connect With Us</h3>
               <div className="grid grid-cols-2 gap-3">
                 <a 
-                  href="https://wa.me/9666857070"
+                  href="https://wa.me/919966426060"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-2 px-3 py-2 bg-[#b3ccbe]/10 text-[#b3ccbe] rounded-lg hover:bg-[#b3ccbe]/20 transition-colors"
@@ -1175,8 +1166,7 @@ while the soul blossoms with peace, awareness, and divine joy."</p>
             <div className="flex-1">
               <h3 className="font-headline-md text-xl text-[#e5e2df] mb-2">Opening Hours</h3>
               <div className="space-y-2 text-[#d2c5b1] font-body-md">
-                <p className="text-sm">Monday - Sunday: 8:00 AM - 2:00 PM</p>
-                <p className="text-sm">Tuesday: Closed</p>
+                <p className="text-sm">Wednesday - Monday : 8:00 AM - 2:00 PM</p>
                 <p className="text-xs text-[#f0bf5c] mt-2">Tuesday is Holiday</p>
               </div>
             </div>
