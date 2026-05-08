@@ -48,6 +48,86 @@ const handleSubmit = async (e) => {
 
 
 
+// for share modal
+
+// Add these state declarations
+const [showShareModal, setShowShareModal] = useState(false);
+
+// Share data
+const shareData = {
+  title: "Dr. Dadhe's Ayur & Nature Cure",
+  text: "Experience authentic Ayurvedic treatments and natural healing at Dr. Dadhe's Ayur & Nature Cure. Visit us for holistic wellness!",
+  url: window.location.href,
+};
+
+// Main share handler
+const handleShare = async () => {
+  // Check if Web Share API is supported (mostly mobile)
+  if (navigator.share) {
+    try {
+      await navigator.share({
+        title: shareData.title,
+        text: shareData.text,
+        url: shareData.url,
+      });
+    } catch (err) {
+      if (err.name !== 'AbortError') {
+        // Fallback to custom modal
+        setShowShareModal(true);
+      }
+    }
+  } else {
+    // Desktop or unsupported browser - show custom modal
+    setShowShareModal(true);
+  }
+};
+
+// Share to specific social media
+const shareToSocial = (platform) => {
+  const encodedText = encodeURIComponent(`${shareData.text}\n\n${shareData.title}`);
+  const encodedUrl = encodeURIComponent(shareData.url);
+  
+  let shareUrl = '';
+  
+  switch(platform) {
+    case 'whatsapp':
+      shareUrl = `https://wa.me/?text=${encodedText}%20-%20${encodedUrl}`;
+      break;
+    case 'facebook':
+      shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}&quote=${encodedText}`;
+      break;
+    case 'instagram':
+      // Instagram doesn't have a direct share URL, copy link instead
+      copyToClipboard();
+      return;
+    case 'twitter':
+      shareUrl = `https://twitter.com/intent/tweet?text=${encodedText}&url=${encodedUrl}`;
+      break;
+    case 'email':
+      shareUrl = `mailto:?subject=${encodeURIComponent(shareData.title)}&body=${encodedText}%0A%0A${encodedUrl}`;
+      break;
+    default:
+      return;
+  }
+  
+  if (shareUrl) {
+    window.open(shareUrl, '_blank', 'noopener,noreferrer,width=600,height=500');
+  }
+  setShowShareModal(false);
+};
+
+// Copy link to clipboard
+const copyToClipboard = async () => {
+  try {
+    await navigator.clipboard.writeText(shareData.url);
+    alert('Link copied to clipboard! ✓');
+    setShowShareModal(false);
+  } catch (err) {
+    alert('Failed to copy link. Please copy manually.');
+  }
+};
+
+
 
 
 
@@ -234,6 +314,26 @@ const handleSubmit = async (e) => {
             padding: 16px;
           }
         }
+
+
+            @keyframes slide-up {
+      from {
+        transform: translateY(100%);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+    .animate-slide-up {
+      animation: slide-up 0.3s ease-out;
+    }
+    @media (min-width: 768px) {
+      .animate-slide-up {
+        animation: none;
+      }
+    }
       `}</style>
 
       {/* Google Fonts */}
@@ -375,104 +475,134 @@ const handleSubmit = async (e) => {
           {/* ============================================ */}
           {/* SECTION 2: SACRED PATHWAYS (from AyurvedaSanctuary) */}
           {/* ============================================ */}
-          <section className="min-h-screen pt-40 px-margin-edge max-w-container-max mx-auto relative">
-            <div className="text-center mb-24">
-              <span className="font-label-caps text-[#f0bf5c] tracking-[0.4em] uppercase block mb-4">Illuminated Tracks</span>
-              <h2 className="font-display-hero text-[#e5e2df] mb-6">Sacred Pathways</h2>
-              <p className="font-body-lg text-[#d2c5b1] max-w-2xl mx-auto italic">Align your inner vibration with cosmic rhythms through our curated healing sequences.</p>
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {/* Pathway Card 1 - Panchakarma */}
-              <div className="group relative bg-[#374e43]/10 backdrop-blur-3xl border border-[#f0bf5c]/20 rounded-xl overflow-hidden hover:border-[#f0bf5c]/60 transition-all duration-700 p-8 min-h-[400px] flex flex-col justify-end shadow-2xl">
-                <div className="absolute inset-0 z-0 opacity-80 grayscale group-hover:grayscale-0 transition-all duration-1000 group-hover:scale-110 group-hover:saturate-150
-group-hover:contrast-125">
-                  <img className="w-full h-full object-cover" alt="Traditional Ayurvedic copper vessels on dark stone with incense smoke" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD6dLhhIXTfZHMRVO1VQN09y3uxOJDRnJ4mQg1o4nqCT96VO6LJOeAKKLObWnm5xQFh7r1mC6Aqe5apnyjIQhmORfIrLty5J2rwgTkErOcjj5Acl8iwhY91CGzK-vVfrwpA-EJx7ruYKaLUG8Ada01kUBVNvOZv4Sv2SdZlK-r8JX_M_Zq5XLHDC2hwtgXWQzbRCeaGHPXbyygpESjJkvQ4W9x_w4ILt1y8RxCkknvCRN_er1s_s32Df7KyPkCKCFhrunVxuxfrQ5A" />
-                </div>
-                <div className="absolute inset-0 bg-gradient-to-t from-[#131312] via-[#131312]/40 to-transparent z-10"></div>
-                <div className="relative z-20">
-                  <div className="font-label-caps text-[#f0bf5c] mb-2">Immersion 01</div>
-                  <h3 className="font-headline-md text-[#e5e2df] mb-4">Panchakarma</h3>
-                  <p className="font-body-md text-[#d2c5b1]/80 mb-6 group-hover:text-[#e5e2df] transition-colors">The ultimate five-fold detoxification journey to restore cellular intelligence and vitality.</p>
-                  <div className="w-12 h-[2px] bg-[#f0bf5c] group-hover:w-full transition-all duration-700"></div>
-                </div>
-              </div>
+{/* ============================================ */}
+{/* SECTION: DISEASES WE TREAT */}
+{/* ============================================ */}
+<section className="min-h-screen pt-40 px-margin-edge mx-auto relative">
+  <div className="text-center mb-24">
+    <span className="font-label-caps text-[#f0bf5c] tracking-[0.4em] uppercase block mb-4">AYURVEDIC CARE</span>
+    <h2 className="font-display-hero text-[#e5e2df] mb-6">Your Path Toward Wellness</h2>
+    <p className="font-body-lg text-[#d2c5b1] max-w-2xl mx-auto italic">
+  We provide specialized Ayurvedic care for chronic conditions where modern medicine reaches its limits. A place of hope and recovery, rooted in ancient wisdom and divine compassion.
+    </p>
+  </div>
 
-              {/* Pathway Card 2 - Deep Detox */}
-              <div className="group relative bg-[#374e43]/10 backdrop-blur-3xl border border-[#f0bf5c]/20 rounded-xl overflow-hidden hover:border-[#f0bf5c]/60 transition-all duration-700 p-8 min-h-[400px] flex flex-col justify-end shadow-2xl">
-                <div className="absolute inset-0 z-0 opacity-80 grayscale group-hover:grayscale-0 transition-all duration-1000 group-hover:scale-110 group-hover:saturate-150
-group-hover:contrast-125">
-                  <img className="w-full h-full object-cover" alt="Dark clay pot with clear water and floating lotus blossoms" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDKatAH7gYrczUUe1HPQWFrJE5jpNwCh8py9pTg97MaT3txSbvm58AqRI9LJTCHsK-WKsvHWSAQxoWc4h84D3kKxh_FMvYZ7nyBBzhxGqwYXvV9W2ltJrlSm92wU7_im9Xhwkaj9bPLHvlbXbWeH3zuTV-mJZNLxBoRopeNlhNrtNKbbEc2kDAHnzbP_d9lgPOl7ZINim7Js6UXnKFh8AcIlh69dXeRBq2mrEQ6s_TJLj3Bu9TiykMgp2nfSpGXNjblBRB4mZzk9o0" />
-                </div>
-                <div className="absolute inset-0 bg-gradient-to-t from-[#131312] via-[#131312]/40 to-transparent z-10"></div>
-                <div className="relative z-20">
-                  <div className="font-label-caps text-[#f0bf5c] mb-2">Immersion 02</div>
-                  <h3 className="font-headline-md text-[#e5e2df] mb-4">Deep Detox</h3>
-                  <p className="font-body-md text-[#d2c5b1]/80 mb-6 group-hover:text-[#e5e2df] transition-colors">A targeted cleansing of the digestive fire, purifying the physical vessel from modern toxins.</p>
-                  <div className="w-12 h-[2px] bg-[#f0bf5c] group-hover:w-full transition-all duration-700"></div>
-                </div>
-              </div>
+  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+    {/* Card 1: Paralysis */}
+    <div className="group relative bg-[#374e43]/10 backdrop-blur-3xl border border-[#f0bf5c]/20 rounded-xl overflow-hidden hover:border-[#f0bf5c]/60 transition-all duration-700 p-8 min-h-[400px] flex flex-col justify-end shadow-2xl">
+      <div className="absolute inset-0 z-0 opacity-80  transition-all duration-1000 group-hover:scale-110 group-hover:saturate-150 group-hover:contrast-125">
+        <img 
+          className="w-full h-full object-cover" 
+          alt="A cinematic, low-angle shot of a traditional Ayurvedic healer supporting a patient's limb during a recovery therapy session. The lighting is warm and golden, filtering through a temple window, casting soft shadows." 
+          src="https://lh3.googleusercontent.com/aida-public/AB6AXuAofvKX3Tkf3GTS3h-BuLBpRvb3FqdaOIRei6PE0bfoSnU-nivnPY_0rWAvl6KAKMoERl3JkbZqo8qdtehfOv7509MV5VptvGBn4T0THsAOMDnK6xCayI4RZQFufx0jHgpNA5pLjeYi0SuuuqjU-LFTkh6zRLW-rU-sOeJ_B050wGpd3QP8ssRBo92pjHOhIQYxQC4WdVFz-blgczz8I6zs-Iss0YHEmvr4GS6ppfbedD9d-aCUHtuSjfeAoO0aPbT0m_WYOxSpzBs" 
+        />
+      </div>
+      <div className="absolute inset-0 bg-gradient-to-t from-[#131312] via-[#131312]/40 to-transparent z-10"></div>
+      <div className="relative z-20">
+        <h3 className="font-headline-md text-[#e5e2df] mb-4">Paralysis</h3>
+        <p className="font-body-md text-[#d2c5b1]/80 mb-6 group-hover:text-[#e5e2df] transition-colors">
+          Restoring neural pathways through neuro-regenerative oils and specialized kinetic therapies.
+        </p>
+        <div className="w-12 h-[2px] bg-[#f0bf5c] group-hover:w-full transition-all duration-700"></div>
+      </div>
+    </div>
 
-              {/* Pathway Card 3 - Rejuvenation */}
-              <div className="group relative bg-[#374e43]/10 backdrop-blur-3xl border border-[#f0bf5c]/20 rounded-xl overflow-hidden hover:border-[#f0bf5c]/60 transition-all duration-700 p-8 min-h-[400px] flex flex-col justify-end shadow-2xl">
-                <div className="absolute inset-0 z-0 opacity-80 grayscale group-hover:grayscale-0 transition-all duration-1000 group-hover:scale-110 group-hover:saturate-150
-group-hover:contrast-125">
-                  <img className="w-full h-full object-cover" alt="Mystical forest at dawn with person meditating in sun rays" src="https://lh3.googleusercontent.com/aida-public/AB6AXuALJOxG7mMMtgQ5rnd21LWTv3NQgSvbiAOe69jo-tq2JrVbvYsISuZGiuZfNVik93liaX_g8b8v4fMhR01SoCg9R7EIuhr1umzJefjYd1zK7csQVqi1yinAJgvaa2p17lW_9lrWQcNCY7iMGijLNKxOIm-ZLdAyN5FpetHPYVK9IhTnNCFbpkdHpYo7TFYZOaFRyLZd6od53clcJvFHuMcKgFrcOtVW1GNJHdzGtUFc6ad_-iUM8izVXkT9aU_aBB_LQoz_Xg8suzE" />
-                </div>
-                <div className="absolute inset-0 bg-gradient-to-t from-[#131312] via-[#131312]/40 to-transparent z-10"></div>
-                <div className="relative z-20">
-                  <div className="font-label-caps text-[#f0bf5c] mb-2">Immersion 03</div>
-                  <h3 className="font-headline-md text-[#e5e2df] mb-4">Rejuvenation</h3>
-                  <p className="font-body-md text-[#d2c5b1]/80 mb-6 group-hover:text-[#e5e2df] transition-colors">A transformative Rasayana experience designed to halt aging and ignite youthful essence.</p>
-                  <div className="w-12 h-[2px] bg-[#f0bf5c] group-hover:w-full transition-all duration-700"></div>
-                </div>
-              </div>
+    {/* Card 2: Brain Stroke */}
+    <div className="group relative bg-[#374e43]/10 backdrop-blur-3xl border border-[#f0bf5c]/20 rounded-xl overflow-hidden hover:border-[#f0bf5c]/60 transition-all duration-700 p-8 min-h-[400px] flex flex-col justify-end shadow-2xl">
+      <div className="absolute inset-0 z-0 opacity-80  transition-all duration-1000 group-hover:scale-110 group-hover:saturate-150 group-hover:contrast-125">
+        <img 
+          className="w-full h-full object-cover" 
+          alt="A high-end rehabilitation focus showing neurological recovery therapy. A specialist guides a patient through cognitive exercises within a temple-inspired medical suite." 
+          src="https://lh3.googleusercontent.com/aida-public/AB6AXuB8B62Okxnd4JTQB-PqCHPccQt8aYIC_4xJtfKnaAvaS4U66jwz8Cuhm3vnimQy6VVcO7qI3KXjK7YkeQo_-oIU_L-1VR0cRDLPBNfAtKd2uCTyYtQOjqsULenlPQILsFbJdncNP2ohI6Y_wA-SrP-5ODS0KUHH0sE_JK2q-TURgqzJzmGHbWpwE0lJ1rBKJEMDj25kWTfKxYmEEKyeMfhQZXaWTzg13UDwg-GTY5mcLDuZNAuGgLoMwO9DxyOO5T7LVh5nqqX78i8" 
+        />
+      </div>
+      <div className="absolute inset-0 bg-gradient-to-t from-[#131312] via-[#131312]/40 to-transparent z-10"></div>
+      <div className="relative z-20">
+        <h3 className="font-headline-md text-[#e5e2df] mb-4">Brain Stroke</h3>
+        <p className="font-body-md text-[#d2c5b1]/80 mb-6 group-hover:text-[#e5e2df] transition-colors">
+          Intensive post-stroke rehabilitation focusing on cognitive clarity and motor function recovery.
+        </p>
+        <div className="w-12 h-[2px] bg-[#f0bf5c] group-hover:w-full transition-all duration-700"></div>
+      </div>
+    </div>
 
-              {/* Pathway Card 4 - Sattva Balance */}
-              <div className="group relative bg-[#374e43]/10 backdrop-blur-3xl border border-[#f0bf5c]/20 rounded-xl overflow-hidden hover:border-[#f0bf5c]/60 transition-all duration-700 p-8 min-h-[400px] flex flex-col justify-end shadow-2xl">
-                <div className="absolute inset-0 z-0 opacity-80 grayscale group-hover:grayscale-0 transition-all duration-1000 group-hover:scale-110group-hover:saturate-150
-group-hover:contrast-125">
-                  <img className="w-full h-full object-cover" alt="Golden oil poured into bowl in luxury spa setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBQhw1TVzqKfaCsTgvShiKO79luoj1vL9bVz6dNHG2qgzEy_uDjr3o3uYBE-MdKjl3gpHkehGvLpRQpLql3d1p6SrbGiXFJqKpQ43bB-Vvfd1yJ3K_3vFNxxFRk5WNgSpSgdEjC306i7z_bw-qkgKeeznAKVW6uCUyI2510Oa5V0bAV8wLKV4oths84c05EDs9w7O8MOsbVhIl6CCAKZ5ghmwFXNJvce7UWM-YoNbZz6KVg6BWBsrAYt25EGHsFaZWcv7J-L-esBqU" />
-                </div>
-                <div className="absolute inset-0 bg-gradient-to-t from-[#131312] via-[#131312]/40 to-transparent z-10"></div>
-                <div className="relative z-20">
-                  <div className="font-label-caps text-[#f0bf5c] mb-2">Immersion 04</div>
-                  <h3 className="font-headline-md text-[#e5e2df] mb-4">Sattva Balance</h3>
-                  <p className="font-body-md text-[#d2c5b1]/80 mb-6 group-hover:text-[#e5e2df] transition-colors">Mental clarity through meditative soundscapes and herbal neuro-alignment protocols.</p>
-                  <div className="w-12 h-[2px] bg-[#f0bf5c] group-hover:w-full transition-all duration-700"></div>
-                </div>
-              </div>
+    {/* Card 3: Chronic Liver Disease */}
+    <div className="group relative bg-[#374e43]/10 backdrop-blur-3xl border border-[#f0bf5c]/20 rounded-xl overflow-hidden hover:border-[#f0bf5c]/60 transition-all duration-700 p-8 min-h-[400px] flex flex-col justify-end shadow-2xl">
+      <div className="absolute inset-0 z-0 opacity-80  transition-all duration-1000 group-hover:scale-110 group-hover:saturate-150 group-hover:contrast-125">
+        <img 
+          className="w-full h-full object-cover" 
+          alt="A close-up of a premium herbal consultation where a vaidya examines high-quality Ayurvedic herbs in a dimly lit, sacred wellness environment." 
+          src="https://lh3.googleusercontent.com/aida-public/AB6AXuCFr7TlVCAlFZchT6dR8CdrpNITaCNRj80Q7rlA2ZhwDNsGTH7BQGP8ijGena-5DNkndBEp0jBgwnQL_XeoJlQ5fM3HZ0YazaUs_Ne_-E21gsmncpaDACjtbHQu2NVvxB6jsZ1V0oLl_Pk7fEY8lLyw4QDD3EPGUWtBjl-5XWtcG5s9fV4du7rnLKkYOMVerK2SzibJtwkBkCKvQbGzIlWTv0dfW1ugKTmxUmnBXfJ0NzE9cUL8_N0hRyKgAf0jtNQs_6R-t1YPRYI" 
+        />
+      </div>
+      <div className="absolute inset-0 bg-gradient-to-t from-[#131312] via-[#131312]/40 to-transparent z-10"></div>
+      <div className="relative z-20">
+        <h3 className="font-headline-md text-[#e5e2df] mb-4">Chronic Liver Disease</h3>
+        <p className="font-body-md text-[#d2c5b1]/80 mb-6 group-hover:text-[#e5e2df] transition-colors">
+          Detoxification and regeneration of hepatic cells through rare herbal formulations and diet.
+        </p>
+        <div className="w-12 h-[2px] bg-[#f0bf5c] group-hover:w-full transition-all duration-700"></div>
+      </div>
+    </div>
 
-              {/* Pathway Card 5 - Metabolic Fire */}
-              <div className="group relative bg-[#374e43]/10 backdrop-blur-3xl border border-[#f0bf5c]/20 rounded-xl overflow-hidden hover:border-[#f0bf5c]/60 transition-all duration-700 p-8 min-h-[400px] flex flex-col justify-end shadow-2xl">
-                <div className="absolute inset-0 z-0 opacity-80 grayscale group-hover:grayscale-0 transition-all duration-1000 group-hover:scale-110 group-hover:saturate-150
-group-hover:contrast-125">
-                  <img className="w-full h-full object-cover" alt="Green Ayurvedic herbs on dark emerald surface with smoke" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAqRZHi4hGhdIuVJ8G_T9Aw8eqlqnvGQPSOvUUkkea2rNdzJkZp-7mgUe8Tn9ZtvI394sBdJ_qCsB841DqfTse81vyv_CdxiO_4Iy3x8QuGInf2c1puntL0C1aNlcOLHETOcssusJtdHsSXnuAAb4GNeXttO4tURqKKTncma9hXtyqXt_KnAEqAL47xg_VS5VmXSd_PdBo5Xl-Co0BwKG0ci5QH_PawGcCcIuGszBO9gnUdRRc2htWQxYCB8CVsb3dPaaV7N2q9y2U" />
-                </div>
-                <div className="absolute inset-0 bg-gradient-to-t from-[#131312] via-[#131312]/40 to-transparent z-10"></div>
-                <div className="relative z-20">
-                  <div className="font-label-caps text-[#f0bf5c] mb-2">Immersion 05</div>
-                  <h3 className="font-headline-md text-[#e5e2df] mb-4">Metabolic Fire</h3>
-                  <p className="font-body-md text-[#d2c5b1]/80 mb-6 group-hover:text-[#e5e2df] transition-colors">Reigniting the Agni within to optimize weight, energy, and radiant digestive power.</p>
-                  <div className="w-12 h-[2px] bg-[#f0bf5c] group-hover:w-full transition-all duration-700"></div>
-                </div>
-              </div>
+    {/* Card 4: Chronic Kidney Disease */}
+    <div className="group relative bg-[#374e43]/10 backdrop-blur-3xl border border-[#f0bf5c]/20 rounded-xl overflow-hidden hover:border-[#f0bf5c]/60 transition-all duration-700 p-8 min-h-[400px] flex flex-col justify-end shadow-2xl">
+      <div className="absolute inset-0 z-0 opacity-80  transition-all duration-1000 group-hover:scale-110 group-hover:saturate-150 group-hover:contrast-125">
+        <img 
+          className="w-full h-full object-cover" 
+          alt="A holistic wellness consultation scene with a patient and a healer in a peaceful, temple-like room. The lighting is cinematic and low-key." 
+          src="https://lh3.googleusercontent.com/aida-public/AB6AXuAdsOdPHpp1JcfX3yBaTyJ7CrVsISiNSRPf4cjafRbzzLO6lFRvwz1lw8-u8RJ7tJ7gcziObnEgyYi9VC0Jw_TWnE4H2cCU8yDpU9p-U500WrxI39PhKcqwQUiEtLfIML2lAIB0YM9qp8xRlJSP97Etseqs9bTkpryMHx49sHDrgp8RBes81VQE5uKxvTkGN8iPM_vpUm8yTXwnpo0Ei1rVhCBxndtmbLMN_zgeF1UZj3xxjYrg3DQgwxafceMOyNtQhuny6bayBa4" 
+        />
+      </div>
+      <div className="absolute inset-0 bg-gradient-to-t from-[#131312] via-[#131312]/40 to-transparent z-10"></div>
+      <div className="relative z-20">
+        <h3 className="font-headline-md text-[#e5e2df] mb-4">Chronic Kidney Disease</h3>
+        <p className="font-body-md text-[#d2c5b1]/80 mb-6 group-hover:text-[#e5e2df] transition-colors">
+          Supporting renal health and balancing fluids through non-invasive Ayurvedic protocols.
+        </p>
+        <div className="w-12 h-[2px] bg-[#f0bf5c] group-hover:w-full transition-all duration-700"></div>
+      </div>
+    </div>
 
-              {/* Pathway Card 6 - Ojas Vitality */}
-              <div className="group relative bg-[#374e43]/10 backdrop-blur-3xl border border-[#f0bf5c]/20 rounded-xl overflow-hidden hover:border-[#f0bf5c]/60 transition-all duration-700 p-8 min-h-[400px] flex flex-col justify-end shadow-2xl">
-                <div className="absolute inset-0 z-0 opacity-80 grayscale group-hover:grayscale-0 transition-all duration-1000 group-hover:scale-110 group-hover:saturate-150
-group-hover:contrast-125">
-                  <img className="w-full h-full object-cover" alt="Temple courtyard illuminated by oil lamps at night" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCF1vOSSdDehJad7HcZfENeE9PGW25f7O5J7hQVmgyM8_OE280fdI9IBg4FBRvX2S-ZtZ0C8OmJ_8IJYI1vLoBgZrd5dFJwGj_YqbwZ5rH8Xf2hT3PxNd4D4xF8VWJazfpW_c3DuX3Hc4GIJHF8HGrq0tH_TdenooUWTZwoK7WSML-p6WxxSKNCHZ2-eroDuhQWIhISJh_UaKst-EhLEGgH0PrzIs6Gk72dEg6aai31yZwfzDHM_bJi5jFZseBPXaTqJXC28LaPhPU" />
-                </div>
-                <div className="absolute inset-0 bg-gradient-to-t from-[#131312] via-[#131312]/40 to-transparent z-10"></div>
-                <div className="relative z-20">
-                  <div className="font-label-caps text-[#f0bf5c] mb-2">Immersion 06</div>
-                  <h3 className="font-headline-md text-[#e5e2df] mb-4">Ojas Vitality</h3>
-                  <p className="font-body-md text-[#d2c5b1]/80 mb-6 group-hover:text-[#e5e2df] transition-colors">Cultivating the pure essence of immunity and bliss through sacred nectar therapies.</p>
-                  <div className="w-12 h-[2px] bg-[#f0bf5c] group-hover:w-full transition-all duration-700"></div>
-                </div>
-              </div>
-            </div>
-          </section>
+    {/* Card 5: Cancer Support */}
+    <div className="group relative bg-[#374e43]/10 backdrop-blur-3xl border border-[#f0bf5c]/20 rounded-xl overflow-hidden hover:border-[#f0bf5c]/60 transition-all duration-700 p-8 min-h-[400px] flex flex-col justify-end shadow-2xl">
+      <div className="absolute inset-0 z-0 opacity-80  transition-all duration-1000 group-hover:scale-110 group-hover:saturate-150 group-hover:contrast-125">
+        <img 
+          className="w-full h-full object-cover" 
+          alt="A compassionate recovery environment showing a patient in holistic therapy. Soft, spiritual light rays cut across the scene." 
+          src="https://lh3.googleusercontent.com/aida-public/AB6AXuADqnTVnN96R9E-uvQvIGgrMpTN2YpoaGS6vzVY0gJ9734VEyDlwkyh2LG1ipLU3XrhBGazD8TNn14JMIcK5qVzxkzgmN4FIrjQG0kGDp_2Jt28rkjXbPLj2boYhKfK--hHvNZfkZnpwR1yfWNwUv_FHgQt5iHTgD2xRn0q-Qtg7c1scvztQMn6JE9Ifx5OsWG-o9XMps_RXDjevndZ9ImXEKcBaQKnAZYuPZhJKEnGwC7IcMcCLoHp0i-Modtp7C4SNvAgstpHxsE" 
+        />
+      </div>
+      <div className="absolute inset-0 bg-gradient-to-t from-[#131312] via-[#131312]/40 to-transparent z-10"></div>
+      <div className="relative z-20">
+        <h3 className="font-headline-md text-[#e5e2df] mb-4">Cancer Support</h3>
+        <p className="font-body-md text-[#d2c5b1]/80 mb-6 group-hover:text-[#e5e2df] transition-colors">
+          Integrative care to manage side effects, boost immunity, and enhance overall quality of life.
+        </p>
+        <div className="w-12 h-[2px] bg-[#f0bf5c] group-hover:w-full transition-all duration-700"></div>
+      </div>
+    </div>
+
+    {/* Card 6: Autism & ADHD */}
+    <div className="group relative bg-[#374e43]/10 backdrop-blur-3xl border border-[#f0bf5c]/20 rounded-xl overflow-hidden hover:border-[#f0bf5c]/60 transition-all duration-700 p-8 min-h-[400px] flex flex-col justify-end shadow-2xl">
+      <div className="absolute inset-0 z-0 opacity-80  transition-all duration-1000 group-hover:scale-110 group-hover:saturate-150 group-hover:contrast-125">
+        <img 
+          className="w-full h-full object-cover" 
+          alt="A calm and patient interaction between an Ayurvedic therapist and a young child in a therapy support setting. The room is designed with sacred geometry elements and soft emerald lighting." 
+          src="https://lh3.googleusercontent.com/aida-public/AB6AXuCYvz_zF9vYMBTcK1AWWsp654eke7C0x7KD8kD1s1U3tWF1o9PuqwG8GoKOSs5cwxeUKhWjq7DvYM9IpvFcMPx7O0hE52kiXk6lGsbZpdV4pN2uyqBr0M92iDwQKox3z2GrSUjAotXL4gdInEE2QjTmzypeayS15imn8rl7v1TotTFuD9mZQr33GvxzPknNfBhDCq03d94H0phcJm135rgpCDhuFKrFa_ouj8LZqpAuG7H7zw7Vk6VNH-zSf1rf7HUAA16bsHf4mzQ" 
+        />
+      </div>
+      <div className="absolute inset-0 bg-gradient-to-t from-[#131312] via-[#131312]/40 to-transparent z-10"></div>
+      <div className="relative z-20">
+        <h3 className="font-headline-md text-[#e5e2df] mb-4">Autism & ADHD</h3>
+        <p className="font-body-md text-[#d2c5b1]/80 mb-6 group-hover:text-[#e5e2df] transition-colors">
+          Gentle therapies and sensory balancing to help children find focus and internal harmony.
+        </p>
+        <div className="w-12 h-[2px] bg-[#f0bf5c] group-hover:w-full transition-all duration-700"></div>
+      </div>
+    </div>
+  </div>
+</section>
 
 
 
@@ -577,23 +707,16 @@ group-hover:contrast-125">
           {/* ============================================ */}
           <section className="py-section-gap px-margin-edge max-w-container-max mx-auto">
             <div className="flex flex-col md:flex-row justify-between items-end mb-24 gap-8">
-              <div className="max-w-xl">
+              <div >
                 <span className="font-label-caps text-[#f0bf5c] tracking-[0.4em] mb-4 block uppercase">Master Therapies</span>
-                <h2 className="font-headline-lg text-[#e5e2df] leading-none">The Luxury of <br />Ancient Science</h2>
+                <h2 className="font-headline-lg text-[#e5e2df] leading-none">The Luxury of <br />Ancient Science  Offered by Us</h2>
               </div>
-              <div className="flex gap-4">
-                <button className="w-14 h-14 rounded-full border border-[#f0bf5c]/20 flex items-center justify-center text-[#f0bf5c] hover:bg-[#f0bf5c] hover:text-[#412d00] transition-all">
-                  <span className="material-symbols-outlined">west</span>
-                </button>
-                <button className="w-14 h-14 rounded-full border border-[#f0bf5c]/20 flex items-center justify-center text-[#f0bf5c] hover:bg-[#f0bf5c] hover:text-[#412d00] transition-all">
-                  <span className="material-symbols-outlined">east</span>
-                </button>
-              </div>
+             
             </div>
             <div className="grid grid-cols-12 gap-8">
               {/* Shirodhara - Large Card */}
               <div className="col-span-12 lg:col-span-8 group relative h-[600px] rounded-xl overflow-hidden shadow-2xl">
-                <img className="w-full h-full object-cover transition-transform duration-[2s] group-hover:scale-105" alt="Shirodhara treatment with warm oil flowing onto forehead" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCYORkDmvou627LtBg9mm2ic18G3TPrIzQ8UhsnEVvsqiUZ1r4CgzZnTEE_y1GbRk8cGZBAvKfQA4QloY4cnSU4IgfqpNKYl5MJecstkp7eafxfjtZiKvNfM7-xPtkhRqg81sFcWsPG02_MZPNsZzh0MMUISnk_VzvqBz2u2qMXx-B-0T0UltVrPrU405QHLWMxAZlku3ew9tMCzlpKDeydWQfJbzhg_uapsZsEOPVf1wTGYFBnRjTWRvKu1E413m17ynwx-ETkNGk" />
+                <img className="w-full h-full object-cover transition-transform duration-[2s] group-hover:scale-105" alt="Shirodhara treatment with warm oil flowing onto forehead" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDLtCm6j_EJ1mzgBj3NKHtzOWGLcWmGiuYg7fLpV-5wuSapB6JzDlAODZpc1icCCxFTw-gK9Ek1hLBHHRkkYeDiswjfDidqkCSOcLYlnSLN0fhw8GopScYJgi7V7lFcyNTRW-FP_WqDCHkbA6vF3_5hT9X7Fsiff9Y0cg2M_7Yo2jzoJaDqTauH3ZRYFOjaZu2sjawiSPQDfdzTxXYiCE5NoWOOyERf6VD3fdYTWGqkp_lNsBUcizMbdE1mmkDdS7ZCwpj_hFMOQQI" />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#131312] via-transparent to-transparent"></div>
                 <div className="absolute bottom-0 left-0 p-12 w-full flex justify-between items-end">
                   <div className="max-w-md">
@@ -601,10 +724,10 @@ group-hover:contrast-125">
                     <h3 className="font-display-hero text-5xl text-[#e5e2df] mb-4">Shirodhara</h3>
                     <p className="font-body-md text-[#d2c5b1]">A continuous flow of warm herbal oil onto the third eye, melting mental stress and inducing a deep state of Turiya—pure consciousness.</p>
                   </div>
-                  <div className="bg-[#c89b3c]/20 backdrop-blur-md border border-[#f0bf5c]/30 p-6 rounded-lg">
+                  {/* <div className="bg-[#c89b3c]/20 backdrop-blur-md border border-[#f0bf5c]/30 p-6 rounded-lg">
                     <div className="font-label-caps text-[#f0bf5c] mb-1">Duration</div>
                     <div className="text-[#e5e2df] font-headline-md text-2xl">90 Mins</div>
-                  </div>
+                  </div> */}
                 </div>
               </div>
               {/* Abhyanga - Tall Card */}
@@ -619,15 +742,15 @@ group-hover:contrast-125">
                 </div>
               </div>
               {/* Snana - Wide Card */}
-              <div className="col-span-12 md:col-span-6 group relative h-[450px] rounded-xl overflow-hidden shadow-2xl">
-                <img className="w-full h-full object-cover transition-transform duration-[2s] group-hover:scale-105" alt="Herbal soaking tub in luxury sanctuary" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAnYccinjUNl6JHmKlL3GsVslqGD9b0B7yKt08k6-vW3BCpUT9AlbGLWQ4q9fR9d1tXMURQqoEEiT6GyBOlxTI-8hGVXvSG-0jZlBuJihM479_WyuDL2l5EQE4-39QgLs7_xGRWRjAiSoh5i0pomKShCHTL5dsDb2LYhhgz563_JvbKvkDJYSXupr1-sXCqC2ndM1ke2moiIAsbjQF2e0AHkYblvAUwdkgCVfhsTcwPjV5zpACIa-xPYLyBI95REjJdiKkz5EwyufU" />
-                <div className="absolute inset-0 bg-gradient-to-r from-[#131312] via-[#131312]/20 to-transparent"></div>
-                <div className="absolute inset-0 p-12 flex flex-col justify-center max-w-lg">
-                  <span className="font-noto-serif italic text-[#f0bf5c] text-xl mb-2 block">Herbal Hydrotherapy</span>
-                  <h3 className="font-headline-lg text-[#e5e2df] mb-4">Snana</h3>
-                  <p className="font-body-md text-[#d2c5b1] mb-6">A ritualistic immersion in medicated waters infused with rare Himalayan herbs to seal the healing process.</p>
-                </div>
-              </div>
+  <div className="col-span-12 md:col-span-6 group relative h-[450px] rounded-xl overflow-hidden shadow-2xl">
+ <img class="w-full h-full object-cover" data-alt="A serene cinematic shot of traditional Ayurvedic copper vessels arranged on a dark stone surface, surrounded by wisps of incense smoke and scattered marigold petals. The lighting is low and atmospheric, with golden highlights catching the metallic edges, evoking a sense of ancient medical wisdom and purity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD6dLhhIXTfZHMRVO1VQN09y3uxOJDRnJ4mQg1o4nqCT96VO6LJOeAKKLObWnm5xQFh7r1mC6Aqe5apnyjIQhmORfIrLty5J2rwgTkErOcjj5Acl8iwhY91CGzK-vVfrwpA-EJx7ruYKaLUG8Ada01kUBVNvOZv4Sv2SdZlK-r8JX_M_Zq5XLHDC2hwtgXWQzbRCeaGHPXbyygpESjJkvQ4W9x_w4ILt1y8RxCkknvCRN_er1s_s32Df7KyPkCKCFhrunVxuxfrQ5A"/>
+  <div className="absolute inset-0 bg-gradient-to-r from-[#131312] via-[#131312]/20 to-transparent"></div>
+  <div className="absolute inset-0 p-12 flex flex-col justify-center max-w-lg">
+    <span className="font-noto-serif italic text-[#f0bf5c] text-xl mb-2 block">Ultimate Detoxification</span>
+    <h3 className="font-headline-lg text-[#e5e2df] mb-4">Panchakarma</h3>
+    <p className="font-body-md text-[#d2c5b1] mb-6">The five profound actions of Ayurvedic purification that eliminate deep-seated toxins and rejuvenate the body at a cellular level.</p>
+  </div>
+</div>
               {/* Pinda Sveda - Square Card */}
               <div className="col-span-12 md:col-span-6 group relative h-[450px] rounded-xl overflow-hidden shadow-2xl">
                 <img className="w-full h-full object-cover transition-transform duration-[2s] group-hover:scale-105" alt="Therapist hands holding heated herbal bundle" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBKqgzP-9vvqeUxXf-ChFEYiRYEBq68boHTymnc_5ijND6Q4jbDPCud9sbNAhgp-3ZTaOb8ovruUePdK_JHed7uX5H4CCDD8Z6QqG4LycVsHXg11KqYZzBFgg7BPwf1bm5JvVkebxlGxnXdVwamHCN5SXgr-6olEDmFq6Prp3SOKkFEUcugRDqx0xvWgYlQIQjMpUqekbr1WRkRXBTt7lqtskkMGGc4nljr9NuZq5gNjrZAzY-evRAfFnTYyUfmfZwupvuvSL3hepA" />
@@ -687,47 +810,7 @@ group-hover:contrast-125">
             </div>
           </section>
 
-          {/* ============================================ */}
-          {/* SECTION 6: CONDITIONS WE HEAL (from VedaCinemaMain) */}
-          {/* ============================================ */}
-          <section className="py-section-gap overflow-hidden relative" style={{ backgroundColor: '#2a2a29' }}>
-            <div className="absolute -left-[20%] top-[10%] w-[60%] h-[80%] rounded-full" style={{ backgroundColor: 'rgba(240,191,92,0.05)', filter: 'blur(120px)' }}></div>
-            <div className="max-w-container-max mx-auto px-margin-edge relative z-10">
-              <div className="grid md:grid-cols-2 gap-24 items-end mb-20">
-                <div>
-                  <h2 className="font-headline-lg text-[#e5e2df] mb-6">We heal where others lose hope.</h2>
-                  <p className="font-body-lg text-[#d2c5b1] opacity-80">For chronic conditions that modern medicine labels "permanent," we offer a path toward restoration through the science of life.</p>
-                </div>
-                <div className="hidden md:block">
-                  <div className="h-1 w-full relative" style={{ backgroundColor: '#4e4637' }}>
-                    <div className="absolute top-1/2 left-0 -translate-y-1/2 w-1/3 h-1 divine-glow" style={{ backgroundColor: '#f0bf5c' }}>
-                      <div className="absolute right-0 top-1/2 -translate-y-1/2 w-3 h-3 rounded-full" style={{ backgroundColor: '#ffffff', boxShadow: '0 0 15px #fff' }}></div>
-                    </div>
-                  </div>
-                  <div className="font-label-caps text-[10px] mt-4 tracking-[4px] opacity-40 text-[#d2c5b1]">PROGRESSION OF ATMAN</div>
-                </div>
-              </div>
-              <div className="grid md:grid-cols-3 gap-12">
-                {['NEUROLOGICAL', 'SYSTEMIC', 'COGNITIVE'].map((category, idx) => {
-                  const titles = ['Paralysis', 'Chronic Pain', 'Brain Health'];
-                  const descs = [
-                    "Rewiring the body's energetic pathways and physical nerve conduction through specialized Marma point therapy and oil infusions.",
-                    "Addressing the inflammatory root of chronic syndromes with targeted detoxification and botanical anti-inflammatory protocols.",
-                    "Restoring neuro-plasticity and chemical balance through Shirodhara and Medhya Rasayana—ancient brain tonics."
-                  ];
-                  return (
-                    <div key={idx} className="pl-8 py-4 transition-all duration-500 group" style={{ borderLeft: '2px solid rgba(240,191,92,0.2)' }}
-                      onMouseEnter={e => e.currentTarget.style.borderLeftColor = '#f0bf5c'}
-                      onMouseLeave={e => e.currentTarget.style.borderLeftColor = 'rgba(240,191,92,0.2)'}>
-                      <h4 className="font-label-caps text-[#f0bf5c] mb-2 group-hover:tracking-widest transition-all">{category}</h4>
-                      <h3 className="font-headline-md text-[#e5e2df] mb-4">{titles[idx]}</h3>
-                      <p className="font-body-md text-[#d2c5b1] opacity-70">{descs[idx]}</p>
-                    </div>
-                  );
-                })}
-              </div>
-            </div>
-          </section>
+
 
           {/* ============================================ */}
           {/* SECTION 7: INGREDIENT STORYTELLING (from VedaCinema - GREEN UPDATED) */}
@@ -909,7 +992,7 @@ group-hover:contrast-125">
 ].map((story, i) => (
                   <div key={i} className={`glass-panel p-glass-padding rounded-xl flex flex-col h-full hover:border-[#f0bf5c]/40 transition-all duration-500 group ${story.mt}`}>
                     <div className="relative h-64 mb-8 overflow-hidden rounded-lg">
-                      <img className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" alt="Testimonial" src={story.img} />
+                      <img className="w-full h-full object-cover transition-all duration-700" alt="Testimonial" src={story.img} />
                     </div>
                     <div className="flex-grow">
                       <p className="font-body-lg italic text-white mb-6 leading-relaxed">{story.quote}</p>
@@ -931,10 +1014,14 @@ group-hover:contrast-125">
               <div className="relative py-24">
                 <div className="max-w-4xl mx-auto glass-panel p-20 rounded-3xl divine-glow relative z-10 border-[#f0bf5c]/10">
                   <span className="material-symbols-outlined text-[#f0bf5c] text-5xl mb-12">format_quote</span>
-                  <p className="font-headline-lg text-white leading-relaxed italic mb-12">"The soul is the same in all living creatures, although the body of each is different."</p>
+                  <p className="font-headline text-white leading-relaxed italic mb-12">"The body is a sacred temple where the soul resides.
+When we nourish this temple with pure food, healing medicine, and life energy,
+and walk the path of spiritual practice,
+the body flourishes with long life,
+while the soul blossoms with peace, awareness, and divine joy."</p>
                   <div className="flex flex-col items-center">
-                    <h4 className="font-label-caps text-[#f0bf5c] text-lg">MARCUS T. STERLING</h4>
-                    <p className="text-[10px] text-[#d2c5b1] uppercase tracking-widest mt-2">Philanthropist &amp; Visionary</p>
+                    <h4 className="font-label-caps text-[#f0bf5c] text-lg">Vaidya sri</h4>
+                    <p className="text-[10px] text-[#d2c5b1] uppercase tracking-widest mt-2">Dadhe Venkat Rao </p>
                   </div>
                 </div>
                 <div className="absolute top-1/4 -left-20 opacity-10 hidden xl:block">
@@ -949,9 +1036,6 @@ group-hover:contrast-125">
 
 
 
-{/* ============================================ */}
-{/* SECTION 14: FOOTER / CONTACT (Redesigned to match dark theme) */}
-{/* ============================================ */}
 <section className="py-section-gap relative overflow-hidden" style={{ backgroundColor: '#0e0e0d' }}>
   {/* Background Glow */}
   <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -1105,7 +1189,7 @@ group-hover:contrast-125">
         {/* Map */}
         <div className="glass-card rounded-2xl p-6">
           <h3 className="font-headline-md text-xl text-[#e5e2df] mb-4">Find Us Here</h3>
-          <div className="relative rounded-xl overflow-hidden h-[450px] lg:h-[500px] border border-[#4e4637]">
+          <div className="relative rounded-xl overflow-hidden h-[400px] lg:h-[450px] border border-[#4e4637]">
             <iframe
               src="https://www.google.com/maps?q=Dr.Dadhe's+Ayur+and+Nature+Cure,+Telangana&output=embed"
               className="absolute inset-0 w-full h-full"
@@ -1132,9 +1216,142 @@ group-hover:contrast-125">
             </div>
           </div>
         </div>
+
+        {/* Share Section - Added Below QR */}
+        <div className="glass-card rounded-2xl p-6 hover:border-[#f0bf5c]/40 transition-all duration-300">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+            <div className="flex items-center gap-4">
+              <div className="p-3 bg-[#f0bf5c]/10 rounded-full">
+                <span className="material-symbols-outlined text-[#f0bf5c] text-3xl">share</span>
+              </div>
+              <div>
+                <h4 className="font-headline-md text-xl text-[#e5e2df] mb-1">Share This Page</h4>
+                <p className="text-[#d2c5b1] font-body-md text-sm">
+                  Share our clinic info with friends & family
+                </p>
+              </div>
+            </div>
+            <button 
+              onClick={handleShare}
+              className="px-6 py-3 bg-gradient-to-r from-[#f0bf5c] to-[#d4a44a] text-[#0e0e0d] rounded-xl font-label-caps font-semibold hover:shadow-lg hover:shadow-[#f0bf5c]/20 transition-all duration-300 flex items-center gap-2 group"
+            >
+              <span className="material-symbols-outlined text-lg group-hover:scale-110 transition-transform">ios_share</span>
+              <span>Share Now</span>
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   </div>
+
+  {/* Share Modal */}
+  {showShareModal && (
+    <>
+      {/* Backdrop */}
+      <div 
+        className="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 transition-all duration-300"
+        onClick={() => setShowShareModal(false)}
+      />
+      
+      {/* Modal */}
+      <div className="fixed bottom-0 left-0 right-0 md:bottom-auto md:top-1/2 md:left-1/2 md:-translate-x-1/2 md:-translate-y-1/2 z-50 transition-all duration-300 animate-slide-up">
+        <div className="bg-[#1a1a18] rounded-t-2xl md:rounded-2xl shadow-2xl border border-[#f0bf5c]/20 max-w-md mx-auto md:mx-0">
+          {/* Header */}
+          <div className="flex items-center justify-between p-5 border-b border-[#4e4637]">
+            <h3 className="font-headline-md text-xl text-[#e5e2df]">Share via</h3>
+            <button 
+              onClick={() => setShowShareModal(false)}
+              className="p-1 hover:bg-[#4e4637]/50 rounded-full transition-colors"
+            >
+              <span className="material-symbols-outlined text-[#d2c5b1]">close</span>
+            </button>
+          </div>
+          
+          {/* Share Options */}
+          <div className="p-5">
+            <div className="grid grid-cols-3 gap-4">
+              {/* WhatsApp */}
+              <button
+                onClick={() => shareToSocial('whatsapp')}
+                className="flex flex-col items-center gap-2 p-3 rounded-xl hover:bg-[#4e4637]/30 transition-all group"
+              >
+                <div className="w-12 h-12 bg-[#25D366]/10 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform">
+                  <img src={whatsappLogo} className="h-6 w-6" alt="WhatsApp" />
+                </div>
+                <span className="text-xs font-label-caps text-[#d2c5b1]">WhatsApp</span>
+              </button>
+              
+              {/* Facebook */}
+              <button
+                onClick={() => shareToSocial('facebook')}
+                className="flex flex-col items-center gap-2 p-3 rounded-xl hover:bg-[#4e4637]/30 transition-all group"
+              >
+                <div className="w-12 h-12 bg-[#1877F2]/10 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform">
+                  <img src={facebookLogo} className="h-6 w-6" alt="Facebook" />
+                </div>
+                <span className="text-xs font-label-caps text-[#d2c5b1]">Facebook</span>
+              </button>
+              
+              {/* Instagram */}
+              <button
+                onClick={() => shareToSocial('instagram')}
+                className="flex flex-col items-center gap-2 p-3 rounded-xl hover:bg-[#4e4637]/30 transition-all group"
+              >
+                <div className="w-12 h-12 bg-gradient-to-tr from-[#F58529] via-[#DD2A7B] to-[#8134AF] rounded-full flex items-center justify-center group-hover:scale-110 transition-transform">
+                  <img src={instaLogo} className="h-6 w-6" alt="Instagram" />
+                </div>
+                <span className="text-xs font-label-caps text-[#d2c5b1]">Instagram</span>
+              </button>
+              
+              {/* Twitter/X */}
+              <button
+                onClick={() => shareToSocial('twitter')}
+                className="flex flex-col items-center gap-2 p-3 rounded-xl hover:bg-[#4e4637]/30 transition-all group"
+              >
+                <div className="w-12 h-12 bg-[#1DA1F2]/10 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform">
+                  <span className="material-symbols-outlined text-[#1DA1F2] text-2xl">alternate_email</span>
+                </div>
+                <span className="text-xs font-label-caps text-[#d2c5b1]">Twitter</span>
+              </button>
+              
+              {/* Email */}
+              <button
+                onClick={() => shareToSocial('email')}
+                className="flex flex-col items-center gap-2 p-3 rounded-xl hover:bg-[#4e4637]/30 transition-all group"
+              >
+                <div className="w-12 h-12 bg-[#EA4335]/10 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform">
+                  <span className="material-symbols-outlined text-[#EA4335] text-2xl">mail</span>
+                </div>
+                <span className="text-xs font-label-caps text-[#d2c5b1]">Email</span>
+              </button>
+              
+              {/* Copy Link */}
+              <button
+                onClick={copyToClipboard}
+                className="flex flex-col items-center gap-2 p-3 rounded-xl hover:bg-[#4e4637]/30 transition-all group"
+              >
+                <div className="w-12 h-12 bg-[#f0bf5c]/10 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform">
+                  <span className="material-symbols-outlined text-[#f0bf5c] text-2xl">link</span>
+                </div>
+                <span className="text-xs font-label-caps text-[#d2c5b1]">Copy Link</span>
+              </button>
+            </div>
+          </div>
+          
+          {/* Cancel button for mobile */}
+          <div className="p-4 border-t border-[#4e4637] md:hidden">
+            <button
+              onClick={() => setShowShareModal(false)}
+              className="w-full py-3 bg-[#4e4637]/30 text-[#d2c5b1] rounded-xl font-label-caps"
+            >
+              Cancel
+            </button>
+          </div>
+        </div>
+      </div>
+    </>
+  )}
+
 </section>
 
         </main>
