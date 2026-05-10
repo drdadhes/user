@@ -4,15 +4,28 @@ export default function BackgroundMusic() {
   const videoRef = useRef(null);
   const [showModal, setShowModal] = useState(true);
 
+  // const startMusic = async () => {
+  //   try {
+  //     await videoRef.current.play();
+  //     console.log("Music playing");
+  //     setShowModal(false);
+  //   } catch (err) {
+  //     console.error(err);
+  //   }
+  // };
+
   const startMusic = async () => {
-    try {
+  try {
+    if (videoRef.current) {
+      videoRef.current.volume = 0.2;  // ← Set volume here
       await videoRef.current.play();
       console.log("Music playing");
       setShowModal(false);
-    } catch (err) {
-      console.error(err);
     }
-  };
+  } catch (err) {
+    console.error(err);
+  }
+};
 
   useEffect(() => {
     const video = videoRef.current;
