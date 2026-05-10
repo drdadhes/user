@@ -17,7 +17,7 @@ export default function BackgroundMusic() {
   const startMusic = async () => {
   try {
     if (videoRef.current) {
-      videoRef.current.volume = 0.2;  // ← Set volume here
+      videoRef.current.volume = 0.1;  // ← Set volume here
       await videoRef.current.play();
       console.log("Music playing");
       setShowModal(false);
