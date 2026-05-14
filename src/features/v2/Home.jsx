@@ -8,6 +8,7 @@ const youtubeLogo = "https://upload.wikimedia.org/wikipedia/commons/4/42/YouTube
 const qrCode = "https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://maps.google.com/?q=Dr.Dadhe's+Ayur+and+Nature+Cure,+Telangana";
 import venkat_anna from "../../assets/venkat_anna.png"
 import heroVideo from "../../assets/herobg.mp4"
+import SEO from "../../components/SEO";
 
 const VedaCinemaComplete = () => {
 
@@ -133,6 +134,12 @@ const copyToClipboard = async () => {
 
   return (
     <>
+<SEO
+  title="Dr Dadhe's Ayur & Nature Cure LLP | Ayurvedic Treatment & Holistic Healing"
+  description="Dr Dadhe's Ayur & Nature Cure LLP offers authentic Ayurvedic treatments, nature cure therapies, paralysis recovery care, chronic disease support, and holistic healing."
+  path="/"
+/>
+
       <style>{`
         /* ============ RESET & BASE ============ */
         body {

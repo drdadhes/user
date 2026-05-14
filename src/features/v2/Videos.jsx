@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import SEO from "../../components/SEO";
 
 const VedaVideos = () => {
   // YouTube Videos Data
@@ -112,6 +113,11 @@ const VedaVideos = () => {
 
   return (
     <>
+    <SEO
+  title="Ayurvedic Healing Videos | Dr Dadhe's Ayur & Nature Cure LLP"
+  description="Watch Ayurvedic healing stories, recovery videos, patient experiences, and educational wellness videos from Dr Dadhe's Ayur & Nature Cure LLP."
+  path="/videos"
+/>
       <style>{`
         body {
           background-color: #0B0B0A;
