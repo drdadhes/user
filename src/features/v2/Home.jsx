@@ -9,6 +9,7 @@ const qrCode = "https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=ht
 import venkat_anna from "../../assets/venkat_anna.png"
 import heroVideo from "../../assets/herobg.mp4"
 import SEO from "../../components/SEO";
+import SwarnaBinduSection from "./SwarnaBinduSection";
 
 const VedaCinemaComplete = () => {
 
@@ -477,6 +478,9 @@ const copyToClipboard = async () => {
     <span className="material-symbols-outlined animate-bounce">expand_more</span>
   </div>
 </section>
+
+          {/* MONTHLY PUSHYAMI NAKSHATRA PROGRAMME */}
+          <SwarnaBinduSection />
           
 
           {/* ============================================ */}

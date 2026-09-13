@@ -7,7 +7,9 @@ const Navbar = () => {
 
   const navLinks = [
     { name: 'Home', path: '/' },
-    { name: 'Videos', path: '/videos' }
+    { name: 'About', path: '/about' },
+    { name: 'Videos', path: '/videos' },
+    // { name: 'Book OP', path: '/book-appointment' }
   ];
 
   // Close menu when route changes
@@ -56,7 +58,7 @@ const Navbar = () => {
             className="text-lg sm:text-2xl font-light tracking-[0.2em] sm:tracking-[0.4em] text-[#f0bf5c] drop-shadow-[0_0_8px_rgba(240,191,92,0.4)] hover:drop-shadow-[0_0_15px_rgba(240,191,92,0.6)] transition-all duration-500"
             style={{ fontFamily: "'Noto Serif', serif" }}
           >
-            Dr. Dadhes Ayur & Nature Cure
+            Dr. Dadhe's Ayur & Nature Cure
           </Link>
 
           {/* Desktop Navigation Links */}
@@ -80,6 +82,9 @@ const Navbar = () => {
           <button 
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             className="md:hidden text-white/70 hover:text-[#f0bf5c] transition-colors"
+            aria-label={isMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
+            aria-expanded={isMenuOpen}
+            aria-controls="mobile-navigation"
           >
             <span className="material-symbols-outlined">
               {isMenuOpen ? 'close' : 'menu'}
@@ -89,7 +94,7 @@ const Navbar = () => {
 
         {/* Mobile Menu Dropdown */}
         {isMenuOpen && (
-          <div className="md:hidden mobile-menu bg-[#131312]/95 backdrop-blur-xl border-t border-white/5">
+          <div id="mobile-navigation" className="md:hidden mobile-menu bg-[#131312]/95 backdrop-blur-xl border-t border-white/5">
             <div className="flex flex-col px-8 py-6 space-y-4">
               {navLinks.map((link) => (
                 <Link
