@@ -1,0 +1,868 @@
+/*
+ * Shared celestial-luxury treatment for About, Events and Videos.
+ * Existing component styles continue to own layout and interaction; this
+ * layer aligns palette, surfaces, borders and atmosphere with the home page.
+ */
+
+:is(.about-page, .events-page, .videos-page) {
+  --celestial-night: #061510;
+  --celestial-night-soft: #0c2d22;
+  --celestial-emerald: #164333;
+  --celestial-ink: #142a22;
+  --celestial-muted: #586860;
+  --celestial-pearl: #fffdf8;
+  --celestial-ivory: #f6eedc;
+  --celestial-silver: #e6edef;
+  --celestial-silver-deep: #aab8be;
+  --celestial-gold: #d8b65f;
+  --celestial-gold-bright: #f3da91;
+  --celestial-gold-deep: #8b6015;
+  --celestial-stars:
+    radial-gradient(circle at 7% 18%, rgba(255, 255, 255, 0.86) 0 1px, transparent 2px),
+    radial-gradient(circle at 21% 76%, rgba(242, 216, 143, 0.72) 0 1.2px, transparent 2.3px),
+    radial-gradient(circle at 43% 23%, rgba(226, 237, 241, 0.82) 0 1px, transparent 2px),
+    radial-gradient(circle at 65% 84%, rgba(255, 246, 215, 0.78) 0 1.1px, transparent 2.2px),
+    radial-gradient(circle at 80% 12%, rgba(231, 238, 241, 0.82) 0 1px, transparent 2px),
+    radial-gradient(circle at 94% 57%, rgba(240, 206, 118, 0.72) 0 1.3px, transparent 2.4px);
+}
+
+:is(.about-page, .events-page, .videos-page) :is(button, a):focus-visible {
+  outline: 2px solid var(--celestial-gold-bright);
+  outline-offset: 4px;
+}
+
+/* -------------------------------------------------------------------------- */
+/* About                                                                       */
+/* -------------------------------------------------------------------------- */
+
+.about-page {
+  --about-gold: var(--celestial-gold);
+  --about-gold-bright: var(--celestial-gold-bright);
+  --about-sage: #c6d2cf;
+  --about-cream: var(--celestial-pearl);
+  --about-muted: #cbd4d0;
+  --about-line: rgba(226, 234, 237, 0.22);
+  background: var(--celestial-night);
+}
+
+.about-page .about-section,
+.about-page .about-cta,
+.about-page .about-hero {
+  isolation: isolate;
+}
+
+.about-page .about-section::after {
+  background: linear-gradient(90deg, transparent, rgba(217, 226, 229, 0.42), rgba(239, 202, 111, 0.85), rgba(217, 226, 229, 0.42), transparent);
+  bottom: 0;
+  content: "";
+  height: 1px;
+  left: 8%;
+  position: absolute;
+  right: 8%;
+}
+
+.about-page .about-kicker,
+.about-page .about-eyebrow {
+  color: var(--celestial-gold-deep);
+  font-weight: 750;
+  letter-spacing: 0.22em;
+}
+
+.about-hero {
+  background:
+    var(--celestial-stars),
+    radial-gradient(circle at 76% 42%, rgba(255, 255, 255, 0.92), transparent 27%),
+    radial-gradient(circle at 66% 4%, rgba(219, 229, 232, 0.72), transparent 29%),
+    radial-gradient(circle at 22% 55%, rgba(239, 208, 126, 0.22), transparent 33%),
+    linear-gradient(116deg, #fffefa, #f4ecd9 48%, #e1e9e9) !important;
+  border-bottom-color: rgba(171, 125, 36, 0.25);
+  box-shadow: inset 0 -48px 100px rgba(116, 82, 16, 0.07);
+}
+
+.about-hero::before {
+  border-color: rgba(165, 119, 28, 0.24);
+  box-shadow: 0 0 65px rgba(231, 198, 112, 0.16);
+}
+
+.about-hero__grain {
+  background-image:
+    linear-gradient(rgba(144, 102, 24, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(144, 102, 24, 0.045) 1px, transparent 1px);
+}
+
+.about-hero__aura {
+  background: radial-gradient(circle, rgba(239, 206, 118, 0.3), rgba(222, 232, 235, 0.14) 43%, transparent 70%);
+}
+
+.about-hero__title {
+  background: linear-gradient(112deg, #0d3025 5%, #194837 43%, #a6751d 75%, #24483a 100%);
+  background-clip: text;
+  color: transparent !important;
+  filter: drop-shadow(0 10px 24px rgba(75, 52, 12, 0.09));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.about-hero__title em {
+  background: linear-gradient(115deg, #8c6013, #d7b45d 48%, #72500e);
+  background-clip: text;
+  color: transparent;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.about-hero__lead {
+  color: #445b50;
+}
+
+.about-hero__principles,
+.about-scroll {
+  color: #596b62;
+}
+
+.about-button--gold {
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.34), transparent 35%),
+    linear-gradient(110deg, #a7751c, #f0d184 50%, #af791c);
+  border-color: rgba(255, 255, 255, 0.88);
+  box-shadow: 0 14px 36px rgba(102, 70, 14, 0.22), 0 0 0 1px rgba(145, 99, 16, 0.5);
+  color: #132c22;
+}
+
+.about-hero .about-button--quiet,
+.about-cta .about-button--quiet {
+  border-color: rgba(139, 96, 21, 0.42);
+  color: var(--celestial-ink);
+}
+
+.about-hero__portrait-frame,
+.about-founder__visual > img {
+  border-color: rgba(229, 235, 237, 0.94);
+  box-shadow:
+    0 38px 90px rgba(67, 47, 13, 0.22),
+    0 0 0 1px rgba(155, 108, 22, 0.62),
+    0 0 0 10px rgba(255, 253, 247, 0.52),
+    0 0 42px rgba(231, 198, 112, 0.2);
+}
+
+.about-hero__portrait-frame::before {
+  border-color: rgba(255, 247, 218, 0.82);
+  box-shadow: inset 0 0 0 1px rgba(183, 137, 39, 0.25);
+}
+
+.about-hero__founder-card {
+  background:
+    linear-gradient(145deg, rgba(255, 253, 247, 0.97), rgba(226, 234, 235, 0.94)) padding-box,
+    linear-gradient(135deg, #edcf82, #e6edef 50%, #9a6915) border-box;
+  border: 1px solid transparent;
+  box-shadow: 0 18px 48px rgba(62, 43, 12, 0.2);
+  color: var(--celestial-ink);
+}
+
+.about-hero__promise {
+  background: rgba(9, 39, 29, 0.92);
+  border-color: rgba(234, 207, 137, 0.55);
+  box-shadow: 0 18px 46px rgba(21, 49, 37, 0.22);
+  color: var(--celestial-pearl);
+}
+
+.about-purpose,
+.about-care,
+.about-longevity,
+.about-proof {
+  background:
+    var(--celestial-stars),
+    radial-gradient(circle at 15% 15%, rgba(224, 234, 237, 0.12), transparent 25%),
+    radial-gradient(circle at 86% 76%, rgba(219, 174, 67, 0.16), transparent 29%),
+    linear-gradient(145deg, #05130f, #0d3025 54%, #071a15) !important;
+  box-shadow: inset 0 0 120px rgba(0, 0, 0, 0.22);
+}
+
+.about-purpose h2,
+.about-care h2,
+.about-longevity h2,
+.about-proof h2 {
+  color: var(--celestial-pearl);
+  text-shadow: 0 4px 28px rgba(0, 0, 0, 0.4);
+}
+
+.about-hope,
+.about-founder,
+.about-service,
+.about-cta {
+  background:
+    var(--celestial-stars),
+    radial-gradient(circle at 12% 16%, rgba(255, 255, 255, 0.98), transparent 25%),
+    radial-gradient(circle at 88% 76%, rgba(210, 222, 225, 0.54), transparent 30%),
+    linear-gradient(145deg, #fffdf8, #f3ead6 54%, #e6edef) !important;
+  box-shadow: inset 0 0 120px rgba(187, 145, 57, 0.07);
+}
+
+.about-hope h2,
+.about-founder h2,
+.about-service h2,
+.about-cta h2 {
+  color: var(--celestial-ink);
+  text-shadow: 0 8px 30px rgba(132, 92, 18, 0.08);
+}
+
+.about-hope__glow {
+  background: radial-gradient(circle, rgba(223, 187, 93, 0.21), rgba(219, 230, 233, 0.12) 44%, transparent 68%);
+}
+
+.about-hope__story,
+.about-service__grid article {
+  background:
+    linear-gradient(145deg, rgba(255, 254, 249, 0.97), rgba(230, 237, 238, 0.9)) padding-box,
+    linear-gradient(135deg, #e6c777, #e8eff1 48%, #9d6b16) border-box;
+  border: 1px solid transparent;
+  box-shadow: 0 22px 58px rgba(72, 51, 17, 0.1);
+}
+
+.about-hope__story p,
+.about-hope__story p:first-child,
+.about-hope__path p,
+.about-founder__content > p,
+.about-founder__content .about-founder__lead,
+.about-service__grid p,
+.about-cta__inner > p:not(.about-kicker) {
+  color: var(--celestial-muted);
+}
+
+.about-hope__story p:first-child,
+.about-founder__content .about-founder__lead {
+  color: var(--celestial-ink);
+}
+
+.about-hope__path article {
+  background: rgba(255, 253, 247, 0.58);
+  border-color: rgba(145, 100, 17, 0.2);
+}
+
+.about-hope__path h3,
+.about-service__grid h3,
+.about-founder__signature strong {
+  color: var(--celestial-ink);
+}
+
+.about-care-card {
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.055), rgba(218, 227, 230, 0.018));
+  border-color: rgba(225, 233, 235, 0.19);
+}
+
+.about-care-card:hover {
+  background: linear-gradient(145deg, rgba(223, 190, 103, 0.13), rgba(224, 233, 236, 0.05));
+}
+
+.about-founder__visual::before {
+  border-color: rgba(174, 126, 31, 0.34);
+}
+
+.about-founder__seal {
+  background:
+    linear-gradient(145deg, rgba(255, 253, 247, 0.97), rgba(225, 233, 235, 0.94)) padding-box,
+    linear-gradient(135deg, #e8cc82, #e4ecef, #966514) border-box;
+  border: 1px solid transparent;
+  box-shadow: 0 18px 48px rgba(68, 48, 15, 0.18);
+}
+
+.about-founder__content blockquote {
+  color: var(--celestial-gold-deep);
+}
+
+.about-founder__signature small {
+  color: #68776f;
+}
+
+.about-longevity__rings {
+  border-color: rgba(225, 234, 236, 0.2);
+  box-shadow: 0 0 70px rgba(222, 189, 103, 0.1);
+}
+
+.about-service__grid article > div,
+.about-proof__symbol {
+  background: linear-gradient(145deg, rgba(241, 210, 131, 0.18), rgba(226, 235, 238, 0.46));
+  border-color: rgba(224, 231, 234, 0.42);
+  color: var(--celestial-gold-deep);
+}
+
+.about-proof__actions .about-button--gold {
+  box-shadow: 0 16px 38px rgba(0, 0, 0, 0.24);
+}
+
+.about-cta::before,
+.about-cta::after {
+  border-color: rgba(152, 106, 22, 0.18);
+  box-shadow: 0 0 55px rgba(229, 197, 112, 0.12);
+}
+
+/* -------------------------------------------------------------------------- */
+/* Events                                                                      */
+/* -------------------------------------------------------------------------- */
+
+.events-page {
+  --events-gold: var(--celestial-gold);
+  --events-gold-light: var(--celestial-gold-bright);
+  --events-ivory: var(--celestial-pearl);
+  --events-muted: #cbd4d0;
+  background: var(--celestial-night);
+}
+
+.events-page > :is(header, section) {
+  isolation: isolate;
+}
+
+.events-hero {
+  background:
+    var(--celestial-stars),
+    radial-gradient(circle at 78% 26%, rgba(255, 255, 255, 0.92), transparent 24%),
+    radial-gradient(circle at 16% 76%, rgba(239, 208, 125, 0.22), transparent 31%),
+    linear-gradient(118deg, #fffefa, #f3ead7 50%, #e2eaeb) !important;
+  border-bottom-color: rgba(157, 110, 21, 0.28);
+  box-shadow: inset 0 -44px 95px rgba(113, 79, 15, 0.07);
+}
+
+.events-hero__orbit {
+  border-color: rgba(155, 108, 21, 0.24);
+  box-shadow: 0 0 60px rgba(226, 192, 103, 0.13);
+}
+
+.events-hero__orbit--moon {
+  border-color: rgba(154, 170, 177, 0.36);
+}
+
+.events-hero .events-eyebrow {
+  color: var(--celestial-gold-deep);
+}
+
+.events-hero h1 {
+  background: linear-gradient(112deg, #0c2e23 5%, #1b4a39 43%, #a6751d 76%, #264c3d 100%);
+  background-clip: text;
+  color: transparent;
+  filter: drop-shadow(0 10px 25px rgba(67, 47, 12, 0.08));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.events-hero__copy p {
+  border-color: rgba(145, 100, 17, 0.34);
+  color: #475d52;
+}
+
+.events-list,
+.swarna-programme-section,
+.swarna-offer-section,
+.events-closing {
+  background:
+    var(--celestial-stars),
+    radial-gradient(circle at 14% 15%, rgba(224, 234, 237, 0.12), transparent 25%),
+    radial-gradient(circle at 87% 76%, rgba(219, 174, 67, 0.16), transparent 29%),
+    linear-gradient(145deg, #05130f, #0d3025 54%, #071a15) !important;
+  box-shadow: inset 0 0 120px rgba(0, 0, 0, 0.22);
+}
+
+.swarna-story,
+.swarna-benefits-section,
+.drops-offering {
+  background:
+    var(--celestial-stars),
+    radial-gradient(circle at 12% 16%, rgba(255, 255, 255, 0.98), transparent 25%),
+    radial-gradient(circle at 88% 76%, rgba(210, 222, 225, 0.54), transparent 30%),
+    linear-gradient(145deg, #fffdf8, #f3ead6 54%, #e6edef) !important;
+  border-color: rgba(153, 106, 21, 0.24);
+  box-shadow: inset 0 0 120px rgba(187, 145, 57, 0.07);
+}
+
+.events-list__heading h2,
+.swarna-programme-section h2,
+.swarna-offer-section h2,
+.events-closing h2 {
+  color: var(--celestial-pearl);
+  text-shadow: 0 4px 28px rgba(0, 0, 0, 0.42);
+}
+
+.swarna-story h2,
+.swarna-benefits-section h2,
+.drops-offering h2 {
+  color: var(--celestial-ink);
+  text-shadow: 0 8px 30px rgba(126, 87, 16, 0.08);
+}
+
+.event-detail {
+  background:
+    linear-gradient(145deg, rgba(255, 253, 247, 0.98), rgba(228, 236, 237, 0.94)) padding-box,
+    linear-gradient(135deg, #ebce80, #e8eff1 48%, #9d6b16) border-box;
+  border: 1px solid transparent;
+  box-shadow: 0 28px 78px rgba(0, 0, 0, 0.3), 0 0 35px rgba(224, 189, 98, 0.1);
+}
+
+.event-detail__content {
+  color: var(--celestial-ink);
+}
+
+.event-detail h2,
+.event-detail__audience strong {
+  color: var(--celestial-ink);
+  text-shadow: none;
+}
+
+.event-detail__eyebrow,
+.event-detail__schedule {
+  color: var(--celestial-gold-deep);
+}
+
+.event-detail__summary,
+.event-detail__description,
+.event-detail__highlights p,
+.event-detail__audience small,
+.event-detail__offering p {
+  color: var(--celestial-muted);
+}
+
+.event-detail__audience {
+  border-color: rgba(145, 100, 17, 0.2);
+}
+
+.event-detail__offering {
+  background: linear-gradient(125deg, rgba(222, 184, 88, 0.16), rgba(224, 233, 235, 0.58));
+  border-color: rgba(151, 106, 21, 0.28);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.78);
+}
+
+.event-detail__offering h3 {
+  color: var(--celestial-gold-deep);
+}
+
+.event-detail__media-shade,
+.event-detail--reverse .event-detail__media-shade {
+  background: linear-gradient(to top, rgba(7, 27, 20, 0.68), transparent 48%);
+}
+
+.swarna-story__heading > p:last-child,
+.swarna-history__item p {
+  color: var(--celestial-muted);
+}
+
+.swarna-history__item {
+  background: rgba(255, 253, 247, 0.58);
+  border-color: rgba(145, 100, 17, 0.2);
+}
+
+.swarna-history__item h3 {
+  color: var(--celestial-ink);
+}
+
+.swarna-story__quote {
+  color: var(--celestial-gold-deep);
+}
+
+.swarna-programme {
+  background:
+    linear-gradient(145deg, rgba(10, 43, 32, 0.96), rgba(4, 20, 15, 0.97)) padding-box,
+    linear-gradient(135deg, #e5edef, #eaca77 48%, #89989e) border-box;
+  border: 1px solid transparent;
+  box-shadow: 0 30px 90px rgba(0, 0, 0, 0.34), 0 0 38px rgba(224, 190, 100, 0.1);
+}
+
+.swarna-benefits-section .swarna-programme {
+  background:
+    linear-gradient(145deg, rgba(255, 253, 247, 0.97), rgba(228, 236, 237, 0.92)) padding-box,
+    linear-gradient(135deg, #e9ca79, #e6edef 48%, #986715) border-box;
+}
+
+.swarna-benefits-section .swarna-benefits {
+  border-color: rgba(145, 100, 17, 0.22);
+}
+
+.swarna-benefits-section .swarna-benefits article {
+  border-color: rgba(145, 100, 17, 0.17);
+}
+
+.swarna-benefits-section .swarna-benefits h3 {
+  color: var(--celestial-ink);
+}
+
+.swarna-benefits-section .swarna-benefits p {
+  color: var(--celestial-muted);
+}
+
+.swarna-offer {
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.28), transparent 35%),
+    linear-gradient(115deg, #a87318, #f2d98f 50%, #ae771a);
+}
+
+.drops-offering__icon {
+  background: linear-gradient(145deg, #fffdf7, #e0e9eb);
+  border-color: rgba(171, 126, 37, 0.5);
+  box-shadow: 0 16px 42px rgba(78, 55, 15, 0.12);
+  color: var(--celestial-gold-deep);
+}
+
+.drops-offering__intro > p:not(.events-eyebrow),
+.drops-offering__benefits p {
+  color: var(--celestial-muted);
+}
+
+.drops-offering__eligibility {
+  color: var(--celestial-gold-deep);
+}
+
+.drops-offering__benefits {
+  border-color: rgba(145, 100, 17, 0.24);
+}
+
+.drops-offering__benefits article {
+  background: rgba(255, 253, 247, 0.54);
+  border-color: rgba(145, 100, 17, 0.2);
+  padding-inline: 22px;
+}
+
+.events-closing__actions a:first-child {
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.3), transparent 35%),
+    linear-gradient(115deg, #a87318, #f2d98f 50%, #ad7619);
+  border-color: rgba(255, 255, 255, 0.7);
+}
+
+/* -------------------------------------------------------------------------- */
+/* Videos                                                                      */
+/* -------------------------------------------------------------------------- */
+
+.videos-page {
+  background:
+    var(--celestial-stars),
+    radial-gradient(circle at 14% 16%, rgba(224, 234, 237, 0.12), transparent 25%),
+    radial-gradient(circle at 87% 76%, rgba(219, 174, 67, 0.16), transparent 29%),
+    linear-gradient(145deg, #05130f, #0d3025 54%, #071a15) !important;
+  color: var(--celestial-pearl) !important;
+  position: relative;
+}
+
+.videos-page > main {
+  background: transparent;
+  min-height: 100vh;
+}
+
+.videos-page > main > div.fixed {
+  opacity: 0.72;
+}
+
+.videos-page > main > section:first-of-type {
+  background:
+    var(--celestial-stars),
+    radial-gradient(circle at 72% 32%, rgba(255, 255, 255, 0.92), transparent 24%),
+    radial-gradient(circle at 18% 72%, rgba(239, 208, 125, 0.22), transparent 31%),
+    linear-gradient(118deg, #fffefa, #f3ead7 50%, #e2eaeb);
+  border-bottom: 1px solid rgba(151, 105, 20, 0.24);
+  justify-content: center;
+  margin-bottom: 0 !important;
+  min-height: 58svh;
+  overflow: hidden;
+  padding-bottom: 5rem;
+  padding-top: 9rem;
+}
+
+.videos-page > main > section:first-of-type::before,
+.videos-page > main > section:first-of-type::after {
+  border: 1px solid rgba(158, 112, 25, 0.2);
+  border-radius: 50%;
+  content: "";
+  height: 440px;
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 440px;
+}
+
+.videos-page > main > section:first-of-type::after {
+  border-color: rgba(157, 173, 180, 0.28);
+  height: 640px;
+  width: 640px;
+}
+
+.videos-page .sacred-glow {
+  background: radial-gradient(circle, rgba(231, 195, 103, 0.27), rgba(219, 229, 232, 0.14) 48%, transparent 72%);
+}
+
+.videos-page .font-display-hero {
+  background: linear-gradient(112deg, #0c2e23 5%, #1b4a39 42%, #a6751d 75%, #264c3d 100%);
+  background-clip: text;
+  color: transparent !important;
+  filter: drop-shadow(0 10px 25px rgba(67, 47, 12, 0.08));
+  font-size: clamp(3.5rem, 7vw, 7rem);
+  position: relative;
+  z-index: 2;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.videos-page .font-display-hero span {
+  color: inherit !important;
+}
+
+.videos-page > main > section:nth-of-type(2) {
+  background: rgba(4, 18, 13, 0.82);
+  border-bottom: 1px solid rgba(226, 234, 237, 0.16);
+  margin-bottom: 0 !important;
+  padding-bottom: 2.8rem;
+  padding-top: 2.8rem;
+}
+
+.videos-page > main > section:nth-of-type(3) {
+  margin-bottom: 0 !important;
+  padding-bottom: clamp(6rem, 10vw, 10rem);
+  padding-top: clamp(4.5rem, 8vw, 8rem);
+}
+
+.videos-page > main > section:nth-of-type(2) button {
+  border-radius: 0.15rem;
+  letter-spacing: 0.16em;
+}
+
+.videos-page > main > section:nth-of-type(2) button.bg-\[\#f0bf5c\] {
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.28), transparent 35%),
+    linear-gradient(115deg, #a87318, #f2d98f 50%, #ad7619) !important;
+  border: 1px solid rgba(255, 255, 255, 0.62);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.24);
+  color: var(--celestial-ink) !important;
+}
+
+.videos-page > main > section:nth-of-type(2) button:not(.bg-\[\#f0bf5c\]) {
+  background: rgba(226, 235, 238, 0.06) !important;
+  border-color: rgba(226, 234, 237, 0.26) !important;
+  color: var(--celestial-pearl) !important;
+}
+
+.videos-page .glass-card.divine-border {
+  background:
+    linear-gradient(145deg, rgba(255, 253, 247, 0.98), rgba(228, 236, 237, 0.94)) padding-box,
+    linear-gradient(135deg, #ebce80, #e8eff1 48%, #9d6b16) border-box !important;
+  border: 1px solid transparent !important;
+  border-radius: 0.15rem !important;
+  box-shadow: 0 24px 65px rgba(0, 0, 0, 0.3), 0 0 30px rgba(223, 188, 98, 0.08);
+}
+
+.videos-page .glass-card.divine-border:hover {
+  box-shadow: 0 32px 80px rgba(0, 0, 0, 0.37), 0 0 38px rgba(229, 199, 121, 0.2);
+}
+
+.videos-page .glass-card.divine-border > div:first-child {
+  border: 9px solid rgba(255, 253, 247, 0.94);
+  border-bottom: 0;
+}
+
+.videos-page .glass-card.divine-border img {
+  filter: saturate(0.88) contrast(1.04);
+  opacity: 0.88 !important;
+}
+
+.videos-page .glass-card.divine-border h3 {
+  color: var(--celestial-ink) !important;
+  font-size: clamp(1.4rem, 2.2vw, 2rem);
+}
+
+.videos-page .glass-card.divine-border p {
+  color: var(--celestial-muted) !important;
+  opacity: 1 !important;
+}
+
+.videos-page .glass-card.divine-border .material-symbols-outlined {
+  color: var(--celestial-gold-bright) !important;
+}
+
+.videos-page .glass-card.divine-border [class*="bg-[#374e43]"] {
+  background: rgba(7, 39, 28, 0.9) !important;
+  color: var(--celestial-pearl) !important;
+}
+
+.videos-page > main > div.flex.justify-center button {
+  background: linear-gradient(120deg, rgba(226, 235, 238, 0.06), rgba(218, 178, 79, 0.08));
+  border-color: rgba(232, 205, 135, 0.52) !important;
+  color: var(--celestial-gold-bright) !important;
+}
+
+.videos-page .modal-content {
+  background:
+    linear-gradient(145deg, rgba(8, 35, 26, 0.98), rgba(3, 16, 12, 0.99)) padding-box,
+    linear-gradient(135deg, #e5edef, #eaca77 48%, #89989e) border-box !important;
+  border: 1px solid transparent !important;
+  box-shadow: 0 34px 100px rgba(0, 0, 0, 0.56), 0 0 42px rgba(225, 191, 102, 0.17) !important;
+}
+
+@media (max-width: 760px) {
+  :is(.about-page, .events-page, .videos-page) {
+    --celestial-stars:
+      radial-gradient(circle at 12% 14%, rgba(255, 255, 255, 0.72) 0 1px, transparent 2px),
+      radial-gradient(circle at 82% 34%, rgba(241, 211, 132, 0.62) 0 1px, transparent 2px),
+      radial-gradient(circle at 52% 86%, rgba(225, 235, 238, 0.7) 0 1px, transparent 2px);
+  }
+
+  .about-hero__portrait-frame,
+  .about-founder__visual > img {
+    box-shadow:
+      0 24px 58px rgba(67, 47, 13, 0.19),
+      0 0 0 1px rgba(155, 108, 22, 0.54),
+      0 0 0 5px rgba(255, 253, 247, 0.48);
+  }
+
+  .event-detail {
+    box-shadow: 0 22px 58px rgba(0, 0, 0, 0.27), 0 0 24px rgba(224, 189, 98, 0.08);
+  }
+
+  .videos-page > main > section:first-of-type {
+    min-height: 52svh;
+    padding-bottom: 4rem;
+    padding-top: 8rem;
+  }
+
+  .videos-page > main > section:first-of-type::before {
+    height: 310px;
+    width: 310px;
+  }
+
+  .videos-page > main > section:first-of-type::after {
+    height: 440px;
+    width: 440px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .videos-page .glass-card.divine-border {
+    transition: none !important;
+  }
+}
+
+/* Theme specificity locks: page styles may be bundled after this shared file. */
+.about-page .about-hero__lead {
+  color: #445b50;
+}
+
+.about-page .about-hero__founder-card {
+  background:
+    linear-gradient(145deg, rgba(255, 253, 247, 0.97), rgba(226, 234, 235, 0.94)) padding-box,
+    linear-gradient(135deg, #edcf82, #e6edef 50%, #9a6915) border-box;
+  border: 1px solid transparent;
+  color: var(--celestial-ink);
+}
+
+.about-page .about-hero__founder-card strong {
+  color: var(--celestial-ink);
+}
+
+.about-page :is(.about-hope, .about-founder, .about-service, .about-cta) h2 {
+  color: var(--celestial-ink);
+  text-shadow: 0 8px 30px rgba(132, 92, 18, 0.08);
+}
+
+.about-page .about-hope__story,
+.about-page .about-service__grid article {
+  background:
+    linear-gradient(145deg, rgba(255, 254, 249, 0.97), rgba(230, 237, 238, 0.9)) padding-box,
+    linear-gradient(135deg, #e6c777, #e8eff1 48%, #9d6b16) border-box;
+  border: 1px solid transparent;
+  box-shadow: 0 22px 58px rgba(72, 51, 17, 0.1);
+}
+
+.about-page .about-hope__story p,
+.about-page .about-hope__path p,
+.about-page .about-founder__content > p,
+.about-page .about-service__grid p,
+.about-page .about-cta__inner > p:not(.about-kicker) {
+  color: var(--celestial-muted);
+}
+
+.about-page .about-hope__story p:first-child,
+.about-page .about-founder__content .about-founder__lead {
+  color: var(--celestial-ink);
+}
+
+.about-page .about-hope__path article {
+  background: rgba(255, 253, 247, 0.58);
+  border-color: rgba(145, 100, 17, 0.2);
+}
+
+.about-page :is(.about-hope__path, .about-service__grid) h3,
+.about-page .about-founder__signature strong {
+  color: var(--celestial-ink);
+}
+
+.about-page .about-founder__seal {
+  background:
+    linear-gradient(145deg, rgba(255, 253, 247, 0.97), rgba(225, 233, 235, 0.94)) padding-box,
+    linear-gradient(135deg, #e8cc82, #e4ecef, #966514) border-box;
+  border: 1px solid transparent;
+}
+
+.about-page .about-founder__content blockquote {
+  color: var(--celestial-gold-deep);
+}
+
+.events-page .event-detail {
+  background:
+    linear-gradient(145deg, rgba(255, 253, 247, 0.98), rgba(228, 236, 237, 0.94)) padding-box,
+    linear-gradient(135deg, #ebce80, #e8eff1 48%, #9d6b16) border-box;
+  border: 1px solid transparent;
+}
+
+.events-page .event-detail :is(h2, .event-detail__audience strong) {
+  color: var(--celestial-ink);
+  text-shadow: none;
+}
+
+.events-page .event-detail :is(.event-detail__summary, .event-detail__description, .event-detail__highlights p, .event-detail__audience small, .event-detail__offering p) {
+  color: var(--celestial-muted);
+}
+
+.events-page .event-detail__offering {
+  background: linear-gradient(125deg, rgba(222, 184, 88, 0.16), rgba(224, 233, 235, 0.58));
+  border-color: rgba(151, 106, 21, 0.28);
+}
+
+.events-page .event-detail__offering h3 {
+  color: var(--celestial-gold-deep);
+}
+
+.events-page :is(.swarna-story, .swarna-benefits-section, .drops-offering) h2 {
+  color: var(--celestial-ink);
+  text-shadow: 0 8px 30px rgba(126, 87, 16, 0.08);
+}
+
+.events-page .swarna-story .swarna-history__item {
+  background: rgba(255, 253, 247, 0.58);
+  border-color: rgba(145, 100, 17, 0.2);
+}
+
+.events-page .swarna-story .swarna-history__item h3 {
+  color: var(--celestial-ink);
+}
+
+.events-page .swarna-story :is(.swarna-history__item p, .swarna-story__heading > p:last-child) {
+  color: var(--celestial-muted);
+}
+
+.events-page .swarna-benefits-section .swarna-programme {
+  background:
+    linear-gradient(145deg, rgba(255, 253, 247, 0.97), rgba(228, 236, 237, 0.92)) padding-box,
+    linear-gradient(135deg, #e9ca79, #e6edef 48%, #986715) border-box;
+}
+
+.events-page .swarna-benefits-section .swarna-benefits h3 {
+  color: var(--celestial-ink);
+}
+
+.events-page .swarna-benefits-section .swarna-benefits p,
+.events-page .drops-offering__intro > p:not(.events-eyebrow),
+.events-page .drops-offering__benefits p {
+  color: var(--celestial-muted);
+}
+
+.events-page .events-hero__copy p {
+  color: #475d52 !important;
+}
+
+.events-page .drops-offering__eligibility {
+  color: var(--celestial-gold-deep) !important;
+}

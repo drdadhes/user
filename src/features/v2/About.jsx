@@ -14,6 +14,7 @@ import SEO from "../../components/SEO";
 import founderPortrait from "../../assets/venkat_anna.png";
 import brandMark from "../../assets/logo.png";
 import "./About.css";
+import "./CelestialPages.css";
 
 const careAreas = [
   { name: "Paralysis", detail: "Movement, daily function and rehabilitation support" },

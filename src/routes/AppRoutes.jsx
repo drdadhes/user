@@ -5,6 +5,7 @@ import { Routes, Route } from "react-router-dom";
 import Home from "../features/v2/Home"
 import Videos from  "../features/v2/Videos"
 import About from "../features/v2/About"
+import Events from "../features/v2/Events"
 import AdminVideos from "../features/admin/ManageVideos";
 import ScrollToTop from "../components/ScrollToTop"; 
 
@@ -18,6 +19,7 @@ const bookingElement = (
 const userRoutes = [
   { path: "", element: <Home/> },
   { path: "about", element: <About /> },
+  { path: "events", element: <Events /> },
   { path: "videos", element: <Videos /> },
   // { path: "book-appointment", element: bookingElement },
 ];

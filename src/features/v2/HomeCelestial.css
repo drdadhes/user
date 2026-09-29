@@ -1,0 +1,555 @@
+/*
+ * Celestial luxury art direction for the home page.
+ * This layer intentionally contains visual overrides only: no content or
+ * interaction rules live here, so the existing page behavior stays intact.
+ */
+
+.home-page {
+  --celestial-night: #071712;
+  --celestial-night-soft: #0d2d23;
+  --celestial-emerald: #164333;
+  --celestial-ink: #142a22;
+  --celestial-muted: #586860;
+  --celestial-pearl: #fffdf8;
+  --celestial-ivory: #f7f0df;
+  --celestial-silver: #e7edf0;
+  --celestial-silver-deep: #abb8be;
+  --celestial-gold: #d7b55f;
+  --celestial-gold-bright: #f3d98d;
+  --celestial-gold-deep: #8c6115;
+  --celestial-stars:
+    radial-gradient(circle at 8% 17%, rgba(255, 255, 255, 0.86) 0 1px, transparent 2px),
+    radial-gradient(circle at 22% 74%, rgba(242, 216, 143, 0.72) 0 1.2px, transparent 2.3px),
+    radial-gradient(circle at 42% 24%, rgba(226, 237, 241, 0.82) 0 1px, transparent 2px),
+    radial-gradient(circle at 64% 82%, rgba(255, 246, 215, 0.78) 0 1.1px, transparent 2.2px),
+    radial-gradient(circle at 79% 13%, rgba(231, 238, 241, 0.82) 0 1px, transparent 2px),
+    radial-gradient(circle at 93% 58%, rgba(240, 206, 118, 0.72) 0 1.3px, transparent 2.4px);
+  background: var(--celestial-night);
+}
+
+.home-page main {
+  background: var(--celestial-night);
+}
+
+.home-page main > section {
+  isolation: isolate;
+}
+
+.home-page main > section:not(.home-hero):not(.events-preview)::after {
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(201, 211, 216, 0.42) 20%,
+    rgba(243, 211, 129, 0.88) 50%,
+    rgba(201, 211, 216, 0.42) 80%,
+    transparent
+  );
+  box-shadow: 0 0 18px rgba(223, 190, 104, 0.2);
+  height: 1px;
+}
+
+.home-page .font-label-caps {
+  color: var(--celestial-gold-deep) !important;
+  font-weight: 750;
+  letter-spacing: 0.28em;
+}
+
+.home-page main > section:not(.home-hero) h2 {
+  text-wrap: balance;
+}
+
+.home-page main > section:not(.home-hero):not(.events-preview):not(.home-stats):not(.home-founder):not(.home-chapters):not(.home-therapies):not(.home-timeline):not(.home-stories):not(.home-quote):not(.home-contact) h2 {
+  color: var(--celestial-ink) !important;
+  text-shadow: 0 8px 30px rgba(135, 98, 28, 0.1);
+}
+
+/* Hero: celestial portal, pearl light and metallic detailing. */
+.home-hero {
+  background:
+    var(--celestial-stars),
+    radial-gradient(circle at 77% 40%, rgba(255, 255, 255, 0.84), transparent 25%),
+    radial-gradient(circle at 66% 8%, rgba(231, 237, 241, 0.74), transparent 27%),
+    radial-gradient(circle at 30% 48%, rgba(246, 216, 136, 0.24), transparent 33%),
+    linear-gradient(116deg, #fffefa 0%, #f5edda 46%, #dfe7e7 100%) !important;
+  box-shadow: inset 0 -44px 90px rgba(111, 80, 18, 0.08);
+}
+
+.home-hero::before {
+  background-image:
+    linear-gradient(rgba(151, 111, 31, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(151, 111, 31, 0.08) 1px, transparent 1px),
+    radial-gradient(circle at 23% 42%, transparent 0 24%, rgba(197, 167, 96, 0.12) 24.2% 24.4%, transparent 24.6%);
+  background-size: 74px 74px, 74px 74px, 620px 620px;
+  mask-image: linear-gradient(to right, black, rgba(0, 0, 0, 0.52) 46%, transparent 76%);
+  opacity: 0.42;
+}
+
+.home-hero__wash {
+  background:
+    linear-gradient(90deg, rgba(255, 253, 247, 0.97) 0%, rgba(250, 244, 230, 0.82) 43%, transparent 72%),
+    radial-gradient(circle at 76% 45%, rgba(218, 228, 232, 0.38), transparent 36%);
+}
+
+.home-hero__geometry,
+.home-hero__geometry::before,
+.home-hero__geometry::after {
+  border-color: rgba(168, 121, 29, 0.24);
+  box-shadow: 0 0 38px rgba(255, 233, 171, 0.14);
+}
+
+.home-hero__ornament::before,
+.home-hero__ornament::after {
+  background: linear-gradient(90deg, transparent, var(--celestial-silver-deep), var(--celestial-gold), transparent);
+}
+
+.home-hero__ornament span {
+  background: linear-gradient(135deg, #fff, var(--celestial-gold-bright));
+  border-color: var(--celestial-gold-deep);
+  box-shadow: 0 0 18px rgba(213, 177, 85, 0.45);
+}
+
+.home-hero h1 {
+  background: linear-gradient(112deg, #0d3025 5%, #194837 42%, #a7771e 72%, #23463a 100%);
+  background-clip: text;
+  color: transparent !important;
+  filter: drop-shadow(0 10px 24px rgba(72, 51, 15, 0.1));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.home-hero__copy > p {
+  color: #40564c !important;
+}
+
+.home-page .home-hero__button {
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.32), transparent 35%),
+    linear-gradient(110deg, #a7761d, #f0d184 48%, #b27e1f) !important;
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  box-shadow:
+    0 15px 38px rgba(107, 75, 17, 0.22),
+    0 0 0 1px rgba(150, 102, 17, 0.56),
+    inset 0 1px 0 rgba(255, 255, 255, 0.8);
+  color: #173127 !important;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+}
+
+.home-page .home-hero__button:hover,
+.home-page .home-hero__button:focus-visible {
+  box-shadow:
+    0 20px 50px rgba(107, 75, 17, 0.3),
+    0 0 28px rgba(239, 211, 136, 0.46),
+    0 0 0 1px rgba(150, 102, 17, 0.68);
+}
+
+.home-hero__visual {
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.92), rgba(220, 226, 228, 0.52));
+  border-color: rgba(225, 231, 234, 0.96);
+  box-shadow:
+    0 42px 95px rgba(62, 45, 16, 0.24),
+    0 0 75px rgba(238, 206, 119, 0.28),
+    0 0 0 1px rgba(153, 108, 24, 0.64),
+    0 0 0 11px rgba(251, 248, 237, 0.72),
+    0 0 0 12px rgba(181, 190, 195, 0.72),
+    0 0 0 15px rgba(218, 181, 91, 0.28);
+}
+
+.home-hero__visual-frame {
+  border-color: rgba(255, 255, 255, 0.94);
+  box-shadow:
+    inset 0 0 0 1px rgba(195, 146, 43, 0.62),
+    inset 0 0 42px rgba(255, 230, 159, 0.18),
+    0 0 24px rgba(218, 226, 229, 0.3);
+}
+
+.home-hero__halo {
+  border-color: rgba(242, 216, 145, 0.7);
+  box-shadow:
+    0 0 75px rgba(255, 220, 129, 0.3),
+    inset 0 0 54px rgba(225, 234, 238, 0.2);
+}
+
+.home-hero__scroll {
+  color: #5f745f;
+}
+
+/* Events: a midnight celestial gallery with metallic-edged cards. */
+.home-page .events-preview {
+  --event-gold: #e0bd66;
+  --event-gold-light: #f5dda0;
+  --event-ivory: #fffaf0;
+  --event-muted: #cbd2cf;
+  background:
+    var(--celestial-stars),
+    radial-gradient(circle at 50% -8%, rgba(226, 236, 239, 0.2), transparent 32%),
+    radial-gradient(circle at 92% 72%, rgba(199, 155, 55, 0.19), transparent 28%),
+    linear-gradient(145deg, #06140f, #0b2d22 52%, #071b16) !important;
+  border-block-color: rgba(225, 195, 119, 0.32);
+  box-shadow: inset 0 0 110px rgba(0, 0, 0, 0.24);
+}
+
+.home-page .events-preview__glow {
+  border-color: rgba(232, 238, 240, 0.18);
+  box-shadow: 0 0 90px rgba(222, 187, 98, 0.12);
+}
+
+.home-page .events-preview__glow::before,
+.home-page .events-preview__glow::after {
+  border-color: rgba(224, 191, 104, 0.16);
+}
+
+.home-page .events-preview__heading h2,
+.home-page .events-preview__heading > p,
+.home-page .events-preview__footer p {
+  color: var(--event-ivory) !important;
+}
+
+.home-page .events-preview__heading > p {
+  border-color: rgba(226, 234, 237, 0.4);
+  color: #c9d2ce !important;
+}
+
+.home-page .event-card {
+  background:
+    linear-gradient(150deg, rgba(255, 253, 246, 0.97), rgba(236, 240, 239, 0.92)) padding-box,
+    linear-gradient(135deg, #f2d98e, #e4edf0 47%, #a87517) border-box;
+  border: 1px solid transparent;
+  box-shadow:
+    0 24px 62px rgba(0, 0, 0, 0.28),
+    0 0 0 1px rgba(255, 255, 255, 0.08);
+}
+
+.home-page .event-card::after {
+  border: 1px solid rgba(255, 255, 255, 0.64);
+  content: "";
+  inset: 9px;
+  pointer-events: none;
+  position: absolute;
+  z-index: 3;
+}
+
+.home-page .event-card:hover {
+  border-color: transparent;
+  box-shadow:
+    0 31px 78px rgba(0, 0, 0, 0.34),
+    0 0 34px rgba(224, 190, 100, 0.2);
+}
+
+.home-page .event-card h3,
+.home-page .event-card__audience {
+  color: var(--celestial-ink) !important;
+}
+
+.home-page .event-card__summary {
+  color: var(--celestial-muted) !important;
+}
+
+.home-page .events-preview__footer {
+  border-color: rgba(224, 232, 235, 0.26);
+}
+
+.home-page .events-preview__footer a {
+  background: linear-gradient(120deg, #b17b1f, #f1d88f 52%, #ae781b);
+  box-shadow: 0 14px 38px rgba(0, 0, 0, 0.28);
+  color: #10291f;
+}
+
+/* Luminous pearl sections. */
+.home-page .home-care,
+.home-page .home-doshas,
+.home-page .home-ingredient-section,
+.home-page .home-discipline {
+  background:
+    var(--celestial-stars),
+    radial-gradient(circle at 11% 12%, rgba(255, 255, 255, 0.98), transparent 25%),
+    radial-gradient(circle at 88% 74%, rgba(210, 221, 225, 0.5), transparent 30%),
+    linear-gradient(145deg, #fffdf8, #f3ead6 54%, #e7edef) !important;
+  box-shadow: inset 0 0 120px rgba(187, 145, 57, 0.07);
+}
+
+.home-care > .grid > .group,
+.home-ingredient-section .grid > .group,
+.home-discipline .grid.grid-cols-2 > div {
+  background:
+    linear-gradient(150deg, rgba(255, 254, 249, 0.97), rgba(237, 242, 242, 0.91)) padding-box,
+    linear-gradient(135deg, rgba(213, 175, 82, 0.82), rgba(231, 239, 242, 0.94), rgba(143, 96, 15, 0.54)) border-box !important;
+  border: 1px solid transparent !important;
+  box-shadow:
+    0 22px 58px rgba(70, 51, 19, 0.11),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9) !important;
+}
+
+.home-care > .grid > .group::before {
+  border-color: rgba(255, 255, 255, 0.84);
+  box-shadow: inset 0 0 0 1px rgba(193, 146, 47, 0.18);
+}
+
+.home-care > .grid > .group > .relative {
+  background: linear-gradient(145deg, rgba(255, 254, 248, 0.98), rgba(237, 242, 241, 0.95));
+}
+
+.home-care > .grid > .group img,
+.home-discipline .aspect-square > img {
+  filter: saturate(0.9) contrast(1.03) brightness(1.04);
+}
+
+.home-care > .grid > .group:hover,
+.home-ingredient-section .grid > .group:hover,
+.home-discipline .grid.grid-cols-2 > div:hover {
+  box-shadow:
+    0 30px 76px rgba(70, 51, 19, 0.17),
+    0 0 30px rgba(209, 217, 219, 0.32) !important;
+}
+
+.home-doshas .space-y-8 > .group,
+.home-timeline .space-y-32 > div > div:first-child {
+  background: linear-gradient(135deg, rgba(255, 253, 246, 0.9), rgba(230, 237, 238, 0.76));
+  border-color: rgba(170, 125, 39, 0.27);
+  box-shadow:
+    0 18px 48px rgba(83, 59, 17, 0.09),
+    inset 0 1px 0 rgba(255, 255, 255, 0.92);
+}
+
+.home-doshas .aspect-square > div > [class*="w-48"] {
+  background: linear-gradient(145deg, #fffdf7, #dfe8e9) !important;
+  border-color: rgba(202, 160, 67, 0.7) !important;
+  box-shadow:
+    0 20px 54px rgba(77, 53, 13, 0.16),
+    0 0 34px rgba(223, 231, 234, 0.52) !important;
+}
+
+.home-discipline .aspect-square {
+  border-color: rgba(226, 232, 235, 0.92) !important;
+  box-shadow:
+    0 28px 72px rgba(72, 51, 16, 0.18),
+    0 0 0 1px rgba(174, 124, 27, 0.58),
+    0 0 0 10px rgba(255, 255, 255, 0.48);
+}
+
+/* Deep celestial sections: stronger contrast makes gold and silver luminous. */
+.home-page .home-stats,
+.home-page .home-therapies,
+.home-page .home-chapters,
+.home-page .home-timeline,
+.home-page .home-founder,
+.home-page .home-stories,
+.home-page .home-quote,
+.home-page .home-contact {
+  background:
+    var(--celestial-stars),
+    radial-gradient(circle at 18% 16%, rgba(226, 235, 238, 0.14), transparent 25%),
+    radial-gradient(circle at 84% 78%, rgba(220, 174, 67, 0.17), transparent 30%),
+    linear-gradient(145deg, #05130f, #0d3025 52%, #071a15) !important;
+  box-shadow: inset 0 0 120px rgba(0, 0, 0, 0.24);
+}
+
+.home-page .home-stats h3,
+.home-page .home-therapies h2,
+.home-page .home-chapters h2,
+.home-page .home-timeline h2,
+.home-page .home-founder h2,
+.home-page .home-stories h2,
+.home-page .home-quote h2,
+.home-page .home-contact h2 {
+  color: var(--celestial-pearl) !important;
+  text-shadow:
+    0 4px 28px rgba(0, 0, 0, 0.42),
+    0 0 32px rgba(235, 205, 125, 0.12);
+}
+
+.home-page .home-therapies > div > div:first-child p,
+.home-page .home-timeline p,
+.home-page .home-founder p,
+.home-page .home-stories > div > div:first-child p,
+.home-page .home-contact > .relative > .text-center p {
+  color: #d1dad6 !important;
+}
+
+.home-stats::before {
+  border-color: rgba(231, 238, 240, 0.36);
+  box-shadow:
+    inset 0 0 0 1px rgba(218, 181, 90, 0.28),
+    0 0 36px rgba(223, 190, 103, 0.12);
+}
+
+.home-page .home-stats .font-display-hero {
+  background: linear-gradient(120deg, #f3d98e, #f7fbfc 52%, #c28e28);
+  background-clip: text;
+  color: transparent !important;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.home-therapies .grid > .group,
+.home-chapters .grid > div {
+  border-color: rgba(231, 236, 237, 0.62);
+  box-shadow:
+    0 28px 72px rgba(0, 0, 0, 0.34),
+    0 0 0 1px rgba(210, 167, 68, 0.46),
+    0 0 38px rgba(222, 188, 100, 0.1) !important;
+}
+
+.home-therapies .grid > .group::after {
+  border-color: rgba(255, 245, 210, 0.76);
+  box-shadow: inset 0 0 0 1px rgba(205, 164, 68, 0.24);
+}
+
+.home-therapies .grid > .group img,
+.home-chapters .grid img {
+  filter: saturate(0.9) contrast(1.06) brightness(0.94);
+}
+
+.home-page .home-chapters h2 {
+  background: linear-gradient(90deg, transparent, rgba(220, 229, 232, 0.1), rgba(231, 192, 96, 0.16), rgba(220, 229, 232, 0.1), transparent);
+}
+
+.home-page .home-chapters h2::after {
+  background: linear-gradient(90deg, transparent, #dce6e9 20%, #f0cb75 50%, #dce6e9 80%, transparent);
+  box-shadow: 0 0 18px rgba(239, 204, 117, 0.38);
+}
+
+.home-page .home-timeline {
+  background:
+    var(--celestial-stars),
+    radial-gradient(circle at 50% 36%, rgba(228, 235, 237, 0.11), transparent 28%),
+    linear-gradient(145deg, #071611, #0b291f 55%, #06130f) !important;
+}
+
+.home-timeline .space-y-32 > div > div:first-child {
+  background: linear-gradient(135deg, rgba(15, 50, 38, 0.82), rgba(7, 27, 21, 0.9));
+  border-color: rgba(221, 229, 231, 0.25);
+  box-shadow:
+    0 22px 56px rgba(0, 0, 0, 0.25),
+    inset 0 0 0 1px rgba(208, 166, 71, 0.16);
+}
+
+.home-timeline .space-y-32 h3,
+.home-timeline .space-y-32 p {
+  color: var(--celestial-pearl) !important;
+}
+
+.home-timeline .space-y-32 > div > div:nth-child(2) {
+  background: radial-gradient(circle, #fffdf5 0 18%, #e9c977 22% 55%, #a36e12 70%) !important;
+  box-shadow:
+    0 0 0 6px rgba(222, 230, 232, 0.14),
+    0 0 24px rgba(239, 201, 106, 0.68);
+}
+
+.home-founder::before {
+  opacity: 0.62;
+}
+
+.home-founder .glass-panel {
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.12), rgba(220, 229, 232, 0.04)) padding-box,
+    linear-gradient(135deg, #e7edf0, #d8b45e 52%, #87969c) border-box !important;
+  border: 1px solid transparent !important;
+  box-shadow:
+    0 30px 85px rgba(0, 0, 0, 0.38),
+    0 0 42px rgba(219, 181, 88, 0.13);
+}
+
+.home-founder img {
+  filter: saturate(0.92) contrast(1.04);
+}
+
+.home-founder .home-founder__portrait {
+  background: #071a13;
+  object-fit: contain;
+  object-position: center;
+  transform: scale(0.9);
+  transform-origin: center;
+}
+
+.home-stories .glass-panel,
+.home-quote .glass-panel,
+.home-contact .glass-card {
+  background:
+    linear-gradient(145deg, rgba(255, 253, 247, 0.96), rgba(226, 234, 235, 0.92)) padding-box,
+    linear-gradient(135deg, #e8c979, #e5edef 48%, #9d6d18) border-box !important;
+  border: 1px solid transparent !important;
+  box-shadow:
+    0 26px 68px rgba(0, 0, 0, 0.3),
+    0 0 34px rgba(222, 188, 99, 0.1);
+}
+
+.home-stories .glass-panel:hover,
+.home-contact .glass-card:hover {
+  box-shadow:
+    0 32px 78px rgba(0, 0, 0, 0.36),
+    0 0 38px rgba(230, 200, 123, 0.2);
+  transform: translateY(-4px);
+}
+
+.home-quote .glass-panel {
+  background:
+    linear-gradient(145deg, rgba(10, 40, 31, 0.94), rgba(5, 20, 16, 0.96)) padding-box,
+    linear-gradient(135deg, #e6edf0, #ebca76 50%, #8e9da3) border-box !important;
+}
+
+/* A luminous pause between the surrounding deep celestial sections. */
+.home-page .home-quote {
+  background:
+    var(--celestial-stars),
+    radial-gradient(circle at 18% 26%, rgba(255, 255, 255, 0.98), transparent 26%),
+    radial-gradient(circle at 82% 70%, rgba(211, 222, 226, 0.58), transparent 31%),
+    linear-gradient(145deg, #fffdf8, #f2e9d5 54%, #e5ecee) !important;
+  box-shadow: inset 0 0 120px rgba(180, 137, 49, 0.08);
+}
+
+.home-page .home-quote > div > h2 {
+  color: rgba(20, 42, 34, 0.11) !important;
+  text-shadow: none;
+}
+
+.home-contact iframe {
+  border: 1px solid rgba(230, 237, 239, 0.72) !important;
+  filter: sepia(0.08) saturate(0.84) contrast(1.02);
+}
+
+@media (max-width: 1050px) {
+  .home-hero__visual {
+    box-shadow:
+      0 34px 74px rgba(62, 45, 16, 0.22),
+      0 0 52px rgba(238, 206, 119, 0.22),
+      0 0 0 1px rgba(153, 108, 24, 0.56),
+      0 0 0 8px rgba(251, 248, 237, 0.68),
+      0 0 0 9px rgba(181, 190, 195, 0.62);
+  }
+}
+
+@media (max-width: 700px) {
+  .home-page {
+    --celestial-stars:
+      radial-gradient(circle at 12% 14%, rgba(255, 255, 255, 0.74) 0 1px, transparent 2px),
+      radial-gradient(circle at 82% 34%, rgba(241, 211, 132, 0.62) 0 1px, transparent 2px),
+      radial-gradient(circle at 52% 86%, rgba(225, 235, 238, 0.7) 0 1px, transparent 2px);
+  }
+
+  .home-hero__visual {
+    box-shadow:
+      0 25px 56px rgba(62, 45, 16, 0.2),
+      0 0 34px rgba(238, 206, 119, 0.2),
+      0 0 0 1px rgba(153, 108, 24, 0.5),
+      0 0 0 5px rgba(251, 248, 237, 0.66),
+      0 0 0 6px rgba(181, 190, 195, 0.56);
+  }
+
+  .home-page .event-card::after {
+    inset: 7px;
+  }
+
+  .home-stories .glass-panel,
+  .home-quote .glass-panel,
+  .home-contact .glass-card {
+    box-shadow: 0 20px 48px rgba(0, 0, 0, 0.24);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .home-page .event-card,
+  .home-stories .glass-panel,
+  .home-contact .glass-card {
+    transition: none !important;
+  }
+}

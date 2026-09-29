@@ -7,49 +7,13 @@ const instaLogo = "https://upload.wikimedia.org/wikipedia/commons/e/e7/Instagram
 const youtubeLogo = "https://upload.wikimedia.org/wikipedia/commons/4/42/YouTube_icon_%282013-2017%29.png";
 const qrCode = "https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://maps.google.com/?q=Dr.Dadhe's+Ayur+and+Nature+Cure,+Telangana";
 import venkat_anna from "../../assets/venkat_anna.png"
-import heroVideo from "../../assets/herobg.mp4"
+import heroDhanvantari from "../../assets/home-dhanvantari-hero-v3.png"
 import SEO from "../../components/SEO";
-import SwarnaBinduSection from "./SwarnaBinduSection";
+import EventsPreview from "./EventsPreview";
+import "./HomeTheme.css";
+import "./HomeCelestial.css";
 
 const VedaCinemaComplete = () => {
-
-
-    const [formState, setFormState] = useState({
-  name: '',
-  email: '',
-  phone: '',
-  message: '',
-  consent: false
-});
-const [isSubmitting, setIsSubmitting] = useState(false);
-const [submitStatus, setSubmitStatus] = useState(null);
-
-
-const handleInputChange = (e) => {
-  const { name, value, type, checked } = e.target;
-  setFormState(prev => ({
-    ...prev,
-    [name]: type === 'checkbox' ? checked : value
-  }));
-};
-
-const handleSubmit = async (e) => {
-  e.preventDefault();
-  setIsSubmitting(true);
-  setSubmitStatus(null);
-  try {
-    await new Promise(resolve => setTimeout(resolve, 1500));
-    setSubmitStatus('success');
-    setFormState({ name: '', email: '', phone: '', message: '', consent: false });
-  } catch (error) {
-    setSubmitStatus('error');
-  } finally {
-    setIsSubmitting(false);
-  }
-};
-
-
-
 // for share modal
 
 // Add these state declarations
@@ -124,7 +88,7 @@ const copyToClipboard = async () => {
     await navigator.clipboard.writeText(shareData.url);
     alert('Link copied to clipboard! ✓');
     setShowShareModal(false);
-  } catch (err) {
+  } catch {
     alert('Failed to copy link. Please copy manually.');
   }
 };
@@ -354,7 +318,7 @@ const copyToClipboard = async () => {
         rel="stylesheet"
       />
 
-      <div className="font-body-md selection:bg-[#f0bf5c]/30 overflow-x-hidden" style={{ backgroundColor: '#131312', color: '#e5e2df' }}>
+      <div className="home-page font-body-md selection:bg-[#b7892d]/20 overflow-x-hidden">
         
 
 
@@ -428,59 +392,41 @@ const copyToClipboard = async () => {
 
 {/* <video src={heroVideo} autoPlay></video> */}
 
-<section className="relative h-screen flex items-center justify-center overflow-hidden">
-  {/* Background Video */}
-  <video
-    autoPlay
-    muted
-    loop
-    playsInline
-    className="absolute inset-0 w-full h-full object-cover z-0 "
-  >
-    <source src={heroVideo} type="video/mp4" />
-    {/* Fallback image if video doesn't load */}
-    <img 
-      src="https://img.youtube.com/vi/your-fallback-image.jpg" 
-      alt="Fallback" 
-      className="w-full h-full object-cover"
-    />
-  </video>
+<section className="home-hero">
+  <div className="home-hero__wash" aria-hidden="true"></div>
+  <div className="home-hero__geometry" aria-hidden="true"></div>
 
-  {/* Gradient Overlay */}
-  <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#131312]/20 to-[#131312] z-[1]"></div>
-  
-  {/* Light Ray Effect */}
-  <div className="absolute inset-0 pointer-events-none overflow-hidden z-[2]">
-    <div 
-      className="absolute -top-[10%] -left-[10%] w-[120%] h-[120%]" 
-      style={{ background: 'linear-gradient(45deg, transparent 45%, rgba(240,191,92,0.05) 50%, transparent 55%)' }}
-    ></div>
-  </div>
+  <div className="home-hero__content">
+    <div className="home-hero__copy">
+      <div className="home-hero__ornament" aria-hidden="true">
+        <span></span>
+      </div>
+      <h1 className="font-display-hero">Healing Beyond Limits</h1>
+      <p className="font-body-lg">
+        Where ancient Ayurveda restores hope for chronic recovery. Experience a portal to divine wellness and profound cellular restoration.
+      </p>
+      <div className="home-hero__actions">
+        <button className="home-hero__button font-label-caps">
+          BEGIN YOUR HEALING JOURNEY
+        </button>
+      </div>
+    </div>
 
-  {/* Content */}
-  <div className="relative z-10 text-center px-6">
-    <h1 className="font-display-hero text-[#e5e2df] mb-6 max-w-5xl mx-auto drop-shadow-2xl">
-      Healing Beyond Limits
-    </h1>
-    <p className="font-body-lg text-[#d2c5b1] max-w-2xl mx-auto mb-12 opacity-90">
-      Where ancient Ayurveda restores hope for chronic recovery. Experience a portal to divine wellness and profound cellular restoration.
-    </p>
-    <div className="flex flex-col md:flex-row gap-6 justify-center items-center">
-      <button className="border border-[#4e4637] hover:border-[#f0bf5c] text-[#e5e2df] px-10 py-5 rounded-full font-label-caps transition-all duration-500 backdrop-blur-md text-2xl font-bold">
-        BEGIN YOUR HEALING JOURNEY
-      </button>
+    <div className="home-hero__visual" aria-hidden="true">
+      <div className="home-hero__halo"></div>
+      <img src={heroDhanvantari} alt="" />
+      <div className="home-hero__visual-frame"></div>
     </div>
   </div>
 
-  {/* Scroll Indicator */}
-  <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-50 z-10">
-    <span className="text-[10px] font-label-caps tracking-[0.5em]">DESCEND</span>
+  <div className="home-hero__scroll">
+    <span className="font-label-caps">DESCEND</span>
     <span className="material-symbols-outlined animate-bounce">expand_more</span>
   </div>
 </section>
 
-          {/* MONTHLY PUSHYAMI NAKSHATRA PROGRAMME */}
-          <SwarnaBinduSection />
+          {/* SACRED MONTHLY EVENTS */}
+          <EventsPreview />
           
 
           {/* ============================================ */}
@@ -489,7 +435,7 @@ const copyToClipboard = async () => {
 {/* ============================================ */}
 {/* SECTION: DISEASES WE TREAT */}
 {/* ============================================ */}
-<section className="min-h-screen pt-40 px-margin-edge mx-auto relative">
+<section className="home-care min-h-screen pt-40 px-margin-edge mx-auto relative">
   <div className="text-center mb-24">
     <span className="font-label-caps text-[#f0bf5c] tracking-[0.4em] uppercase block mb-4">AYURVEDIC CARE</span>
     <h2 className="font-display-hero text-[#e5e2df] mb-6">Your Path Toward Wellness</h2>
@@ -620,7 +566,7 @@ const copyToClipboard = async () => {
           {/* ============================================ */}
           {/* SECTION 13: STATISTICS (from Statistics) */}
           {/* ============================================ */}
-          <section className="py-section-gap" style={{ backgroundColor: '#0e0e0d', borderTop: '1px solid rgba(255,255,255,0.05)', borderBottom: '1px solid rgba(255,255,255,0.05)' }}>
+          <section className="home-stats py-section-gap" style={{ backgroundColor: '#0e0e0d', borderTop: '1px solid rgba(255,255,255,0.05)', borderBottom: '1px solid rgba(255,255,255,0.05)' }}>
             <div className="max-w-container-max mx-auto px-margin-edge grid grid-cols-1 md:grid-cols-3 gap-16 text-center">
               {[
                 { number: '10', label: 'Years of Sacred Wisdom', delay: '' },
@@ -640,7 +586,7 @@ const copyToClipboard = async () => {
           {/* ============================================ */}
           {/* SECTION 3: TRINITY OF BALANCE (from AyurvedaSanctuary) */}
           {/* ============================================ */}
-          <section className="min-h-screen py-section-gap px-margin-edge relative overflow-hidden" style={{ backgroundColor: 'rgba(14,14,13,0.5)' }}>
+          <section className="home-doshas min-h-screen py-section-gap px-margin-edge relative overflow-hidden" style={{ backgroundColor: 'rgba(14,14,13,0.5)' }}>
             <div className="sacred-geometry-bg absolute inset-0 opacity-20"></div>
             <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-24 items-center relative z-10">
               <div>
@@ -716,7 +662,7 @@ const copyToClipboard = async () => {
           {/* ============================================ */}
           {/* SECTION 4: TREATMENT SHOWCASE (from AyurvedaSanctuary) */}
           {/* ============================================ */}
-          <section className="py-section-gap px-margin-edge max-w-container-max mx-auto">
+          <section className="home-therapies py-section-gap px-margin-edge max-w-container-max mx-auto">
             <div className="flex flex-col md:flex-row justify-between items-end mb-24 gap-8">
               <div >
                 <span className="font-label-caps text-[#f0bf5c] tracking-[0.4em] mb-4 block uppercase">Master Therapies</span>
@@ -754,7 +700,7 @@ const copyToClipboard = async () => {
               </div>
               {/* Snana - Wide Card */}
   <div className="col-span-12 md:col-span-6 group relative h-[450px] rounded-xl overflow-hidden shadow-2xl">
- <img class="w-full h-full object-cover" data-alt="A serene cinematic shot of traditional Ayurvedic copper vessels arranged on a dark stone surface, surrounded by wisps of incense smoke and scattered marigold petals. The lighting is low and atmospheric, with golden highlights catching the metallic edges, evoking a sense of ancient medical wisdom and purity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD6dLhhIXTfZHMRVO1VQN09y3uxOJDRnJ4mQg1o4nqCT96VO6LJOeAKKLObWnm5xQFh7r1mC6Aqe5apnyjIQhmORfIrLty5J2rwgTkErOcjj5Acl8iwhY91CGzK-vVfrwpA-EJx7ruYKaLUG8Ada01kUBVNvOZv4Sv2SdZlK-r8JX_M_Zq5XLHDC2hwtgXWQzbRCeaGHPXbyygpESjJkvQ4W9x_w4ILt1y8RxCkknvCRN_er1s_s32Df7KyPkCKCFhrunVxuxfrQ5A"/>
+ <img className="w-full h-full object-cover" data-alt="A serene cinematic shot of traditional Ayurvedic copper vessels arranged on a dark stone surface, surrounded by wisps of incense smoke and scattered marigold petals. The lighting is low and atmospheric, with golden highlights catching the metallic edges, evoking a sense of ancient medical wisdom and purity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD6dLhhIXTfZHMRVO1VQN09y3uxOJDRnJ4mQg1o4nqCT96VO6LJOeAKKLObWnm5xQFh7r1mC6Aqe5apnyjIQhmORfIrLty5J2rwgTkErOcjj5Acl8iwhY91CGzK-vVfrwpA-EJx7ruYKaLUG8Ada01kUBVNvOZv4Sv2SdZlK-r8JX_M_Zq5XLHDC2hwtgXWQzbRCeaGHPXbyygpESjJkvQ4W9x_w4ILt1y8RxCkknvCRN_er1s_s32Df7KyPkCKCFhrunVxuxfrQ5A"/>
   <div className="absolute inset-0 bg-gradient-to-r from-[#131312] via-[#131312]/20 to-transparent"></div>
   <div className="absolute inset-0 p-12 flex flex-col justify-center max-w-lg">
     <span className="font-noto-serif italic text-[#f0bf5c] text-xl mb-2 block">Ultimate Detoxification</span>
@@ -778,7 +724,7 @@ const copyToClipboard = async () => {
           {/* ============================================ */}
           {/* SECTION 5: HEALING CHAPTERS BENTO GRID (from VedaCinemaMain) */}
           {/* ============================================ */}
-          <section className="py-section-gap" style={{ backgroundColor: '#0e0e0d' }}>
+          <section className="home-chapters py-section-gap" style={{ backgroundColor: '#0e0e0d' }}>
             <div className="max-w-container-max mx-auto px-margin-edge">
               <div className="text-center mb-24">
                 <h2 className="font-headline-lg text-[#e5e2df] mb-4">The Healing Chapters</h2>
@@ -826,7 +772,7 @@ const copyToClipboard = async () => {
           {/* ============================================ */}
           {/* SECTION 7: INGREDIENT STORYTELLING (from VedaCinema - GREEN UPDATED) */}
           {/* ============================================ */}
-<section className="relative min-h-screen flex items-center pl-10"  style={{ backgroundColor: '#131312' }}>
+<section className="home-ingredient-section relative min-h-screen flex items-center pl-10"  style={{ backgroundColor: '#131312' }}>
   <div 
     className="absolute inset-0 z-0 parallax-bg"
     style={{
@@ -863,7 +809,7 @@ const copyToClipboard = async () => {
           {/* ============================================ */}
           {/* SECTION 8: HEALING JOURNEY TIMELINE (from VedaCinema - GREEN UPDATED) */}
           {/* ============================================ */}
-          <section className="py-section-gap px-margin-edge overflow-hidden" style={{ backgroundColor: '#0e0e0d' }}>
+          <section className="home-timeline py-section-gap px-margin-edge overflow-hidden" style={{ backgroundColor: '#0e0e0d' }}>
             <div className="max-w-6xl mx-auto">
               <div className="text-center mb-24">
                 <span className="font-label-caps text-[#f0bf5c] text-xs mb-4 block">YOUR EVOLUTION</span>
@@ -899,12 +845,12 @@ const copyToClipboard = async () => {
           {/* ============================================ */}
           {/* SECTION 9: ABOUT THE HEALER (from VedaCinemaExtended) */}
           {/* ============================================ */}
-          <section className="relative py-section-gap px-margin-edge" style={{ backgroundColor: '#131312' }}>
+          <section className="home-founder relative py-section-gap px-margin-edge" style={{ backgroundColor: '#131312' }}>
             <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-gutter items-center">
               <div className="relative group">
                 <div className="absolute -inset-4 bg-[#f0bf5c]/5 rounded-2xl blur-3xl group-hover:bg-[#f0bf5c]/10 transition-all duration-700"></div>
                 <div className="relative rounded-2xl overflow-hidden glass-panel divine-glow">
-                  <img className="w-full h-[700px] object-cover  transition-all duration-1000 scale-105 group-hover:scale-100" alt="Portrait of wise Ayurvedic practitioner" src={venkat_anna} />
+                  <img className="home-founder__portrait w-full h-[700px]" alt="Portrait of wise Ayurvedic practitioner" src={venkat_anna} />
                 </div>
               </div>
               <div className="space-y-8 pl-0 md:pl-12">
@@ -929,7 +875,7 @@ const copyToClipboard = async () => {
           {/* ============================================ */}
           {/* SECTION 10: DISCIPLINE & DIET (from DisciplineDiet) */}
           {/* ============================================ */}
-          <section className="py-section-gap" style={{ backgroundColor: '#0e0e0d' }}>
+          <section className="home-discipline py-section-gap" style={{ backgroundColor: '#0e0e0d' }}>
             <div className="max-w-container-max mx-auto px-margin-edge">
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
                 <div className="order-2 lg:order-1">
@@ -966,7 +912,7 @@ const copyToClipboard = async () => {
           {/* ============================================ */}
           {/* SECTION 11: TRANSFORMATION STORIES (from VedaCinemaExtended) */}
           {/* ============================================ */}
-          <section className="py-section-gap px-margin-edge" style={{ backgroundColor: '#131312' }}>
+          <section className="home-stories py-section-gap px-margin-edge" style={{ backgroundColor: '#131312' }}>
             <div className="max-w-7xl mx-auto">
               <div className="flex flex-col md:flex-row justify-between items-end mb-24 gap-8">
                 <div className="max-w-2xl">
@@ -1018,7 +964,7 @@ const copyToClipboard = async () => {
           {/* ============================================ */}
           {/* SECTION 12: IMMERSIVE TESTIMONIALS (from VedaCinemaExtended) */}
           {/* ============================================ */}
-          <section className="py-section-gap overflow-hidden relative" style={{ backgroundColor: '#131312' }}>
+          <section className="home-quote py-section-gap overflow-hidden relative" style={{ backgroundColor: '#131312' }}>
             <div className="max-w-[1920px] mx-auto px-margin-edge text-center">
               <h2 className="font-display-hero text-white/5 uppercase tracking-[0.2em] mb-[-40px] select-none">ECHOES OF TRUTH</h2>
               <div className="relative py-24">
@@ -1046,7 +992,7 @@ while the soul blossoms with peace, awareness, and divine joy."</p>
 
 
 
-<section className="py-section-gap relative overflow-hidden" style={{ backgroundColor: '#0e0e0d' }}>
+<section className="home-contact py-section-gap relative overflow-hidden" style={{ backgroundColor: '#0e0e0d' }}>
   {/* Background Glow */}
   <div className="absolute inset-0 overflow-hidden pointer-events-none">
     <div className="absolute top-40 left-20 w-72 h-72 rounded-full bg-[#f0bf5c]/5 blur-3xl"></div>

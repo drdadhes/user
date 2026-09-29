@@ -1,0 +1,2676 @@
+.events-page {
+  --events-night: #061712;
+  --events-night-soft: #0d2d23;
+  --events-emerald: #174536;
+  --events-ink: #153127;
+  --events-muted: #566b61;
+  --events-pearl: #fffdf8;
+  --events-ivory: #f6efdf;
+  --events-silver: #e4ecee;
+  --events-gold: #d6b45d;
+  --events-gold-bright: #f3dc99;
+  --events-gold-deep: #95691a;
+  background: var(--events-pearl);
+  color: var(--events-ink);
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+.events-page *,
+.events-page *::before,
+.events-page *::after {
+  box-sizing: border-box;
+}
+
+.events-page :is(a, button):focus-visible {
+  outline: 2px solid var(--events-gold);
+  outline-offset: 5px;
+}
+
+.events-shell {
+  margin-inline: auto;
+  width: min(1280px, calc(100% - 96px));
+}
+
+.events-kicker,
+.event-ritual__schedule {
+  color: var(--events-gold-deep);
+  font-family: "Manrope", sans-serif !important;
+  font-size: 0.68rem !important;
+  font-weight: 750 !important;
+  letter-spacing: 0.24em;
+  line-height: 1.5 !important;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+/* Hero — an editorial celestial altar rather than a conventional banner. */
+.events-hero {
+  background:
+    radial-gradient(circle at 7% 18%, rgba(255, 255, 255, 0.96), transparent 23%),
+    radial-gradient(circle at 76% 31%, rgba(214, 226, 230, 0.72), transparent 30%),
+    radial-gradient(circle at 53% 72%, rgba(238, 205, 123, 0.25), transparent 26%),
+    linear-gradient(125deg, #fffefa 0%, #f4ecda 48%, #e2e9ea 100%);
+  box-shadow: inset 0 -70px 110px rgba(111, 79, 15, 0.07);
+  min-height: 100svh;
+  padding: clamp(130px, 16vh, 175px) 0 88px;
+  position: relative;
+}
+
+/* Keep this page independent from the earlier shared Events colour layer. */
+.events-page .events-hero {
+  background:
+    radial-gradient(circle at 7% 18%, rgba(255, 255, 255, 0.96), transparent 23%),
+    radial-gradient(circle at 76% 31%, rgba(214, 226, 230, 0.72), transparent 30%),
+    radial-gradient(circle at 53% 72%, rgba(238, 205, 123, 0.25), transparent 26%),
+    linear-gradient(125deg, #fffefa 0%, #f4ecda 48%, #e2e9ea 100%) !important;
+}
+
+.events-hero::before {
+  background-image:
+    linear-gradient(rgba(151, 111, 31, 0.065) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(151, 111, 31, 0.065) 1px, transparent 1px);
+  background-size: 72px 72px;
+  content: "";
+  inset: 0;
+  mask-image: linear-gradient(90deg, black, rgba(0, 0, 0, 0.32) 60%, transparent);
+  opacity: 0.64;
+  pointer-events: none;
+  position: absolute;
+}
+
+.events-hero__aura {
+  border: 1px solid rgba(166, 121, 29, 0.16);
+  border-radius: 50%;
+  height: min(76vw, 980px);
+  left: -31vw;
+  pointer-events: none;
+  position: absolute;
+  top: -37vw;
+  width: min(76vw, 980px);
+}
+
+.events-hero__aura::before,
+.events-hero__aura::after {
+  border: inherit;
+  border-radius: inherit;
+  content: "";
+  inset: 14%;
+  position: absolute;
+}
+
+.events-hero__aura::after {
+  inset: 31%;
+}
+
+.events-hero__layout {
+  align-items: center;
+  display: grid;
+  gap: clamp(52px, 6vw, 92px);
+  grid-template-columns: minmax(0, 0.92fr) minmax(470px, 1.08fr);
+  min-height: calc(100svh - 230px);
+  position: relative;
+  z-index: 1;
+}
+
+.events-hero__copy {
+  padding-bottom: 32px;
+}
+
+.events-hero h1 {
+  background: linear-gradient(112deg, #0d3025 5%, #1b503d 48%, #aa791d 79%, #23463a 100%);
+  background-clip: text;
+  color: transparent;
+  font-family: "Noto Serif", serif;
+  font-size: clamp(4rem, 6.35vw, 7.2rem);
+  font-weight: 400;
+  letter-spacing: -0.058em;
+  line-height: 0.9;
+  margin: 23px 0 35px;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.events-hero h1 span {
+  display: block;
+  font-style: italic;
+  margin-left: 0.35em;
+}
+
+.events-hero__lead,
+.events-hero__note {
+  color: #435a50;
+  font-family: "Manrope", sans-serif !important;
+  margin: 0;
+}
+
+.events-hero__lead {
+  font-size: 0.98rem !important;
+  line-height: 1.82 !important;
+  max-width: 610px;
+}
+
+.events-hero__note {
+  border-left: 1px solid rgba(149, 105, 26, 0.34);
+  font-size: 0.78rem !important;
+  line-height: 1.75 !important;
+  margin-top: 22px;
+  max-width: 580px;
+  padding-left: 20px;
+}
+
+.events-hero__nav {
+  border-block: 1px solid rgba(146, 103, 25, 0.2);
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin-top: 34px;
+}
+
+.events-hero__nav a {
+  color: var(--events-ink);
+  font-family: "Manrope", sans-serif;
+  font-size: 0.64rem;
+  font-weight: 700;
+  line-height: 1.4;
+  min-height: 76px;
+  padding: 17px 15px;
+  text-decoration: none;
+  transition: background-color 220ms ease, color 220ms ease;
+}
+
+.events-hero__nav a + a {
+  border-left: 1px solid rgba(146, 103, 25, 0.2);
+}
+
+.events-hero__nav a span {
+  color: var(--events-gold-deep);
+  display: block;
+  font-size: 0.52rem;
+  letter-spacing: 0.16em;
+  margin-bottom: 7px;
+}
+
+.events-hero__nav a:hover {
+  background: rgba(214, 180, 93, 0.1);
+  color: var(--events-gold-deep);
+}
+
+.events-hero__gallery {
+  height: min(68vh, 690px);
+  min-height: 560px;
+  position: relative;
+}
+
+.events-hero__halo {
+  border: 1px solid rgba(185, 145, 56, 0.36);
+  border-radius: 50%;
+  box-shadow: 0 0 80px rgba(255, 222, 140, 0.28), inset 0 0 70px rgba(255, 255, 255, 0.34);
+  height: 450px;
+  left: 50%;
+  position: absolute;
+  top: 46%;
+  transform: translate(-50%, -50%);
+  width: 450px;
+}
+
+.events-hero__halo::before,
+.events-hero__halo::after {
+  border: 1px solid rgba(185, 145, 56, 0.17);
+  border-radius: inherit;
+  content: "";
+  inset: 12%;
+  position: absolute;
+}
+
+.events-hero__halo::after {
+  inset: 27%;
+}
+
+.events-hero__portrait {
+  background: var(--events-pearl);
+  border: 1px solid rgba(255, 255, 255, 0.92);
+  box-shadow:
+    0 24px 58px rgba(65, 47, 13, 0.22),
+    0 0 0 1px rgba(151, 105, 20, 0.58),
+    0 0 0 7px rgba(255, 253, 246, 0.68);
+  overflow: hidden;
+  position: absolute;
+  text-decoration: none;
+  transition: transform 350ms ease, box-shadow 350ms ease;
+}
+
+.events-hero__portrait::after {
+  border: 1px solid rgba(255, 242, 201, 0.7);
+  content: "";
+  inset: 8px;
+  pointer-events: none;
+  position: absolute;
+}
+
+.events-hero__portrait img {
+  height: 100%;
+  object-fit: cover;
+  width: 100%;
+}
+
+.events-hero__portrait span {
+  background: linear-gradient(90deg, rgba(4, 18, 13, 0.92), rgba(12, 43, 32, 0.84));
+  bottom: 0;
+  color: var(--events-gold-bright);
+  font-family: "Manrope", sans-serif;
+  font-size: 0.56rem;
+  font-weight: 700;
+  left: 0;
+  letter-spacing: 0.14em;
+  padding: 14px 16px;
+  position: absolute;
+  right: 0;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.events-hero__portrait--1 {
+  border-radius: 240px 240px 18px 18px;
+  height: 84%;
+  left: 4%;
+  top: 8%;
+  transform: rotate(-2.5deg);
+  width: 52%;
+  z-index: 2;
+}
+
+.events-hero__portrait--1 img {
+  object-position: 56% center;
+}
+
+.events-hero__portrait--2 {
+  border-radius: 170px 170px 14px 14px;
+  height: 47%;
+  right: 1%;
+  top: 2%;
+  transform: rotate(3deg);
+  width: 40%;
+  z-index: 3;
+}
+
+.events-hero__portrait--3 {
+  border-radius: 16px 16px 170px 170px;
+  bottom: 3%;
+  height: 45%;
+  right: 3%;
+  transform: rotate(-1.5deg);
+  width: 41%;
+  z-index: 4;
+}
+
+.events-hero__portrait--3 img {
+  object-position: 84% center;
+}
+
+.events-hero__portrait:hover {
+  box-shadow:
+    0 32px 78px rgba(65, 47, 13, 0.28),
+    0 0 36px rgba(226, 190, 99, 0.34),
+    0 0 0 1px rgba(151, 105, 20, 0.68),
+    0 0 0 7px rgba(255, 253, 246, 0.8);
+  transform: translateY(-7px) rotate(0deg);
+}
+
+.events-hero__principles {
+  align-items: center;
+  bottom: 27px;
+  color: rgba(21, 49, 39, 0.66);
+  display: flex;
+  font-family: "Manrope", sans-serif;
+  font-size: 0.57rem;
+  font-weight: 700;
+  gap: 18px;
+  justify-content: center;
+  left: 0;
+  letter-spacing: 0.22em;
+  position: absolute;
+  right: 0;
+  text-transform: uppercase;
+}
+
+.events-hero__principles i {
+  background: var(--events-gold);
+  border-radius: 50%;
+  height: 3px;
+  width: 3px;
+}
+
+/* Ritual chapters — each occasion receives its own visual atmosphere. */
+.events-calendar {
+  background: var(--events-night);
+}
+
+.events-calendar__heading {
+  color: var(--events-pearl);
+  padding-block: clamp(90px, 11vw, 150px);
+  text-align: center;
+}
+
+.events-calendar__heading .events-kicker {
+  color: var(--events-gold);
+}
+
+.events-calendar__heading h2 {
+  font-family: "Noto Serif", serif;
+  font-size: clamp(3rem, 5.5vw, 6rem);
+  font-weight: 400;
+  letter-spacing: -0.05em;
+  line-height: 0.98;
+  margin: 17px auto 22px;
+}
+
+.events-calendar__heading > p:last-child {
+  color: #cbd6d1;
+  font-family: "Manrope", sans-serif;
+  font-size: 0.88rem;
+  line-height: 1.75;
+  margin: 0 auto;
+  max-width: 620px;
+}
+
+.event-ritual {
+  min-height: 88svh;
+  padding-block: clamp(70px, 8vh, 105px);
+  position: relative;
+  scroll-margin-top: 80px;
+}
+
+.event-ritual::before {
+  content: "";
+  inset: 0;
+  pointer-events: none;
+  position: absolute;
+}
+
+.event-ritual--1,
+.event-ritual--3 {
+  color: var(--events-pearl);
+}
+
+.event-ritual--1 {
+  background:
+    radial-gradient(circle at 13% 22%, rgba(224, 232, 235, 0.13), transparent 28%),
+    radial-gradient(circle at 86% 74%, rgba(215, 171, 65, 0.18), transparent 29%),
+    linear-gradient(140deg, #04130f, #0d3025 55%, #071b15);
+}
+
+.event-ritual--2 {
+  background:
+    radial-gradient(circle at 76% 18%, rgba(255, 255, 255, 0.96), transparent 25%),
+    radial-gradient(circle at 18% 72%, rgba(215, 225, 229, 0.7), transparent 28%),
+    linear-gradient(145deg, #fffdf8, #f4ead4 54%, #e3eaec);
+  color: var(--events-ink);
+}
+
+.event-ritual--3 {
+  background:
+    radial-gradient(circle at 80% 18%, rgba(226, 235, 238, 0.12), transparent 24%),
+    radial-gradient(circle at 18% 78%, rgba(214, 171, 64, 0.17), transparent 31%),
+    linear-gradient(145deg, #030c0a, #09271e 54%, #061611);
+}
+
+.event-ritual__layout {
+  align-items: center;
+  display: grid;
+  gap: clamp(65px, 9vw, 135px);
+  grid-template-columns: minmax(400px, 0.92fr) minmax(0, 1.08fr);
+  min-height: calc(88svh - 190px);
+  position: relative;
+  z-index: 1;
+}
+
+.event-ritual--2 .event-ritual__visual {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+.event-ritual--2 .event-ritual__content {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+.event-ritual__visual {
+  margin: 0;
+  position: relative;
+}
+
+.event-ritual__image-frame {
+  aspect-ratio: 0.88;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(232, 210, 151, 0.72);
+  border-radius: 260px 260px 20px 20px;
+  box-shadow:
+    0 36px 82px rgba(0, 0, 0, 0.35),
+    0 0 0 1px rgba(229, 237, 239, 0.42),
+    0 0 0 10px rgba(255, 255, 255, 0.055);
+  max-height: 68svh;
+  overflow: hidden;
+  position: relative;
+}
+
+.event-ritual--2 .event-ritual__image-frame {
+  border-color: rgba(154, 108, 21, 0.58);
+  box-shadow:
+    0 35px 78px rgba(92, 65, 16, 0.22),
+    0 0 0 1px rgba(255, 255, 255, 0.92),
+    0 0 0 10px rgba(255, 253, 246, 0.56);
+}
+
+.event-ritual__image-frame::after {
+  background: linear-gradient(to top, rgba(3, 15, 11, 0.64), transparent 42%);
+  border: 1px solid rgba(255, 248, 224, 0.64);
+  content: "";
+  inset: 10px;
+  pointer-events: none;
+  position: absolute;
+}
+
+.event-ritual__image-frame img {
+  height: 100%;
+  object-fit: cover;
+  width: 100%;
+}
+
+.event-ritual--1 .event-ritual__image-frame img {
+  object-position: 57% center;
+}
+
+.event-ritual--3 .event-ritual__image-frame img {
+  object-position: 86% center;
+}
+
+.event-ritual__image-frame > span {
+  bottom: 24px;
+  color: var(--events-gold-bright);
+  font-family: "Noto Serif", serif;
+  font-size: 2rem;
+  left: 28px;
+  position: absolute;
+  z-index: 2;
+}
+
+.event-ritual__visual figcaption {
+  color: var(--events-gold);
+  font-family: "Manrope", sans-serif;
+  font-size: 0.58rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  margin-top: 23px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.event-ritual--2 .event-ritual__visual figcaption {
+  color: var(--events-gold-deep);
+}
+
+.event-ritual__schedule {
+  align-items: center;
+  color: var(--events-gold);
+  display: flex;
+  gap: 11px;
+}
+
+.event-ritual--2 .event-ritual__schedule {
+  color: var(--events-gold-deep);
+}
+
+.event-ritual__content h2 {
+  color: inherit;
+  font-family: "Noto Serif", serif;
+  font-size: clamp(3rem, 5.1vw, 5.6rem);
+  font-weight: 400;
+  letter-spacing: -0.054em;
+  line-height: 0.94;
+  margin: 19px 0 27px;
+  text-wrap: balance;
+}
+
+.event-ritual__summary,
+.event-ritual__description {
+  font-family: "Manrope", sans-serif !important;
+  margin: 0;
+}
+
+.event-ritual__summary {
+  color: inherit;
+  font-size: 0.96rem !important;
+  line-height: 1.78 !important;
+  max-width: 640px;
+}
+
+.event-ritual__description {
+  color: #c5d1cc;
+  font-size: 0.78rem !important;
+  line-height: 1.74 !important;
+  margin-top: 16px;
+  max-width: 640px;
+}
+
+.event-ritual--2 .event-ritual__description {
+  color: var(--events-muted);
+}
+
+.event-ritual__audience {
+  align-items: center;
+  border-block: 1px solid rgba(225, 190, 103, 0.24);
+  display: flex;
+  gap: 14px;
+  margin-block: 25px;
+  padding-block: 15px;
+}
+
+.event-ritual__audience svg {
+  color: var(--events-gold);
+  flex: 0 0 auto;
+}
+
+.event-ritual__audience small,
+.event-ritual__audience strong {
+  display: block;
+  font-family: "Manrope", sans-serif;
+}
+
+.event-ritual__audience small {
+  color: var(--events-gold);
+  font-size: 0.52rem;
+  letter-spacing: 0.16em;
+  margin-bottom: 4px;
+  text-transform: uppercase;
+}
+
+.event-ritual__audience strong {
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.event-ritual--2 .event-ritual__audience :is(svg, small) {
+  color: var(--events-gold-deep);
+}
+
+.event-ritual__offering {
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.11), rgba(255, 255, 255, 0.025)) padding-box,
+    linear-gradient(130deg, #e7c979, #e5edef 48%, #9c6c18) border-box;
+  border: 1px solid transparent;
+  padding: 20px 23px;
+}
+
+.event-ritual--2 .event-ritual__offering {
+  background:
+    linear-gradient(145deg, rgba(255, 253, 247, 0.9), rgba(227, 235, 237, 0.72)) padding-box,
+    linear-gradient(130deg, #ddb95d, #ecf1f2 48%, #9c6c18) border-box;
+  box-shadow: 0 18px 48px rgba(92, 66, 17, 0.1);
+}
+
+.event-ritual__offering > p {
+  color: var(--events-gold);
+  font-family: "Manrope", sans-serif !important;
+  font-size: 0.55rem !important;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.event-ritual--2 .event-ritual__offering > p {
+  color: var(--events-gold-deep);
+}
+
+.event-ritual__offering h3 {
+  color: inherit;
+  font-family: "Noto Serif", serif;
+  font-size: 1.55rem;
+  font-weight: 400;
+  margin: 5px 0 7px;
+}
+
+.event-ritual__offering > span {
+  color: #c7d2cd;
+  font-family: "Manrope", sans-serif;
+  font-size: 0.7rem;
+  line-height: 1.6;
+}
+
+.event-ritual--2 .event-ritual__offering > span {
+  color: var(--events-muted);
+}
+
+.event-ritual__highlights {
+  display: grid;
+  gap: 0;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  list-style: none;
+  margin: 24px 0 0;
+  padding: 0;
+}
+
+.event-ritual__highlights li {
+  border-left: 1px solid rgba(225, 190, 103, 0.23);
+  min-height: 66px;
+  padding: 2px 15px;
+}
+
+.event-ritual__highlights span {
+  color: var(--events-gold);
+  display: block;
+  font-family: "Manrope", sans-serif;
+  font-size: 0.5rem;
+  letter-spacing: 0.14em;
+  margin-bottom: 7px;
+}
+
+.event-ritual__highlights p {
+  color: #d2dbd7;
+  font-family: "Manrope", sans-serif !important;
+  font-size: 0.65rem !important;
+  line-height: 1.45 !important;
+  margin: 0;
+}
+
+.event-ritual--2 .event-ritual__highlights p {
+  color: var(--events-muted);
+}
+
+/* Swarna history — a manuscript-like timeline. */
+.swarna-legacy {
+  background:
+    radial-gradient(circle at 11% 12%, rgba(255, 255, 255, 0.98), transparent 24%),
+    radial-gradient(circle at 91% 78%, rgba(208, 220, 224, 0.66), transparent 28%),
+    linear-gradient(145deg, #fffdf8, #f3ead6 54%, #e6edef);
+  min-height: 90svh;
+  padding-block: clamp(90px, 10vw, 145px);
+}
+
+.swarna-legacy__layout {
+  align-items: start;
+  display: grid;
+  gap: clamp(70px, 10vw, 150px);
+  grid-template-columns: 0.78fr 1.22fr;
+}
+
+.swarna-legacy__intro {
+  position: sticky;
+  top: 120px;
+}
+
+.swarna-legacy__intro h2,
+.swarna-ceremony__programme h2,
+.swarna-benefits__heading h2,
+.drops-ritual h2,
+.events-closing h2 {
+  font-family: "Noto Serif", serif;
+  font-weight: 400;
+  letter-spacing: -0.052em;
+}
+
+.swarna-legacy__intro h2 {
+  color: var(--events-ink);
+  font-size: clamp(3.2rem, 5.5vw, 6rem);
+  line-height: 0.96;
+  margin: 18px 0 22px;
+}
+
+.swarna-legacy__subtitle {
+  color: var(--events-gold-deep);
+  font-family: "Manrope", sans-serif;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.swarna-legacy__intro blockquote {
+  border-left: 1px solid rgba(149, 105, 26, 0.4);
+  color: var(--events-muted);
+  font-family: "Noto Serif", serif;
+  font-size: clamp(1.08rem, 1.7vw, 1.45rem);
+  font-style: italic;
+  line-height: 1.6;
+  margin: 38px 0 0;
+  padding-left: 24px;
+}
+
+.swarna-legacy__timeline {
+  position: relative;
+}
+
+.swarna-legacy__timeline::before {
+  background: linear-gradient(var(--events-gold), rgba(177, 187, 192, 0.42), transparent);
+  content: "";
+  left: 17px;
+  position: absolute;
+  top: 16px;
+  bottom: 0;
+  width: 1px;
+}
+
+.swarna-legacy__timeline article {
+  display: grid;
+  gap: 26px;
+  grid-template-columns: 36px 1fr;
+  padding-bottom: clamp(34px, 5vw, 60px);
+  position: relative;
+}
+
+.swarna-legacy__timeline article > span {
+  align-items: center;
+  background: linear-gradient(145deg, var(--events-pearl), var(--events-silver));
+  border: 1px solid rgba(149, 105, 26, 0.45);
+  border-radius: 50%;
+  color: var(--events-gold-deep);
+  display: flex;
+  font-family: "Manrope", sans-serif;
+  font-size: 0.49rem;
+  height: 35px;
+  justify-content: center;
+  letter-spacing: 0.08em;
+  position: relative;
+  z-index: 1;
+}
+
+.swarna-legacy__timeline article > div {
+  background:
+    linear-gradient(145deg, rgba(255, 254, 249, 0.8), rgba(229, 236, 238, 0.6)) padding-box,
+    linear-gradient(130deg, rgba(217, 181, 89, 0.7), rgba(233, 239, 241, 0.9), rgba(152, 103, 19, 0.44)) border-box;
+  border: 1px solid transparent;
+  box-shadow: 0 16px 42px rgba(79, 57, 15, 0.07);
+  padding: 24px 27px;
+}
+
+.swarna-legacy__timeline h3 {
+  color: var(--events-ink);
+  font-family: "Noto Serif", serif;
+  font-size: clamp(1.25rem, 1.8vw, 1.65rem);
+  font-weight: 400;
+  line-height: 1.25;
+  margin: 0 0 10px;
+}
+
+.swarna-legacy__timeline p {
+  color: var(--events-muted);
+  font-family: "Manrope", sans-serif !important;
+  font-size: 0.73rem !important;
+  line-height: 1.72 !important;
+  margin: 0;
+}
+
+/* The programme becomes one ceremonial object instead of disconnected cards. */
+.swarna-ceremony {
+  background:
+    radial-gradient(circle at 50% 18%, rgba(228, 235, 238, 0.13), transparent 27%),
+    radial-gradient(circle at 80% 82%, rgba(218, 177, 78, 0.18), transparent 30%),
+    linear-gradient(145deg, #05130f, #0d3025 53%, #071a15);
+  color: var(--events-pearl);
+  min-height: 88svh;
+  padding-block: clamp(80px, 9vh, 110px);
+}
+
+.swarna-ceremony__plaque {
+  background:
+    linear-gradient(145deg, rgba(8, 36, 27, 0.93), rgba(4, 20, 15, 0.96)) padding-box,
+    linear-gradient(125deg, #eef3f4, #e6c776 46%, #819096 74%, #b67e1d) border-box;
+  border: 1px solid transparent;
+  box-shadow: 0 40px 95px rgba(0, 0, 0, 0.35), 0 0 48px rgba(223, 188, 99, 0.1);
+  display: grid;
+  grid-template-columns: 0.72fr 1.28fr;
+  min-height: 55svh;
+  position: relative;
+}
+
+.swarna-ceremony__plaque::after {
+  border: 1px solid rgba(245, 224, 165, 0.28);
+  content: "";
+  inset: 11px;
+  pointer-events: none;
+  position: absolute;
+}
+
+.swarna-ceremony__identity,
+.swarna-ceremony__programme {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: clamp(50px, 6vw, 88px);
+  position: relative;
+  text-align: center;
+  z-index: 1;
+}
+
+.swarna-ceremony__identity {
+  border-right: 1px solid rgba(223, 190, 103, 0.26);
+}
+
+.swarna-ceremony__lotus {
+  align-items: center;
+  border: 1px solid rgba(233, 204, 132, 0.5);
+  border-radius: 50%;
+  color: var(--events-gold-bright);
+  display: flex;
+  height: 58px;
+  justify-content: center;
+  margin-bottom: 24px;
+  width: 58px;
+}
+
+.swarna-ceremony .events-kicker {
+  color: var(--events-gold);
+}
+
+.swarna-ceremony__identity h3 {
+  font-family: "Noto Serif", serif;
+  font-size: clamp(1.7rem, 2.5vw, 2.5rem);
+  font-weight: 400;
+  margin: 9px 0 23px;
+}
+
+.swarna-ceremony__identity > strong,
+.swarna-ceremony__identity > small {
+  font-family: "Manrope", sans-serif;
+}
+
+.swarna-ceremony__identity > strong {
+  font-size: 0.79rem;
+  font-weight: 700;
+}
+
+.swarna-ceremony__identity > small {
+  color: #bfcac5;
+  font-size: 0.51rem;
+  letter-spacing: 0.14em;
+  margin-top: 8px;
+  text-transform: uppercase;
+}
+
+.swarna-ceremony__identity blockquote {
+  border-top: 1px solid rgba(223, 190, 103, 0.22);
+  color: #dbe3df;
+  font-family: "Noto Serif", serif;
+  font-size: 0.9rem;
+  font-style: italic;
+  line-height: 1.65;
+  margin: 28px 0 0;
+  padding-top: 24px;
+}
+
+.swarna-ceremony__programme h2 {
+  font-size: clamp(3.5rem, 6.4vw, 7rem);
+  line-height: 0.9;
+  margin: 17px 0 27px;
+  max-width: 760px;
+}
+
+.swarna-ceremony__programme > strong {
+  color: var(--events-gold-bright);
+  font-family: "Noto Serif", serif;
+  font-size: clamp(1.05rem, 1.8vw, 1.5rem);
+  font-weight: 400;
+}
+
+.swarna-ceremony__programme > span,
+.swarna-ceremony__programme > p:last-child {
+  font-family: "Manrope", sans-serif;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.swarna-ceremony__programme > span {
+  color: #c8d2ce;
+  font-size: 0.57rem;
+  margin-top: 11px;
+}
+
+.swarna-ceremony__programme > p:last-child {
+  border-top: 1px solid rgba(223, 190, 103, 0.24);
+  color: var(--events-gold);
+  font-size: 0.59rem !important;
+  margin: 28px 0 0;
+  padding-top: 22px;
+}
+
+.swarna-ceremony__facts {
+  border-bottom: 1px solid rgba(223, 190, 103, 0.25);
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.swarna-ceremony__facts p {
+  color: #cad4cf;
+  display: flex;
+  flex-direction: column;
+  font-family: "Manrope", sans-serif !important;
+  font-size: 0.66rem !important;
+  line-height: 1.62 !important;
+  margin: 0;
+  padding: 28px 26px;
+}
+
+.swarna-ceremony__facts p + p {
+  border-left: 1px solid rgba(223, 190, 103, 0.22);
+}
+
+.swarna-ceremony__facts span {
+  color: var(--events-gold);
+  font-size: 0.5rem;
+  letter-spacing: 0.15em;
+  margin-bottom: 13px;
+}
+
+/* Benefits — ordered like an illuminated index with one decisive offer. */
+.swarna-benefits {
+  background:
+    radial-gradient(circle at 12% 18%, rgba(255, 255, 255, 0.98), transparent 22%),
+    radial-gradient(circle at 84% 76%, rgba(214, 224, 228, 0.64), transparent 29%),
+    linear-gradient(145deg, #fffdf8, #f4ebd8 52%, #e5ecee);
+  min-height: 92svh;
+  padding-block: clamp(85px, 9vh, 115px);
+}
+
+.swarna-benefits__heading {
+  align-items: end;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 42px;
+}
+
+.swarna-benefits__heading h2 {
+  color: var(--events-ink);
+  font-size: clamp(3rem, 5vw, 5.5rem);
+  line-height: 0.98;
+  margin: 14px 0 0;
+}
+
+.swarna-benefits__heading > p {
+  border-left: 1px solid rgba(149, 105, 26, 0.34);
+  color: var(--events-gold-deep);
+  font-family: "Manrope", sans-serif;
+  font-size: 0.59rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  margin: 0 0 8px;
+  padding: 9px 0 9px 20px;
+  text-transform: uppercase;
+}
+
+.swarna-benefits__grid {
+  background:
+    linear-gradient(145deg, rgba(255, 254, 249, 0.86), rgba(228, 235, 237, 0.68)) padding-box,
+    linear-gradient(125deg, #dfbd68, #edf2f3 48%, #9b6a16) border-box;
+  border: 1px solid transparent;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.swarna-benefits__grid article {
+  min-height: 160px;
+  padding: 25px 26px;
+}
+
+.swarna-benefits__grid article:not(:nth-child(4n + 1)) {
+  border-left: 1px solid rgba(149, 105, 26, 0.17);
+}
+
+.swarna-benefits__grid article:nth-child(n + 5) {
+  border-top: 1px solid rgba(149, 105, 26, 0.17);
+}
+
+.swarna-benefits__grid article > span {
+  color: var(--events-gold-deep);
+  font-family: "Manrope", sans-serif;
+  font-size: 0.5rem;
+  letter-spacing: 0.15em;
+}
+
+.swarna-benefits__grid h3 {
+  color: var(--events-ink);
+  font-family: "Noto Serif", serif;
+  font-size: clamp(1.15rem, 1.65vw, 1.5rem);
+  font-weight: 400;
+  line-height: 1.2;
+  margin: 18px 0 7px;
+}
+
+.swarna-benefits__grid p {
+  color: var(--events-muted);
+  font-family: "Manrope", sans-serif !important;
+  font-size: 0.66rem !important;
+  line-height: 1.58 !important;
+  margin: 0;
+}
+
+.swarna-benefits__offer {
+  background:
+    radial-gradient(circle at 86% 50%, rgba(225, 234, 237, 0.11), transparent 28%),
+    linear-gradient(125deg, #09261d, #061712 68%, #123a2c);
+  border: 1px solid rgba(229, 202, 131, 0.44);
+  color: var(--events-pearl);
+  display: grid;
+  grid-template-columns: 1fr 0.42fr;
+  margin-top: 28px;
+}
+
+.swarna-benefits__offer > div {
+  padding: 30px 38px;
+}
+
+.swarna-benefits__offer > div p {
+  color: #cbd5d0;
+  font-family: "Manrope", sans-serif !important;
+  font-size: 0.7rem !important;
+  line-height: 1.6 !important;
+  margin: 0;
+}
+
+.swarna-benefits__offer strong {
+  color: var(--events-gold-bright);
+  display: block;
+  font-family: "Noto Serif", serif;
+  font-size: clamp(1.45rem, 2.6vw, 2.7rem);
+  font-weight: 400;
+  line-height: 1.2;
+  margin: 10px 0;
+}
+
+.swarna-benefits__offer footer {
+  align-items: center;
+  border-left: 1px solid rgba(229, 202, 131, 0.24);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 28px;
+  text-align: center;
+}
+
+.swarna-benefits__offer h3 {
+  font-family: "Noto Serif", serif;
+  font-size: 1.35rem;
+  font-weight: 400;
+  margin: 0 0 11px;
+}
+
+.swarna-benefits__offer footer p {
+  color: var(--events-gold);
+  font-family: "Manrope", sans-serif !important;
+  font-size: 0.47rem !important;
+  font-weight: 700;
+  letter-spacing: 0.11em;
+  line-height: 1.7 !important;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+/* Drops — a quieter, focused companion ritual. */
+.drops-ritual {
+  background:
+    radial-gradient(circle at 12% 18%, rgba(226, 235, 238, 0.13), transparent 25%),
+    radial-gradient(circle at 88% 76%, rgba(216, 173, 68, 0.18), transparent 29%),
+    linear-gradient(145deg, #05130f, #0d3025 54%, #071b15);
+  color: var(--events-pearl);
+  min-height: 84svh;
+  padding-block: clamp(90px, 10vh, 130px);
+}
+
+.drops-ritual__layout {
+  align-items: center;
+  display: grid;
+  gap: clamp(80px, 10vw, 150px);
+  grid-template-columns: 0.82fr 1.18fr;
+}
+
+.drops-ritual__emblem {
+  align-items: center;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(231, 203, 130, 0.5);
+  border-radius: 50%;
+  color: var(--events-gold-bright);
+  display: flex;
+  height: 70px;
+  justify-content: center;
+  margin-bottom: 26px;
+  width: 70px;
+}
+
+.drops-ritual .events-kicker {
+  color: var(--events-gold);
+}
+
+.drops-ritual h2 {
+  font-size: clamp(3.1rem, 5.2vw, 5.7rem);
+  line-height: 0.98;
+  margin: 16px 0 25px;
+}
+
+.drops-ritual__intro > p:not(.events-kicker) {
+  color: #c8d3ce;
+  font-family: "Manrope", sans-serif !important;
+  font-size: 0.86rem !important;
+  line-height: 1.76 !important;
+  margin: 0;
+  max-width: 540px;
+}
+
+.drops-ritual__eligibility {
+  align-items: center;
+  border-top: 1px solid rgba(230, 197, 116, 0.25);
+  color: var(--events-gold-bright);
+  display: flex;
+  font-family: "Manrope", sans-serif;
+  font-size: 0.67rem;
+  font-weight: 700;
+  gap: 11px;
+  letter-spacing: 0.15em;
+  margin-top: 28px;
+  padding-top: 22px;
+  text-transform: uppercase;
+}
+
+.drops-ritual__benefits {
+  border-block: 1px solid rgba(230, 197, 116, 0.26);
+}
+
+.drops-ritual__benefits article {
+  align-items: center;
+  display: grid;
+  gap: 20px;
+  grid-template-columns: 52px 30px 1fr;
+  min-height: 128px;
+  padding-block: 24px;
+}
+
+.drops-ritual__benefits article + article {
+  border-top: 1px solid rgba(230, 197, 116, 0.22);
+}
+
+.drops-ritual__benefits article > div {
+  align-items: center;
+  border: 1px solid rgba(228, 235, 237, 0.3);
+  border-radius: 50%;
+  color: var(--events-gold);
+  display: flex;
+  height: 48px;
+  justify-content: center;
+  width: 48px;
+}
+
+.drops-ritual__benefits article > span {
+  color: var(--events-gold);
+  font-family: "Manrope", sans-serif;
+  font-size: 0.5rem;
+  letter-spacing: 0.12em;
+}
+
+.drops-ritual__benefits p {
+  font-family: "Noto Serif", serif !important;
+  font-size: clamp(1.1rem, 1.8vw, 1.45rem) !important;
+  line-height: 1.42 !important;
+  margin: 0;
+}
+
+/* Closing — a luminous pause and clear next action. */
+.events-closing {
+  background:
+    radial-gradient(circle at 50% 35%, rgba(255, 255, 255, 0.98), transparent 24%),
+    radial-gradient(circle at 50% 62%, rgba(227, 196, 116, 0.26), transparent 29%),
+    linear-gradient(145deg, #fffdf8, #f3ead6 54%, #e5ecee);
+  min-height: 78svh;
+  overflow: hidden;
+  padding-block: clamp(95px, 11vh, 145px);
+  position: relative;
+  text-align: center;
+}
+
+.events-page .events-closing {
+  background:
+    radial-gradient(circle at 50% 35%, rgba(255, 255, 255, 0.98), transparent 24%),
+    radial-gradient(circle at 50% 62%, rgba(227, 196, 116, 0.26), transparent 29%),
+    linear-gradient(145deg, #fffdf8, #f3ead6 54%, #e5ecee) !important;
+  box-shadow: none;
+}
+
+.events-closing__rings {
+  border: 1px solid rgba(152, 107, 23, 0.18);
+  border-radius: 50%;
+  height: min(64vw, 780px);
+  left: 50%;
+  pointer-events: none;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: min(64vw, 780px);
+}
+
+.events-closing__rings::before,
+.events-closing__rings::after {
+  border: inherit;
+  border-radius: inherit;
+  content: "";
+  inset: 12%;
+  position: absolute;
+}
+
+.events-closing__rings::after {
+  inset: 28%;
+}
+
+.events-closing__content {
+  position: relative;
+  z-index: 1;
+}
+
+.events-closing__content > svg {
+  color: var(--events-gold-deep);
+  margin-bottom: 17px;
+}
+
+.events-closing h2 {
+  color: var(--events-ink);
+  font-size: clamp(3rem, 5.5vw, 6rem);
+  line-height: 0.98;
+  margin: 18px auto 27px;
+  max-width: 1080px;
+}
+
+.events-page .events-closing h2 {
+  color: var(--events-ink) !important;
+  text-shadow: 0 8px 32px rgba(118, 84, 18, 0.09);
+}
+
+.events-closing__content > p:not(.events-kicker) {
+  color: var(--events-muted);
+  font-family: "Manrope", sans-serif !important;
+  font-size: 0.86rem !important;
+  line-height: 1.75 !important;
+  margin: 0 auto;
+  max-width: 660px;
+}
+
+.events-closing__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 13px;
+  justify-content: center;
+  margin: 35px 0 27px;
+}
+
+.events-closing__actions a {
+  border: 1px solid rgba(149, 105, 26, 0.45);
+  color: var(--events-ink);
+  font-family: "Manrope", sans-serif;
+  font-size: 0.65rem;
+  font-weight: 750;
+  letter-spacing: 0.13em;
+  padding: 16px 22px;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: transform 220ms ease, box-shadow 220ms ease;
+}
+
+.events-closing__actions a:first-child {
+  background: linear-gradient(120deg, #a87319, #f2da98 50%, #b47f20);
+  border-color: rgba(255, 255, 255, 0.82);
+  box-shadow: 0 14px 38px rgba(95, 66, 13, 0.19), 0 0 0 1px rgba(149, 102, 18, 0.55);
+}
+
+.events-closing__actions a:hover {
+  box-shadow: 0 18px 44px rgba(95, 66, 13, 0.24);
+  transform: translateY(-3px);
+}
+
+.events-closing small {
+  color: rgba(68, 87, 78, 0.65);
+  display: block;
+  font-family: "Manrope", sans-serif;
+  font-size: 0.61rem;
+  line-height: 1.65;
+  margin: 0 auto;
+  max-width: 750px;
+}
+
+@media (max-width: 1120px) {
+  .events-hero__layout {
+    gap: 48px;
+    grid-template-columns: minmax(0, 1fr) minmax(420px, 0.9fr);
+  }
+
+  .events-hero__nav {
+    grid-template-columns: 1fr;
+  }
+
+  .events-hero__nav a {
+    align-items: center;
+    display: grid;
+    gap: 12px;
+    grid-template-columns: 30px 1fr;
+    min-height: 0;
+    padding: 11px 7px;
+  }
+
+  .events-hero__nav a + a {
+    border-left: 0;
+    border-top: 1px solid rgba(146, 103, 25, 0.2);
+  }
+
+  .events-hero__nav a span {
+    margin: 0;
+  }
+
+  .event-ritual__layout {
+    gap: 65px;
+    grid-template-columns: minmax(360px, 0.85fr) 1fr;
+  }
+
+  .event-ritual__highlights {
+    grid-template-columns: 1fr;
+  }
+
+  .event-ritual__highlights li {
+    align-items: center;
+    display: grid;
+    gap: 10px;
+    grid-template-columns: 28px 1fr;
+    min-height: 0;
+    padding-block: 7px;
+  }
+
+  .event-ritual__highlights span {
+    margin: 0;
+  }
+}
+
+@media (max-width: 900px) {
+  .events-shell {
+    width: min(100% - 48px, 720px);
+  }
+
+  .events-hero {
+    padding-bottom: 100px;
+  }
+
+  .events-hero__layout {
+    grid-template-columns: 1fr;
+  }
+
+  .events-hero__copy {
+    max-width: 690px;
+    padding-bottom: 0;
+  }
+
+  .events-hero__nav {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .events-hero__nav a {
+    display: block;
+    min-height: 76px;
+    padding: 17px 15px;
+  }
+
+  .events-hero__nav a + a {
+    border-left: 1px solid rgba(146, 103, 25, 0.2);
+    border-top: 0;
+  }
+
+  .events-hero__nav a span {
+    margin-bottom: 7px;
+  }
+
+  .events-hero__gallery {
+    height: 650px;
+    margin-inline: auto;
+    max-width: 650px;
+    width: 100%;
+  }
+
+  .events-hero__principles {
+    bottom: 31px;
+  }
+
+  .event-ritual {
+    min-height: auto;
+  }
+
+  .event-ritual__layout {
+    grid-template-columns: 1fr;
+  }
+
+  .event-ritual--2 .event-ritual__visual,
+  .event-ritual--2 .event-ritual__content {
+    grid-column: 1;
+    grid-row: auto;
+  }
+
+  .event-ritual--2 .event-ritual__visual {
+    order: 0;
+  }
+
+  .event-ritual--2 .event-ritual__content {
+    order: 1;
+  }
+
+  .event-ritual__image-frame {
+    aspect-ratio: 1.05;
+    border-radius: 360px 360px 20px 20px;
+    max-height: none;
+  }
+
+  .event-ritual__highlights {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .event-ritual__highlights li {
+    display: block;
+    min-height: 66px;
+    padding: 2px 15px;
+  }
+
+  .event-ritual__highlights span {
+    margin-bottom: 7px;
+  }
+
+  .swarna-legacy__layout,
+  .drops-ritual__layout {
+    grid-template-columns: 1fr;
+  }
+
+  .swarna-legacy__intro {
+    position: static;
+  }
+
+  .swarna-ceremony__plaque {
+    grid-template-columns: 1fr;
+  }
+
+  .swarna-ceremony__identity {
+    border-bottom: 1px solid rgba(223, 190, 103, 0.26);
+    border-right: 0;
+  }
+
+  .swarna-ceremony__facts,
+  .swarna-benefits__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .swarna-ceremony__facts p:nth-child(3) {
+    border-left: 0;
+  }
+
+  .swarna-ceremony__facts p:nth-child(n + 3) {
+    border-top: 1px solid rgba(223, 190, 103, 0.22);
+  }
+
+  .swarna-benefits__grid article:not(:nth-child(4n + 1)) {
+    border-left: 0;
+  }
+
+  .swarna-benefits__grid article:nth-child(even) {
+    border-left: 1px solid rgba(149, 105, 26, 0.17);
+  }
+
+  .swarna-benefits__grid article:nth-child(n + 3) {
+    border-top: 1px solid rgba(149, 105, 26, 0.17);
+  }
+
+  .swarna-benefits__heading,
+  .swarna-benefits__offer {
+    align-items: start;
+    grid-template-columns: 1fr;
+  }
+
+  .swarna-benefits__heading {
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .swarna-benefits__offer footer {
+    border-left: 0;
+    border-top: 1px solid rgba(229, 202, 131, 0.24);
+  }
+}
+
+@media (max-width: 600px) {
+  .events-shell {
+    width: min(100% - 30px, 520px);
+  }
+
+  .events-hero {
+    padding-top: 128px;
+  }
+
+  .events-hero h1 {
+    font-size: clamp(3.25rem, 15vw, 5rem);
+  }
+
+  .events-hero h1 span {
+    margin-left: 0;
+  }
+
+  .events-hero__nav {
+    grid-template-columns: 1fr;
+  }
+
+  .events-hero__nav a {
+    align-items: center;
+    display: grid;
+    gap: 12px;
+    grid-template-columns: 30px 1fr;
+    min-height: 0;
+    padding: 12px 7px;
+  }
+
+  .events-hero__nav a + a {
+    border-left: 0;
+    border-top: 1px solid rgba(146, 103, 25, 0.2);
+  }
+
+  .events-hero__nav a span {
+    margin: 0;
+  }
+
+  .events-hero__gallery {
+    height: 470px;
+    min-height: 0;
+  }
+
+  .events-hero__halo {
+    height: 310px;
+    width: 310px;
+  }
+
+  .events-hero__portrait--1 {
+    height: 78%;
+    left: 1%;
+    width: 56%;
+  }
+
+  .events-hero__portrait--2 {
+    height: 43%;
+    right: 0;
+    width: 41%;
+  }
+
+  .events-hero__portrait--3 {
+    height: 42%;
+    right: 1%;
+    width: 42%;
+  }
+
+  .events-hero__portrait span {
+    font-size: 0.45rem;
+    letter-spacing: 0.08em;
+    padding: 10px 8px;
+  }
+
+  .events-hero__principles {
+    font-size: 0.46rem;
+    gap: 9px;
+    letter-spacing: 0.13em;
+  }
+
+  .events-calendar__heading {
+    padding-block: 80px;
+  }
+
+  .event-ritual {
+    padding-block: 72px;
+  }
+
+  .event-ritual__layout {
+    gap: 50px;
+  }
+
+  .event-ritual__image-frame {
+    aspect-ratio: 0.92;
+    border-radius: 220px 220px 16px 16px;
+  }
+
+  .event-ritual__content h2 {
+    font-size: clamp(2.8rem, 14vw, 4.3rem);
+  }
+
+  .event-ritual__highlights {
+    grid-template-columns: 1fr;
+  }
+
+  .event-ritual__highlights li {
+    align-items: center;
+    display: grid;
+    gap: 10px;
+    grid-template-columns: 28px 1fr;
+    min-height: 0;
+    padding: 9px 12px;
+  }
+
+  .event-ritual__highlights span {
+    margin: 0;
+  }
+
+  .swarna-legacy,
+  .swarna-ceremony,
+  .swarna-benefits,
+  .drops-ritual,
+  .events-closing {
+    min-height: auto;
+    padding-block: 78px;
+  }
+
+  .swarna-legacy__timeline article {
+    gap: 15px;
+  }
+
+  .swarna-legacy__timeline article > div {
+    padding: 20px;
+  }
+
+  .swarna-ceremony__identity,
+  .swarna-ceremony__programme {
+    padding: 52px 24px;
+  }
+
+  .swarna-ceremony__programme h2 {
+    font-size: clamp(3rem, 15vw, 4.7rem);
+  }
+
+  .swarna-ceremony__facts,
+  .swarna-benefits__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .swarna-ceremony__facts p,
+  .swarna-ceremony__facts p:nth-child(3) {
+    border-left: 0;
+    border-top: 1px solid rgba(223, 190, 103, 0.22);
+  }
+
+  .swarna-benefits__grid article:nth-child(even) {
+    border-left: 0;
+  }
+
+  .swarna-benefits__grid article:nth-child(n + 2) {
+    border-top: 1px solid rgba(149, 105, 26, 0.17);
+  }
+
+  .swarna-benefits__offer > div {
+    padding: 28px 24px;
+  }
+
+  .drops-ritual__benefits article {
+    gap: 13px;
+    grid-template-columns: 46px 24px 1fr;
+  }
+
+  .drops-ritual__benefits article > div {
+    height: 42px;
+    width: 42px;
+  }
+
+  .events-closing__rings {
+    height: 160vw;
+    width: 160vw;
+  }
+
+  .events-closing__actions {
+    flex-direction: column;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .events-hero__portrait,
+  .events-closing__actions a {
+    transition: none;
+  }
+}
+
+/* -------------------------------------------------------------------------- */
+/* Hero v2 — a composed ceremonial triptych with no tilted or moving imagery. */
+/* -------------------------------------------------------------------------- */
+
+.events-page .events-hero {
+  background:
+    radial-gradient(circle at 50% -8%, rgba(232, 239, 241, 0.15), transparent 31%),
+    radial-gradient(circle at 12% 58%, rgba(211, 168, 64, 0.15), transparent 27%),
+    radial-gradient(circle at 90% 76%, rgba(219, 181, 88, 0.17), transparent 29%),
+    linear-gradient(145deg, #04130f, #0d3025 54%, #061914) !important;
+  box-shadow: inset 0 -90px 140px rgba(0, 0, 0, 0.24);
+  color: var(--events-pearl);
+  min-height: 100svh;
+  padding: clamp(145px, 16vh, 185px) 0 46px;
+}
+
+.events-page .events-hero::before {
+  background-image:
+    radial-gradient(circle at 8% 17%, rgba(255, 255, 255, 0.82) 0 1px, transparent 2px),
+    radial-gradient(circle at 22% 74%, rgba(242, 216, 143, 0.68) 0 1.2px, transparent 2.3px),
+    radial-gradient(circle at 42% 24%, rgba(226, 237, 241, 0.8) 0 1px, transparent 2px),
+    radial-gradient(circle at 64% 82%, rgba(255, 246, 215, 0.72) 0 1.1px, transparent 2.2px),
+    radial-gradient(circle at 79% 13%, rgba(231, 238, 241, 0.76) 0 1px, transparent 2px),
+    radial-gradient(circle at 93% 58%, rgba(240, 206, 118, 0.68) 0 1.3px, transparent 2.4px),
+    linear-gradient(rgba(221, 232, 235, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(221, 232, 235, 0.035) 1px, transparent 1px);
+  background-size: auto, auto, auto, auto, auto, auto, 76px 76px, 76px 76px;
+  mask-image: none;
+  opacity: 1;
+}
+
+.events-page .events-hero__aura {
+  border-color: rgba(228, 199, 125, 0.16);
+  height: 680px;
+  left: 50%;
+  top: -420px;
+  transform: translateX(-50%);
+  width: 680px;
+}
+
+.events-hero__stage {
+  position: relative;
+  z-index: 1;
+}
+
+.events-hero__heading {
+  margin: 0 auto clamp(52px, 7vw, 84px);
+  max-width: 1120px;
+  text-align: center;
+}
+
+.events-hero__heading .events-kicker {
+  color: var(--events-gold);
+}
+
+.events-page .events-hero h1 {
+  background: linear-gradient(105deg, #fffdf5 7%, #dfe8ea 36%, #f2d78b 63%, #fff8df 91%);
+  background-clip: text;
+  filter: drop-shadow(0 10px 34px rgba(0, 0, 0, 0.28));
+  font-size: clamp(4.2rem, 7.2vw, 8rem);
+  line-height: 0.91;
+  margin: 20px auto 37px;
+  max-width: 1100px;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.events-page .events-hero h1 span {
+  display: block;
+  font-style: normal;
+  margin: 0;
+}
+
+.events-hero__introduction {
+  display: grid;
+  gap: clamp(28px, 5vw, 68px);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin: 0 auto;
+  max-width: 960px;
+  text-align: left;
+}
+
+.events-hero__introduction p {
+  border-left: 1px solid rgba(228, 196, 115, 0.44);
+  color: #d3deda;
+  font-family: "Manrope", sans-serif !important;
+  font-size: 0.94rem !important;
+  line-height: 1.78 !important;
+  margin: 0;
+  padding-left: 22px;
+}
+
+.events-hero__triptych {
+  display: grid;
+  gap: clamp(14px, 2vw, 28px);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  position: relative;
+}
+
+.events-hero__triptych::before {
+  background: linear-gradient(90deg, transparent, rgba(231, 238, 240, 0.5), #e6c77b, rgba(231, 238, 240, 0.5), transparent);
+  box-shadow: 0 0 22px rgba(224, 187, 92, 0.28);
+  content: "";
+  height: 1px;
+  left: 4%;
+  position: absolute;
+  right: 4%;
+  top: -25px;
+}
+
+.events-hero__portal {
+  aspect-ratio: 0.78;
+  background: #061712;
+  border: 1px solid transparent;
+  border-radius: 240px 240px 12px 12px;
+  box-shadow:
+    0 28px 72px rgba(0, 0, 0, 0.42),
+    0 0 0 1px rgba(231, 237, 239, 0.46),
+    0 0 0 7px rgba(255, 255, 255, 0.04);
+  isolation: isolate;
+  overflow: hidden;
+  position: relative;
+  text-decoration: none;
+}
+
+.events-hero__portal::after {
+  border: 1px solid rgba(247, 225, 164, 0.65);
+  border-radius: inherit;
+  content: "";
+  inset: 9px;
+  pointer-events: none;
+  position: absolute;
+  z-index: 3;
+}
+
+.events-hero__portal img {
+  height: 100%;
+  object-fit: cover;
+  transition: filter 260ms ease;
+  width: 100%;
+}
+
+.events-hero__portal:first-child img {
+  object-position: 57% center;
+}
+
+.events-hero__portal:last-child img {
+  object-position: 86% center;
+}
+
+.events-hero__portal-shade {
+  background: linear-gradient(to top, rgba(3, 16, 12, 0.96) 0%, rgba(4, 21, 16, 0.52) 28%, transparent 61%);
+  inset: 0;
+  position: absolute;
+  z-index: 1;
+}
+
+.events-hero__portal-copy {
+  bottom: 0;
+  color: var(--events-pearl);
+  display: flex;
+  flex-direction: column;
+  left: 0;
+  padding: clamp(27px, 3vw, 42px);
+  position: absolute;
+  right: 0;
+  z-index: 2;
+}
+
+.events-hero__portal-copy small,
+.events-hero__portal-copy em {
+  font-family: "Manrope", sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.events-hero__portal-copy small {
+  color: var(--events-gold-bright);
+  font-size: 0.53rem;
+  letter-spacing: 0.15em;
+}
+
+.events-hero__portal-copy strong {
+  font-family: "Noto Serif", serif;
+  font-size: clamp(1.35rem, 2.2vw, 2.3rem);
+  font-weight: 400;
+  line-height: 1.08;
+  margin: 9px 0 17px;
+}
+
+.events-hero__portal-copy em {
+  align-self: flex-start;
+  border-bottom: 1px solid rgba(239, 212, 142, 0.66);
+  color: #d8e1dd;
+  font-size: 0.49rem;
+  letter-spacing: 0.14em;
+  padding-bottom: 5px;
+}
+
+.events-hero__portal:hover img,
+.events-hero__portal:focus-visible img {
+  filter: brightness(1.06) saturate(1.04);
+}
+
+.events-page .events-hero__principles {
+  bottom: auto;
+  color: #c6d1cc;
+  margin-top: 34px;
+  position: relative;
+}
+
+/* -------------------------------------------------------------------------- */
+/* Readability pass for every luminous section.                               */
+/* -------------------------------------------------------------------------- */
+
+.event-ritual--2 .event-ritual__summary {
+  color: #263f34;
+  font-size: 1.03rem !important;
+  line-height: 1.8 !important;
+}
+
+.event-ritual--2 .event-ritual__description {
+  color: #465d52;
+  font-size: 0.92rem !important;
+  line-height: 1.8 !important;
+}
+
+.event-ritual--2 .event-ritual__audience strong {
+  color: #213a30;
+  font-size: 0.82rem;
+}
+
+.event-ritual--2 .event-ritual__offering > span {
+  color: #43594f;
+  font-size: 0.82rem;
+  line-height: 1.68;
+}
+
+.event-ritual--2 .event-ritual__highlights p {
+  color: #40574c;
+  font-size: 0.8rem !important;
+  line-height: 1.55 !important;
+}
+
+.swarna-legacy__intro blockquote {
+  color: #40574c;
+  font-size: clamp(1.15rem, 1.8vw, 1.52rem);
+}
+
+.swarna-legacy__timeline p {
+  color: #41584d;
+  font-size: 0.84rem !important;
+  line-height: 1.78 !important;
+}
+
+.swarna-benefits__heading > p {
+  color: #805710;
+  font-size: 0.66rem;
+}
+
+.swarna-benefits__grid p {
+  color: #42594e;
+  font-size: 0.84rem !important;
+  line-height: 1.68 !important;
+}
+
+.events-closing__content > p:not(.events-kicker) {
+  color: #40574c;
+  font-size: 0.96rem !important;
+  line-height: 1.78 !important;
+}
+
+.events-closing small {
+  color: #53695e;
+  font-size: 0.69rem;
+  line-height: 1.7;
+}
+
+@media (max-width: 900px) {
+  .events-page .events-hero {
+    padding-top: 138px;
+  }
+
+  .events-hero__heading {
+    margin-bottom: 62px;
+  }
+
+  .events-hero__triptych {
+    gap: 14px;
+  }
+
+  .events-hero__portal-copy {
+    padding: 25px 19px;
+  }
+
+  .events-hero__portal-copy small {
+    letter-spacing: 0.1em;
+  }
+}
+
+@media (max-width: 650px) {
+  .events-page .events-hero h1 {
+    font-size: clamp(3.35rem, 15.4vw, 5.2rem);
+  }
+
+  .events-hero__introduction {
+    gap: 20px;
+    grid-template-columns: 1fr;
+  }
+
+  .events-hero__introduction p {
+    font-size: 0.9rem !important;
+  }
+
+  .events-hero__triptych {
+    grid-template-columns: 1fr;
+  }
+
+  .events-hero__portal {
+    aspect-ratio: 0.86;
+    border-radius: 260px 260px 12px 12px;
+  }
+
+  .events-hero__portal-copy {
+    padding: 34px 27px;
+  }
+
+  .events-hero__portal-copy strong {
+    font-size: 2rem;
+  }
+
+  .events-page .events-hero__principles {
+    flex-wrap: wrap;
+    padding-inline: 20px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .events-hero__portal img {
+    transition: none;
+  }
+}
+
+/* -------------------------------------------------------------------------- */
+/* Final hero — an image-free celestial calendar.                             */
+/* -------------------------------------------------------------------------- */
+
+.events-page .events-hero {
+  padding-bottom: 54px;
+}
+
+.events-page .events-hero__stage {
+  align-items: center;
+  display: grid;
+  gap: clamp(52px, 7vw, 110px);
+  grid-template-columns: minmax(0, 0.92fr) minmax(480px, 1.08fr);
+  min-height: calc(100svh - 245px);
+}
+
+.events-page .events-hero__heading {
+  margin: 0;
+  max-width: none;
+  text-align: left;
+}
+
+.events-page .events-hero h1 {
+  font-size: clamp(3.55rem, 5.25vw, 6rem);
+  margin: 21px 0 35px;
+  max-width: 720px;
+}
+
+.events-page .events-hero__introduction {
+  gap: 18px;
+  grid-template-columns: 1fr;
+  margin: 0;
+  max-width: 650px;
+}
+
+.events-page .events-hero__introduction p {
+  color: #dce5e1;
+  font-size: 0.98rem !important;
+  line-height: 1.78 !important;
+}
+
+.events-hero__event-links {
+  border-block: 1px solid rgba(229, 198, 119, 0.25);
+  display: grid;
+  margin-top: 32px;
+}
+
+.events-hero__event-links a {
+  align-items: center;
+  color: var(--events-pearl);
+  display: grid;
+  gap: 15px;
+  grid-template-columns: 35px 1fr;
+  min-height: 66px;
+  padding: 10px 8px;
+  text-decoration: none;
+  transition: background-color 180ms ease, border-color 180ms ease;
+}
+
+.events-hero__event-links a + a {
+  border-top: 1px solid rgba(229, 198, 119, 0.18);
+}
+
+.events-hero__event-links a > span:first-child {
+  color: var(--events-gold);
+  font-family: "Manrope", sans-serif;
+  font-size: 0.64rem;
+  letter-spacing: 0.12em;
+}
+
+.events-hero__event-links a > span:last-child {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.events-hero__event-links small {
+  color: #bfcac5;
+  font-family: "Manrope", sans-serif;
+  font-size: 0.64rem;
+  font-weight: 700;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+
+.events-hero__event-links strong {
+  color: var(--events-pearl);
+  font-family: "Noto Serif", serif;
+  font-size: 1.1rem;
+  font-weight: 400;
+}
+
+.events-hero__event-links a:hover,
+.events-hero__event-links a:focus-visible {
+  background: rgba(231, 202, 130, 0.07);
+}
+
+.events-hero__calendar {
+  aspect-ratio: 1;
+  justify-self: end;
+  max-width: 650px;
+  position: relative;
+  width: 100%;
+}
+
+.events-hero__calendar::before {
+  background:
+    radial-gradient(circle, rgba(255, 239, 196, 0.2) 0 1px, transparent 2px) 0 0 / 48px 48px,
+    radial-gradient(circle, rgba(220, 232, 235, 0.22) 0 1px, transparent 2px) 24px 21px / 61px 61px;
+  border-radius: 50%;
+  content: "";
+  inset: 4%;
+  mask-image: radial-gradient(circle, transparent 0 19%, black 48%, transparent 75%);
+  opacity: 0.8;
+  position: absolute;
+}
+
+.events-hero__calendar::after {
+  background: radial-gradient(circle, rgba(241, 210, 129, 0.2), rgba(222, 233, 236, 0.05) 43%, transparent 69%);
+  border-radius: 50%;
+  content: "";
+  inset: 8%;
+  position: absolute;
+}
+
+.celestial-calendar__orbit {
+  border: 1px solid rgba(231, 205, 141, 0.31);
+  border-radius: 50%;
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+}
+
+.celestial-calendar__orbit::before,
+.celestial-calendar__orbit::after {
+  background: var(--events-gold-bright);
+  border-radius: 50%;
+  box-shadow: 0 0 14px rgba(242, 215, 143, 0.64);
+  content: "";
+  height: 4px;
+  position: absolute;
+  width: 4px;
+}
+
+.celestial-calendar__orbit::before {
+  left: 15%;
+  top: 13%;
+}
+
+.celestial-calendar__orbit::after {
+  bottom: 12%;
+  right: 17%;
+}
+
+.celestial-calendar__orbit--outer {
+  box-shadow: 0 0 70px rgba(232, 196, 108, 0.08), inset 0 0 70px rgba(220, 231, 234, 0.04);
+  height: 92%;
+  width: 92%;
+}
+
+.celestial-calendar__orbit--middle {
+  border-color: rgba(220, 231, 234, 0.27);
+  height: 69%;
+  width: 69%;
+}
+
+.celestial-calendar__orbit--inner {
+  border-color: rgba(231, 205, 141, 0.25);
+  height: 44%;
+  width: 44%;
+}
+
+.celestial-calendar__node {
+  align-items: center;
+  color: var(--events-gold-bright);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  position: absolute;
+  z-index: 4;
+}
+
+.celestial-calendar__node span {
+  color: #d7e0dc;
+  font-family: "Manrope", sans-serif;
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.17em;
+  text-transform: uppercase;
+}
+
+.celestial-calendar__node i {
+  align-items: center;
+  border: 1px solid rgba(231, 203, 132, 0.46);
+  border-radius: 50%;
+  box-shadow: 0 0 28px rgba(232, 196, 106, 0.18);
+  display: flex;
+  height: 68px;
+  justify-content: center;
+  width: 68px;
+}
+
+.celestial-calendar__node--pushyami {
+  left: 50%;
+  top: 0;
+  transform: translateX(-50%);
+}
+
+.celestial-calendar__node--pushyami i {
+  background: radial-gradient(circle, #fff6d4, #e3bc55 22%, rgba(184, 124, 22, 0.12) 58%, transparent 61%);
+  font-size: 2.4rem;
+  text-shadow: 0 0 20px rgba(255, 230, 163, 0.85);
+}
+
+.celestial-calendar__node--pournami {
+  right: -1%;
+  top: 51%;
+  transform: translateY(-50%);
+}
+
+.celestial-calendar__node--pournami i {
+  background:
+    radial-gradient(circle at 38% 34%, rgba(169, 143, 86, 0.28) 0 5%, transparent 6%),
+    radial-gradient(circle at 63% 61%, rgba(169, 143, 86, 0.2) 0 8%, transparent 9%),
+    radial-gradient(circle, #fffbe8, #f0d99a 74%, #b98224);
+  box-shadow: 0 0 36px rgba(255, 224, 146, 0.58);
+}
+
+.celestial-calendar__node--amavasya {
+  left: -1%;
+  top: 51%;
+  transform: translateY(-50%);
+}
+
+.celestial-calendar__node--amavasya i {
+  background: radial-gradient(circle at 66% 37%, #0b261d 0 54%, transparent 56%), radial-gradient(circle, #f3dda0, #a6751c 72%);
+  box-shadow: 0 0 30px rgba(222, 229, 231, 0.24), 0 0 0 5px rgba(226, 235, 238, 0.035);
+}
+
+.celestial-calendar__centre {
+  align-items: center;
+  background:
+    radial-gradient(circle at 50% 24%, rgba(255, 248, 216, 0.14), transparent 31%),
+    linear-gradient(145deg, rgba(16, 55, 42, 0.96), rgba(4, 22, 16, 0.98));
+  border: 1px solid rgba(231, 204, 134, 0.56);
+  border-radius: 50%;
+  box-shadow:
+    0 0 0 9px rgba(226, 234, 236, 0.04),
+    0 0 0 10px rgba(229, 197, 117, 0.18),
+    0 0 55px rgba(229, 190, 95, 0.18);
+  display: flex;
+  flex-direction: column;
+  height: 36%;
+  justify-content: center;
+  left: 50%;
+  position: absolute;
+  text-align: center;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 36%;
+  z-index: 5;
+}
+
+.celestial-calendar__centre small {
+  color: var(--events-gold);
+  font-family: "Manrope", sans-serif;
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  margin: 16px 0 7px;
+  text-transform: uppercase;
+}
+
+.celestial-calendar__centre strong {
+  color: var(--events-pearl);
+  font-family: "Noto Serif", serif;
+  font-size: clamp(1rem, 1.55vw, 1.45rem);
+  font-weight: 400;
+  line-height: 1.28;
+}
+
+.celestial-calendar__lotus {
+  height: 43px;
+  position: relative;
+  width: 72px;
+}
+
+.celestial-calendar__lotus i {
+  background: linear-gradient(145deg, #fff4c9, #d5a83e 70%);
+  border: 1px solid rgba(255, 248, 218, 0.72);
+  border-radius: 80% 0 80% 0;
+  bottom: 0;
+  height: 34px;
+  left: 25px;
+  position: absolute;
+  transform-origin: 50% 100%;
+  width: 23px;
+}
+
+.celestial-calendar__lotus i:nth-child(1) { transform: rotate(-62deg); }
+.celestial-calendar__lotus i:nth-child(2) { transform: rotate(-31deg); }
+.celestial-calendar__lotus i:nth-child(3) { transform: rotate(0deg); }
+.celestial-calendar__lotus i:nth-child(4) { transform: rotate(31deg); }
+.celestial-calendar__lotus i:nth-child(5) { transform: rotate(62deg); }
+
+.events-page .events-hero__principles {
+  margin-top: 22px;
+}
+
+/* Final type scale and contrast audit. */
+.events-page .events-kicker,
+.events-page .event-ritual__schedule {
+  font-size: 0.76rem !important;
+  letter-spacing: 0.2em;
+}
+
+.events-calendar__heading > p:last-child {
+  color: #d5dfda;
+  font-size: 1rem;
+  line-height: 1.75;
+}
+
+.events-page .events-calendar {
+  background:
+    radial-gradient(circle at 16% 22%, rgba(255, 255, 255, 0.98), transparent 25%),
+    radial-gradient(circle at 86% 74%, rgba(213, 224, 228, 0.6), transparent 29%),
+    linear-gradient(145deg, #fffdf8, #f4ebd8 54%, #e5ecee);
+}
+
+.events-page .events-calendar__heading {
+  color: var(--events-ink);
+}
+
+.events-page .events-calendar__heading .events-kicker {
+  color: var(--events-gold-deep);
+}
+
+.events-page .events-calendar__heading > p:last-child {
+  color: #40574c;
+}
+
+.event-ritual__visual figcaption {
+  font-size: 0.72rem;
+  line-height: 1.6;
+}
+
+.event-ritual__summary {
+  font-size: 1.04rem !important;
+  line-height: 1.78 !important;
+}
+
+.event-ritual__description,
+.event-ritual--2 .event-ritual__description {
+  color: #d5dfda;
+  font-size: 0.92rem !important;
+  line-height: 1.8 !important;
+}
+
+.event-ritual--2 .event-ritual__description {
+  color: #3f574c;
+}
+
+.event-ritual__audience small {
+  font-size: 0.68rem;
+  line-height: 1.45;
+}
+
+.event-ritual__audience strong,
+.event-ritual--2 .event-ritual__audience strong {
+  font-size: 0.88rem;
+  line-height: 1.5;
+}
+
+.event-ritual__offering > p {
+  font-size: 0.68rem !important;
+  line-height: 1.45 !important;
+}
+
+.event-ritual__offering > span,
+.event-ritual--2 .event-ritual__offering > span {
+  color: #d2dcd7;
+  font-size: 0.84rem;
+  line-height: 1.7;
+}
+
+.event-ritual--1 .event-ritual__offering,
+.event-ritual--3 .event-ritual__offering {
+  background:
+    linear-gradient(145deg, rgba(13, 48, 37, 0.98), rgba(4, 20, 15, 0.98)) padding-box,
+    linear-gradient(130deg, #e7c979, #e5edef 48%, #9c6c18) border-box;
+}
+
+.event-ritual--1 .event-ritual__offering h3,
+.event-ritual--3 .event-ritual__offering h3 {
+  color: var(--events-pearl);
+}
+
+.event-ritual--2 .event-ritual__offering > span {
+  color: #3d5549;
+}
+
+.event-ritual__highlights span,
+.swarna-legacy__timeline article > span,
+.swarna-benefits__grid article > span,
+.drops-ritual__benefits article > span {
+  font-size: 0.63rem;
+}
+
+.event-ritual__highlights p,
+.event-ritual--2 .event-ritual__highlights p {
+  color: #d7e0dc;
+  font-size: 0.8rem !important;
+  line-height: 1.58 !important;
+}
+
+.event-ritual--2 .event-ritual__highlights p {
+  color: #3c5448;
+}
+
+.swarna-legacy__timeline p {
+  color: #344d41;
+  font-size: 0.9rem !important;
+  line-height: 1.8 !important;
+}
+
+.swarna-ceremony__identity > strong {
+  font-size: 0.92rem;
+  line-height: 1.5;
+}
+
+.swarna-ceremony__identity > small {
+  color: #d0dad5;
+  font-size: 0.67rem;
+  line-height: 1.5;
+}
+
+.swarna-ceremony__identity blockquote {
+  color: #e1e8e4;
+  font-size: 1rem;
+}
+
+.swarna-ceremony__programme > span {
+  color: #d3ddd8;
+  font-size: 0.68rem;
+  line-height: 1.5;
+}
+
+.swarna-ceremony__programme > p:last-child {
+  font-size: 0.72rem !important;
+  line-height: 1.5 !important;
+}
+
+.swarna-ceremony__facts p {
+  color: #d8e1dd;
+  font-size: 0.8rem !important;
+  line-height: 1.7 !important;
+}
+
+.swarna-benefits__heading > p {
+  font-size: 0.72rem;
+  line-height: 1.55;
+}
+
+.swarna-benefits__grid p {
+  color: #344d41;
+  font-size: 0.88rem !important;
+  line-height: 1.7 !important;
+}
+
+.swarna-benefits__offer > div p {
+  color: #d9e2de;
+  font-size: 0.84rem !important;
+  line-height: 1.7 !important;
+}
+
+.swarna-benefits__offer footer p {
+  color: var(--events-gold-bright);
+  font-size: 0.62rem !important;
+  line-height: 1.75 !important;
+}
+
+.drops-ritual__intro > p:not(.events-kicker) {
+  color: #d6dfdb;
+  font-size: 0.98rem !important;
+  line-height: 1.8 !important;
+}
+
+.drops-ritual__eligibility {
+  font-size: 0.78rem;
+  line-height: 1.5;
+}
+
+.events-closing__actions a {
+  font-size: 0.74rem;
+}
+
+.events-closing small {
+  color: #455d51;
+  font-size: 0.76rem;
+  line-height: 1.75;
+}
+
+@media (max-width: 1050px) {
+  .events-page .events-hero__stage {
+    gap: 70px;
+    grid-template-columns: 1fr;
+  }
+
+  .events-page .events-hero__heading {
+    margin-inline: auto;
+    max-width: 780px;
+    text-align: center;
+  }
+
+  .events-page .events-hero h1 {
+    margin-inline: auto;
+  }
+
+  .events-page .events-hero__introduction {
+    margin-inline: auto;
+    max-width: 720px;
+    text-align: left;
+  }
+
+  .events-hero__event-links {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .events-hero__event-links a {
+    grid-template-columns: 28px 1fr;
+    min-height: 92px;
+    padding: 15px 12px;
+  }
+
+  .events-hero__event-links a + a {
+    border-left: 1px solid rgba(229, 198, 119, 0.18);
+    border-top: 0;
+  }
+
+  .events-hero__calendar {
+    justify-self: center;
+    max-width: 620px;
+  }
+}
+
+@media (max-width: 650px) {
+  .events-page .events-hero__stage {
+    gap: 52px;
+  }
+
+  .events-page .events-hero__heading {
+    text-align: left;
+  }
+
+  .events-page .events-hero h1 {
+    margin-inline: 0;
+  }
+
+  .events-hero__event-links {
+    grid-template-columns: 1fr;
+  }
+
+  .events-hero__event-links a {
+    min-height: 70px;
+  }
+
+  .events-hero__event-links a + a {
+    border-left: 0;
+    border-top: 1px solid rgba(229, 198, 119, 0.18);
+  }
+
+  .events-hero__calendar {
+    width: min(100%, 440px);
+  }
+
+  .celestial-calendar__node i {
+    height: 54px;
+    width: 54px;
+  }
+
+  .celestial-calendar__node span {
+    font-size: 0.58rem;
+  }
+
+  .celestial-calendar__centre {
+    height: 41%;
+    width: 41%;
+  }
+
+  .celestial-calendar__centre small {
+    font-size: 0.5rem;
+  }
+
+  .celestial-calendar__centre strong {
+    font-size: 0.9rem;
+  }
+
+  .celestial-calendar__lotus {
+    transform: scale(0.8);
+  }
+}

@@ -173,11 +173,12 @@
 
 .about-hero__title {
   color: var(--about-cream);
-  font-size: clamp(3rem, 6.2vw, 6.7rem);
+  font-size: clamp(3rem, 5vw, 5.6rem);
   letter-spacing: -0.055em;
-  line-height: 0.96;
+  line-height: 1;
   margin-bottom: 30px;
   max-width: 780px;
+  text-wrap: balance;
 }
 
 .about-hero__title em {
@@ -949,6 +950,10 @@
     grid-template-columns: 1fr 360px;
   }
 
+  .about-hero__title {
+    font-size: clamp(2.85rem, 5.7vw, 4.35rem);
+  }
+
   .about-hero__promise {
     right: -22px;
   }
@@ -993,6 +998,11 @@
 
   .about-hero__copy {
     order: 1;
+  }
+
+  .about-hero__title {
+    font-size: clamp(3rem, 8.5vw, 4.35rem);
+    max-width: 11.5em;
   }
 
   .about-hero__portrait-wrap {
@@ -1059,7 +1069,10 @@
   }
 
   .about-hero__title {
-    font-size: clamp(2.75rem, 14vw, 4.2rem);
+    font-size: clamp(2.35rem, 11.5vw, 3.25rem);
+    letter-spacing: -0.045em;
+    line-height: 1.03;
+    margin-bottom: 24px;
   }
 
   .about-hero__actions,
