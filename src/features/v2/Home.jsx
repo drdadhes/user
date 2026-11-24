@@ -10,6 +10,7 @@ import venkat_anna from "../../assets/venkat_anna.png"
 import heroDhanvantari from "../../assets/home-dhanvantari-hero-v3.png"
 import SEO from "../../components/SEO";
 import EventsPreview from "./EventsPreview";
+import HomeProducts from "./HomeProducts";
 import "./HomeTheme.css";
 import "./HomeCelestial.css";
 
@@ -424,6 +425,8 @@ const copyToClipboard = async () => {
     <span className="material-symbols-outlined animate-bounce">expand_more</span>
   </div>
 </section>
+
+          <HomeProducts />
 
           {/* SACRED MONTHLY EVENTS */}
           <EventsPreview />

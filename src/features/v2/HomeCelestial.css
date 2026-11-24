@@ -58,7 +58,7 @@
   text-wrap: balance;
 }
 
-.home-page main > section:not(.home-hero):not(.events-preview):not(.home-stats):not(.home-founder):not(.home-chapters):not(.home-therapies):not(.home-timeline):not(.home-stories):not(.home-quote):not(.home-contact) h2 {
+.home-page main > section:not(.home-hero):not(.events-preview):not(.home-stats):not(.home-founder):not(.home-chapters):not(.home-therapies):not(.home-timeline):not(.home-stories):not(.home-quote):not(.home-contact):not(.home-products) h2 {
   color: var(--celestial-ink) !important;
   text-shadow: 0 8px 30px rgba(135, 98, 28, 0.1);
 }
